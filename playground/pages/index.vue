@@ -1,23 +1,26 @@
 <script setup lang="ts">
-import { useRouter } from '#imports'
-const { options } = useRouter()
-const routes = options.routes
-// .sort((a, b) => a.path.length - b.path.length)
+const { locale, setLocale } = useI18n()
 </script>
 
 <template>
-    <div class="container mx-auto w-full px-16 py-20 text-left">
-        <h1 class="mb-10 text-4xl font-bold text-black dark:text-white">
-            Pages in this Repo
+    <div class="flex h-screen flex-col items-center justify-center">
+        <h1 class="text-primary-500 text-4xl font-bold dark:text-red-600">
+            Welcome to the Home Page
         </h1>
+        <p class="mt-4 text-lg">
+            This is a simple example of a home page using Vue 3 and Tailwind
+            CSS.
+        </p>
 
-        <Button label="Check" icon="pi pi-check" />
+        <p>{{ locale }}</p>
 
-        <div v-for="route in routes" :key="route.path" class="my-2">
-            <Button
-                :label="route.path"
-                link
-                @click="$router.push(route.name as string)" />
-        </div>
+        <Button @click="setLocale('en')">en</Button>
+        <Button @click="setLocale('vi')">vi</Button>
+
+        <p>{{ $t('welcome') }}</p>
+
+        <SwitchDarkMode />
+
+        <WDemo />
     </div>
 </template>

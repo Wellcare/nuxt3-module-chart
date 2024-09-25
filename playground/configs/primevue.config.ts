@@ -1,19 +1,9 @@
-import * as path from 'path'
+import path from 'node:path'
 
 export const primevue: any = {
-    autoImport: true,
-    components: {
-        include: '*',
-    },
     options: {
         unstyled: true,
-        cssLayer: {
-            name: 'primevue',
-            order: 'tailwind-base, primevue, tailwind-utilities',
-        },
     },
-    importPT: {
-        as: 'Primary',
-        from: path.resolve(__dirname, '../assets/presets/primary/index.js'),
-    },
+    autoImport: true,
+    importPT: { from: path.resolve(__dirname, '../assets/presets/aura/') },
 }

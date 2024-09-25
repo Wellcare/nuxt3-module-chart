@@ -1,16 +1,24 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import {
     addComponentsDir,
     addImportsDir,
     addPlugin,
-    addServerHandler,
+    addTypeTemplate,
     createResolver,
     defineNuxtModule,
+    installModule,
     useLogger,
 } from '@nuxt/kit'
-import fs from 'fs'
-import path from 'path'
-
-import { namespace, validate } from './runtime/configs'
+import {
+    copyFileSync,
+    existsSync,
+    mkdirSync,
+    readdirSync,
+    statSync,
+    writeFileSync,
+} from 'node:fs'
+import { join } from 'node:path'
+import { namespace } from './runtime/configs'
 import type { ModuleOptions } from './runtime/types'
 
 export default defineNuxtModule<ModuleOptions>({
@@ -20,128 +28,170 @@ export default defineNuxtModule<ModuleOptions>({
     },
     defaults: {
         prefix: 'w',
-        level: 1,
     },
     async setup(options, nuxt) {
         const logger = useLogger(namespace)
-        // Create resolver to resolve relative paths
+        const log = (
+            message: string,
+            type: 'info' | 'success' | 'error' | 'warn' = 'info',
+        ) => logger[type](`[${namespace}] ${message}`)
         const { resolve } = createResolver(import.meta.url)
         const runtimeDir = resolve('./runtime')
-        nuxt.options.build.transpile.push(runtimeDir)
 
-        validate({
-            buildConfig: options,
-            runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
+        // ==================== CONFIG VALIDATION ====================
+        // if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {
+        //     validate({
+        //         buildConfig: options,
+        //         runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
+        //         publicRuntimeConfig: nuxt.options.runtimeConfig.public[
+        //             namespace
+        //         ] as any,
+        //     })
+        // }
+
+        nuxt.options.css.push(resolve('./runtime/assets/styles.css'))
+
+        await installModule('@nuxtjs/tailwindcss', {
+            // module configuration
+            exposeConfig: true,
+            config: {
+                darkMode: ['selector', '[class*="p-dark"]'],
+                content: {
+                    files: [
+                        resolve('./runtime/components/**/*.{vue,mjs,ts}'),
+                        resolve('./runtime/pages/**/*.{vue,mjs,ts}'),
+                        resolve('./runtime/*.{mjs,js,ts}'),
+                    ],
+                },
+            },
         })
 
-        // Add plugins
-        const pluginsDir = resolve('./runtime/plugins')
-        if (
-            fs.existsSync(pluginsDir) &&
-            fs.statSync(pluginsDir).isDirectory()
-        ) {
-            const pluginFiles = fs.readdirSync(pluginsDir)
-            pluginFiles
-                .filter((pluginFile) => !pluginFile.match('.d.ts'))
-                .forEach((pluginFile) => {
-                    const pluginPath = path.join(pluginsDir, pluginFile)
-                    addPlugin(pluginPath)
-                    logger.info(`Plugin added plugins/${pluginFile}`)
-                })
-        }
+        // ==================== RUNTIME SETUP ====================
+        nuxt.options.build.transpile.push(runtimeDir)
+        log('Runtime directory transpiled', 'success')
 
-        // Add Middleware
-        const middlewareDir = resolve('./runtime/middleware')
-        if (
-            fs.existsSync(middlewareDir) &&
-            fs.statSync(middlewareDir).isDirectory()
-        ) {
-            const middlewareFiles = fs.readdirSync(middlewareDir)
-            middlewareFiles.forEach((middlewareFile) => {
-                const middlewarePath = path.join(middlewareDir, middlewareFile)
-                addServerHandler({
-                    middleware: true,
-                    handler: middlewarePath,
-                })
-                logger.info(`Middleware added middleware/${middlewareFile}`)
-            })
-        }
-
-        // Merge language files from module with app
-        const langDir = resolve('./runtime/lang')
-        const appLangDir = resolve(nuxt.options.srcDir, 'lang')
-
-        // Check if the app's lang folder exists, create it if not
-        if (
-            !fs.existsSync(appLangDir) ||
-            !fs.statSync(appLangDir).isDirectory()
-        ) {
-            fs.mkdirSync(appLangDir)
-            logger.info(`[${namespace}] Created lang folder in the app`)
-        }
-
-        // Check if the lang folder in the module exists
-        if (fs.existsSync(langDir) && fs.statSync(langDir).isDirectory()) {
-            const langFiles = fs.readdirSync(langDir)
-
-            // Check if the app's lang folder is empty, create and push 2 files if so
-            if (langFiles.length === 0) {
-                // Push default language files into the app's lang folder
-                fs.copyFileSync(
-                    resolve(langDir, 'en.json'),
-                    resolve(appLangDir, 'en.json'),
-                )
-                fs.copyFileSync(
-                    resolve(langDir, 'vi.json'),
-                    resolve(appLangDir, 'vi.json'),
-                )
-
-                logger.info(
-                    `[${namespace}] Pushed default language files into the app's lang folder`,
-                )
-            } else {
-                // Iterate through the language files in the module and merge into the app
-                langFiles.forEach((langFile) => {
-                    const langPath = path.join(langDir, langFile)
-                    const appLangPath = path.join(appLangDir, langFile)
-
-                    // Read the content of the language files
-                    const moduleLangContent = require(langPath)
-                    const appLangContent = fs.existsSync(appLangPath)
-                        ? require(appLangPath)
-                        : {}
-
-                    // Merge the content of the module language file into the app language file
-                    const mergedLangContent = { ...appLangContent }
-
-                    // Add new keys from the module language file to the merged content
-                    Object.keys(moduleLangContent).forEach((key) => {
-                        if (!(key in mergedLangContent)) {
-                            mergedLangContent[key] = moduleLangContent[key]
-                        }
+        // ==================== PLUGINS ====================
+        const addPlugins = () => {
+            const pluginsDir = resolve('./runtime/plugins')
+            if (existsSync(pluginsDir) && statSync(pluginsDir).isDirectory()) {
+                readdirSync(pluginsDir)
+                    .filter((file) => !file.match('.d.ts'))
+                    .forEach((file) => {
+                        addPlugin(join(pluginsDir, file))
+                        log(`Plugin added: plugins/${file}`)
                     })
+            }
+            log('Plugins added', 'success')
+        }
+        addPlugins()
 
-                    // Save the merged content back to the app's lang folder
-                    fs.writeFileSync(
-                        appLangPath,
-                        JSON.stringify(mergedLangContent, null, 2),
-                    )
+        // ==================== LANGUAGE FILES ====================
+        const mergeLangFiles = () => {
+            const langDir = resolve('./runtime/lang')
+            const appLangDir = resolve(nuxt.options.srcDir, 'lang')
 
-                    logger.info(
-                        `[${namespace}]Module merged into file "${langFile}" in the app's lang folder`,
+            if (
+                !existsSync(appLangDir) ||
+                !statSync(appLangDir).isDirectory()
+            ) {
+                mkdirSync(appLangDir)
+                log(`Created lang folder in the app`)
+            }
+
+            if (existsSync(langDir) && statSync(langDir).isDirectory()) {
+                const langFiles = readdirSync(langDir)
+
+                if (langFiles.length === 0) {
+                    ;['en', 'vi'].forEach((lang) => {
+                        copyFileSync(
+                            resolve(langDir, `${lang}.json`),
+                            resolve(appLangDir, `${lang}.json`),
+                        )
+                    })
+                    log(
+                        `Pushed default language files into the app's lang folder`,
                     )
-                })
+                } else {
+                    langFiles.forEach((file) => {
+                        const moduleLangContent = require(join(langDir, file))
+                        const appLangPath = join(appLangDir, file)
+                        const appLangContent = existsSync(appLangPath)
+                            ? require(appLangPath)
+                            : {}
+                        const mergedContent = {
+                            ...appLangContent,
+                            ...Object.fromEntries(
+                                Object.entries(moduleLangContent).filter(
+                                    ([key]) => !(key in appLangContent),
+                                ),
+                            ),
+                        }
+                        writeFileSync(
+                            appLangPath,
+                            JSON.stringify(mergedContent, null, 2),
+                        )
+                        log(
+                            `Module merged into file "${file}" in the app's lang folder`,
+                            'success',
+                        )
+                    })
+                }
             }
         }
+        mergeLangFiles()
 
-        // Add components
-        addComponentsDir({
-            global: true,
-            prefix: options.prefix,
-            path: resolve('./runtime/components/global'),
+        // ==================== DIRECTORIES ====================
+        const addDirs = () => {
+            addComponentsDir({
+                global: true,
+                prefix: options.prefix,
+                path: resolve('./runtime/components/global'),
+            })
+            ;['composables', 'stores'].forEach((dir) => {
+                addImportsDir(resolve(`./runtime/${dir}`))
+                // addServerImportsDir(resolve(`./runtime/services`))
+                log(`${dir} added`, 'success')
+            })
+        }
+        addDirs()
+
+        // ==================== TYPE EXPORTS ====================
+        const exportTypes = () => {
+            const typeDirectories = ['models', 'types']
+            let typeExports = ''
+
+            typeDirectories.forEach((dir) => {
+                const typePath = resolve(`./runtime/${dir}`)
+                if (existsSync(typePath) && statSync(typePath).isDirectory()) {
+                    readdirSync(typePath).forEach((file) => {
+                        if (file.endsWith('.ts')) {
+                            const typeName = file.replace('.ts', '')
+                            typeExports += `export * from '${namespace}/runtime/${dir}/${typeName}'\n`
+                        }
+                    })
+                }
+            })
+
+            // Add type template
+            addTypeTemplate({
+                filename: `types/${namespace}.d.ts`,
+                getContents: () => typeExports,
+            })
+
+            log('Type exports added', 'success')
+        }
+        exportTypes()
+
+        // ==================== NITRO CONFIG ====================
+        nuxt.hook('nitro:config', (nitroConfig) => {
+            nitroConfig.publicAssets ||= []
+            nitroConfig.publicAssets.push({
+                dir: resolve('./runtime/public'),
+                maxAge: 60 * 60 * 24 * 365, // 1 year
+            })
+            log('Nitro config updated', 'success')
         })
 
-        // Add composables
-        addImportsDir(resolve('./runtime/composables'))
+        log('Module setup complete', 'success')
     },
 }) as any
