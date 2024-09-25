@@ -1,0 +1,4010 @@
+[
+  {
+    "object": "block",
+    "id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf",
+    "parent": {
+      "type": "database_id",
+      "database_id": "4e87316f-4c66-4b80-b97c-1890933a50da"
+    },
+    "created_time": "2023-07-24T02:56:00.000Z",
+    "last_edited_time": "2024-05-06T08:12:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": true,
+    "archived": false,
+    "in_trash": false,
+    "type": "child_page",
+    "child_page": {
+      "title": "Khám từ xa"
+    },
+    "request_id": "781e4fa4-12ad-476f-b37d-9f8cb3050aed"
+  },
+  {
+    "object": "block",
+    "id": "4e87316f-4c66-4b80-b97c-1890933a50da",
+    "parent": {
+      "type": "workspace",
+      "workspace": true
+    },
+    "created_time": "2023-07-24T02:29:00.000Z",
+    "last_edited_time": "2024-05-06T03:27:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "child_database",
+    "child_database": {
+      "title": "Website"
+    },
+    "request_id": "2acdf34f-6438-43e9-b1e8-3da0f25eca93"
+  },
+  {
+    "object": "block",
+    "id": "19d00ecf-c1ab-4b05-9303-ab1aff676644",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-03-11T13:12:00.000Z",
+    "last_edited_time": "2024-03-11T13:12:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "table_of_contents",
+    "table_of_contents": {
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "id": "fa86ba59-b06a-496a-8acf-ef1dda25cbb3",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-03-11T12:57:00.000Z",
+    "last_edited_time": "2024-04-26T00:33:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Giới thiệu",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Giới thiệu",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "5d839754-562d-4d41-8e19-acf63191be89",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-04-26T00:33:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Trong bối cảnh cuộc sống hiện đại ngày càng bận rộn, việc chăm sóc sức khỏe đôi khi trở nên khó khăn. Tuy nhiên, với sự phát triển của công nghệ, dịch vụ khám từ xa đã trở thành một giải pháp tiện lợi và hiệu quả cho những người không có thời gian hoặc điều kiện để đến trực tiếp bệnh viện. Trên nền tảng này, Wellcare tự hào giới thiệu dịch vụ khám từ xa để mang lại sự thuận tiện và chăm sóc sức khỏe tốt nhất cho mọi người.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Trong bối cảnh cuộc sống hiện đại ngày càng bận rộn, việc chăm sóc sức khỏe đôi khi trở nên khó khăn. Tuy nhiên, với sự phát triển của công nghệ, dịch vụ khám từ xa đã trở thành một giải pháp tiện lợi và hiệu quả cho những người không có thời gian hoặc điều kiện để đến trực tiếp bệnh viện. Trên nền tảng này, Wellcare tự hào giới thiệu dịch vụ khám từ xa để mang lại sự thuận tiện và chăm sóc sức khỏe tốt nhất cho mọi người.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "03eb1573-d54c-4b1a-bca1-478366d51c5d",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-04-29T08:49:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hiệu quả của Khám từ xa",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hiệu quả của Khám từ xa",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "86879612-3002-489b-97d1-2d3dc264ef0e",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-04-30T08:10:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hiệu quả khi khám bệnh thường gặp",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hiệu quả khi khám bệnh thường gặp",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "46084652-1374-414c-bb9f-dc895dfdb95e",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T08:04:00.000Z",
+    "last_edited_time": "2024-04-30T09:06:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Trong hơn 20 năm qua (tính đến năm 2024), đã có nhiều nghiên cứu được thực hiện ở nhiều quốc gia, nhằm đánh giá hiệu quả của y tế từ xa, khi so sánh với khám trực tiếp. Kết quả là, khám từ xa nói riêng (và y tế từ xa nói chung) đã được chứng minh là mang lại chất lượng tương đương so với khám trực tiếp, nếu được áp dụng một cách phù hợp. Đó cũng là lý do vì sao, từ nhiều năm nay, thế giới đã coi khám từ xa như một hình thức khám thay thế hiệu quả, về mặt kinh tế và thời gian, cho những bệnh nhân có nhu cầu chăm sóc sức khỏe tổng quát và sức khỏe tâm thần.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Trong hơn 20 năm qua (tính đến năm 2024), đã có nhiều nghiên cứu được thực hiện ở nhiều quốc gia, nhằm đánh giá hiệu quả của y tế từ xa, khi so sánh với khám trực tiếp. Kết quả là, khám từ xa nói riêng (và y tế từ xa nói chung) đã được chứng minh là mang lại chất lượng tương đương so với khám trực tiếp, nếu được áp dụng một cách phù hợp. Đó cũng là lý do vì sao, từ nhiều năm nay, thế giới đã coi khám từ xa như một hình thức khám thay thế hiệu quả, về mặt kinh tế và thời gian, cho những bệnh nhân có nhu cầu chăm sóc sức khỏe tổng quát và sức khỏe tâm thần.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "ba251293-6537-4e44-b876-0075fdf33086",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:58:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Có bằng chứng cho thấy rằng đối với tất cả các ngành, chăm sóc sức khỏe từ xa trên nhiều phương thức đều hiệu quả, nếu không muốn nói là hiệu quả hơn so với dịch vụ chăm sóc thông thường… Những phát hiện từ nghiên cứu này ủng hộ quan điểm rằng trong bối cảnh phù hợp, y tế từ xa sẽ không ảnh hưởng đến hiệu quả chăm sóc lâm sàng khi so sánh với các hình thức cung cấp dịch vụ y tế thông thường. (Snoswell CL et al, 2021) (1)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Có bằng chứng cho thấy rằng đối với tất cả các ngành, chăm sóc sức khỏe từ xa trên nhiều phương thức đều hiệu quả, nếu không muốn nói là hiệu quả hơn so với dịch vụ chăm sóc thông thường… Những phát hiện từ nghiên cứu này ủng hộ quan điểm rằng trong bối cảnh phù hợp, y tế từ xa sẽ không ảnh hưởng đến hiệu quả chăm sóc lâm sàng khi so sánh với các hình thức cung cấp dịch vụ y tế thông thường. (Snoswell CL et al, 2021) (1)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "60b432b0-8b1d-4e8b-ba59-bd308ed693e8",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T07:42:00.000Z",
+    "last_edited_time": "2024-05-02T02:37:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Tư vấn từ xa qua điện thoại hoặc cuộc gọi video là một giải pháp thay thế hiệu quả cho khám chữa bệnh trực tiếp - tư vấn trực tiếp cho nhiều bệnh nhân cần được chăm sóc sức khỏe tổng quát và sức khỏe tâm thần.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Tư vấn từ xa qua điện thoại hoặc cuộc gọi video là một giải pháp thay thế hiệu quả cho khám chữa bệnh trực tiếp - tư vấn trực tiếp cho nhiều bệnh nhân cần được chăm sóc sức khỏe tổng quát và sức khỏe tâm thần.",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": " ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": " ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "(Carrillo de Albornoz S et al  2022) (2)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "(Carrillo de Albornoz S et al  2022) (2)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d778e2e3-40bd-42bd-b51c-f862ed8e8222",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-29T09:53:00.000Z",
+    "last_edited_time": "2024-04-30T08:10:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hiệu quả trong quản lý bệnh mãn tính",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hiệu quả trong quản lý bệnh mãn tính",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "94de6647-d6b0-438a-8555-38d42df8d648",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T08:44:00.000Z",
+    "last_edited_time": "2024-05-02T07:00:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Nhiều nghiên cứu đã chứng minh được lợi ích của khám từ xa trong quản lý bệnh mãn tính, nhờ các yếu tố như: ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Nhiều nghiên cứu đã chứng minh được lợi ích của khám từ xa trong quản lý bệnh mãn tính, nhờ các yếu tố như: ",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "6ce56990-5b04-41d5-b7df-7d265d269385",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T07:00:00.000Z",
+    "last_edited_time": "2024-05-02T07:00:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Loại bỏ rào cản địa lý, cho phép bệnh nhân gặp gỡ và trò chuyện với bác sĩ dễ dàng hơn, do vậy họ hài lòng hơn; ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Loại bỏ rào cản địa lý, cho phép bệnh nhân gặp gỡ và trò chuyện với bác sĩ dễ dàng hơn, do vậy họ hài lòng hơn; ",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "86497952-f0ee-4c07-808f-3eb1d87c0d03",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T07:00:00.000Z",
+    "last_edited_time": "2024-05-02T07:00:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Phía bác sĩ cũng có thể dễ dàng theo dõi, can thiệp kịp thời, và điều chỉnh kế hoạch điều trị thường xuyên hơn, từ đó có thể phát hiện và ngăn ngừa sớm các biến chứng; ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Phía bác sĩ cũng có thể dễ dàng theo dõi, can thiệp kịp thời, và điều chỉnh kế hoạch điều trị thường xuyên hơn, từ đó có thể phát hiện và ngăn ngừa sớm các biến chứng; ",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "849499a6-4667-4354-9a0a-95e704207aba",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T07:00:00.000Z",
+    "last_edited_time": "2024-05-02T07:00:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bằng việc nghiên cứu trước các mô tả triệu chứng, hồ sơ tiền sử, bác sĩ có thể cá nhân hóa kế hoạch chăm sóc cho phù hợp với nhu cầu cụ thể của từng bệnh nhân, từ đó cũng sẽ làm bệnh nhân hợp tác và tuân thủ kế hoạch điều trị tốt hơn.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bằng việc nghiên cứu trước các mô tả triệu chứng, hồ sơ tiền sử, bác sĩ có thể cá nhân hóa kế hoạch chăm sóc cho phù hợp với nhu cầu cụ thể của từng bệnh nhân, từ đó cũng sẽ làm bệnh nhân hợp tác và tuân thủ kế hoạch điều trị tốt hơn.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "b32987d6-6e9e-4c2a-af8f-c46d478f98fd",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T08:13:00.000Z",
+    "last_edited_time": "2024-05-02T02:38:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Y từ xa có tác động tích cực trong việc kiểm soát bệnh tiểu đường, tăng huyết áp và viêm khớp dạng thấp, đặc biệt khi tư vấn sức khỏe từ xa và quản lý bệnh từ xa. Đây là kết luận được tìm thấy khi nghiên cứu trên nhóm bệnh nhân cần quản lý bệnh tiểu đường, bệnh nhân tăng huyết áp và bệnh nhân viêm khớp dạng thấp. (Ma, Y., Zhao, C., Zhao, Y. et al. 2022) (3)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Y từ xa có tác động tích cực trong việc kiểm soát bệnh tiểu đường, tăng huyết áp và viêm khớp dạng thấp, đặc biệt khi tư vấn sức khỏe từ xa và quản lý bệnh từ xa. Đây là kết luận được tìm thấy khi nghiên cứu trên nhóm bệnh nhân cần quản lý bệnh tiểu đường, bệnh nhân tăng huyết áp và bệnh nhân viêm khớp dạng thấp. (Ma, Y., Zhao, C., Zhao, Y. et al. 2022) (3)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "e7146640-da2f-427a-9d2d-fcde56389e30",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T08:14:00.000Z",
+    "last_edited_time": "2024-05-02T02:39:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hệ thống quản lý bệnh mãn tính Telehealth (TCDMS - Telehealth Chronic Disease Management System) đã ảnh hưởng tích cực đến chất lượng cuộc sống về thể chất, tinh thần và xã hội của bệnh nhân đối với nhiều bệnh lý mãn tính. Công trình phân tích hệ thống và tổng hợp dữ liệu này đóng góp vào bộ sưu tập ngày càng lớn về bằng chứng ủng hộ hiệu quả của quản lý bệnh từ xa trong việc điều trị bệnh mãn tính. (Xiao Z et al 2023) (4)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hệ thống quản lý bệnh mãn tính Telehealth (TCDMS - Telehealth Chronic Disease Management System) đã ảnh hưởng tích cực đến chất lượng cuộc sống về thể chất, tinh thần và xã hội của bệnh nhân đối với nhiều bệnh lý mãn tính. Công trình phân tích hệ thống và tổng hợp dữ liệu này đóng góp vào bộ sưu tập ngày càng lớn về bằng chứng ủng hộ hiệu quả của quản lý bệnh từ xa trong việc điều trị bệnh mãn tính. (Xiao Z et al 2023) (4)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "91f30d23-71dc-45ad-ae00-714eb40682d4",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T05:50:00.000Z",
+    "last_edited_time": "2024-05-01T06:42:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Dịch vụ hoàn chỉnh",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Dịch vụ hoàn chỉnh",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "daec6297-44b3-4daf-a1ab-ab0f85593e2f",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T05:50:00.000Z",
+    "last_edited_time": "2024-05-01T06:53:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Người dùng có thể nhận được chẩn đoán, phương án điều trị, khuyến nghị về thuốc hoặc thuốc thay thế, và lịch tái khám theo dõi khi cần thiết. Hơn nữa, hệ thống còn kết nối người dùng trực tiếp với chuỗi các nhà thuốc uy tín trên toàn quốc. Điều này mang lại một trải nghiệm liền mạch từ khi người dùng bắt đầu gặp phải các vấn đề về sức khỏe cho đến khi tình trạng được cải thiện.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Người dùng có thể nhận được chẩn đoán, phương án điều trị, khuyến nghị về thuốc hoặc thuốc thay thế, và lịch tái khám theo dõi khi cần thiết. Hơn nữa, hệ thống còn kết nối người dùng trực tiếp với chuỗi các nhà thuốc uy tín trên toàn quốc. Điều này mang lại một trải nghiệm liền mạch từ khi người dùng bắt đầu gặp phải các vấn đề về sức khỏe cho đến khi tình trạng được cải thiện.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "4505af09-e5ef-4ba5-a2ff-1d2912b2153c",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-01T06:42:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Tiết kiệm thời gian và chi phí",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Tiết kiệm thời gian và chi phí",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7c116356-a0f3-412f-af90-2b54c4a27ede",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-01T06:55:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Khám từ xa giúp chúng ta tiết kiệm công sức, chi phí đi lại và thời gian chờ đợi. Cả bệnh nhân lẫn bác sĩ có thể tập trung hơn vào vấn đề sức khỏe, thay vì phải dành thêm năng lượng cho việc di chuyển và các thủ tục hành chính. Hiệu quả chăm sóc sức khỏe cũng theo đó mà được cải thiện đáng kể.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Khám từ xa giúp chúng ta tiết kiệm công sức, chi phí đi lại và thời gian chờ đợi. Cả bệnh nhân lẫn bác sĩ có thể tập trung hơn vào vấn đề sức khỏe, thay vì phải dành thêm năng lượng cho việc di chuyển và các thủ tục hành chính. Hiệu quả chăm sóc sức khỏe cũng theo đó mà được cải thiện đáng kể.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "6b8a347f-7a3a-4a33-ad8a-d8ec7edca195",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:31:00.000Z",
+    "last_edited_time": "2024-05-01T09:11:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "- Gửi tới Bác sĩ: Trong 2 năm qua, nhờ tư vấn của bác Đoàn trên kênh khám từ xa, em đã tiết kiệm được hơn 20 triệu đồng (không tốn chi phí đi lại, không phải làm những xét nghiệm thừa,...). Đó là về vật chất, còn về tinh thần thì chỉ có thể dùng 1 chữ TUYỆT VỜI dành  cho bác Đoàn, những lời tư vấn của bác giúp em, vợ em, gia đình em hiểu rõ vấn đề và hoàn toàn yên tâm thực hiện theo lời dặn của BS. Em cám ơn bác sĩ rất nhiều.\n- Các bạn Wellcare đã hỗ trợ rất tốt, chúc các bạn luôn vui khỏe và phát triển dịch vụ này đến toàn dân, để mọi người cùng hưởng lợi từ dịch vụ y tế chất lượng cao với giá SIÊU RẺ. (Nguyễn Trung Du, 2019)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "- Gửi tới Bác sĩ: Trong 2 năm qua, nhờ tư vấn của bác Đoàn trên kênh khám từ xa, em đã tiết kiệm được hơn 20 triệu đồng (không tốn chi phí đi lại, không phải làm những xét nghiệm thừa,...). Đó là về vật chất, còn về tinh thần thì chỉ có thể dùng 1 chữ TUYỆT VỜI dành  cho bác Đoàn, những lời tư vấn của bác giúp em, vợ em, gia đình em hiểu rõ vấn đề và hoàn toàn yên tâm thực hiện theo lời dặn của BS. Em cám ơn bác sĩ rất nhiều.\n- Các bạn Wellcare đã hỗ trợ rất tốt, chúc các bạn luôn vui khỏe và phát triển dịch vụ này đến toàn dân, để mọi người cùng hưởng lợi từ dịch vụ y tế chất lượng cao với giá SIÊU RẺ. (Nguyễn Trung Du, 2019)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d9952771-bfb4-490e-b67f-6718bef54393",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-04-30T09:11:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hình thức liên lạc linh hoạt và thuận tiện",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hình thức liên lạc linh hoạt và thuận tiện",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "6357ec78-22df-43ea-8d08-1471bf2b6cfb",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-30T06:05:00.000Z",
+    "last_edited_time": "2024-04-30T09:05:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Khám từ xa cung cấp nhiều kênh liên lạc khác nhau để bệnh nhân kết nối với các bác sĩ từ nhiều chuyên khoa khác nhau, bao gồm tin nhắn, cuộc gọi điện thoại và cuộc gọi video. Tính linh hoạt này cho phép người dùng tiếp cận được với các bác sĩ và chuyên gia tâm lý một cách kịp thời và hiệu quả.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Khám từ xa cung cấp nhiều kênh liên lạc khác nhau để bệnh nhân kết nối với các bác sĩ từ nhiều chuyên khoa khác nhau, bao gồm tin nhắn, cuộc gọi điện thoại và cuộc gọi video. Tính linh hoạt này cho phép người dùng tiếp cận được với các bác sĩ và chuyên gia tâm lý một cách kịp thời và hiệu quả.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7e02c69c-636d-4e64-9469-cf32691d3a80",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-04-26T01:56:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Đội ngũ bác sĩ, tâm lý gia",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Đội ngũ bác sĩ, tâm lý gia",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "33132002-21b8-4e19-8188-3b8672322c1a",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-01T07:00:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Với hơn 40 chuyên khoa, đội ngũ bác sĩ và tâm lý gia của chúng tôi không chỉ giàu kinh nghiệm, mà còn chú trọng đến sức khỏe tinh thần của bệnh nhân.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Với hơn 40 chuyên khoa, đội ngũ bác sĩ và tâm lý gia của chúng tôi không chỉ giàu kinh nghiệm, mà còn chú trọng đến sức khỏe tinh thần của bệnh nhân.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7a7b8f39-1876-4ec2-b2a9-9f887a39d355",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-01T09:14:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Cả thể chất lẫn tinh thần",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Cả thể chất lẫn tinh thần",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "49e28bdf-6307-443f-8429-8a6cb5e7b1e3",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T03:04:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sức khỏe tâm thần đóng vai trò quan trọng trong sức khỏe tổng thể của chúng ta và có ảnh hưởng lớn đến chất lượng cuộc sống. Điều trị sớm các vấn đề sức khỏe tâm thần có thể thay đổi, thậm chí cứu sống mạng sống. Đội ngũ chuyên gia của chúng tôi không chỉ tư vấn về sức khỏe thể chất mà còn hỗ trợ bệnh nhân trong việc giải quyết các vấn đề tâm lý, mang đến sự chăm sóc toàn diện cho sức khỏe.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sức khỏe tâm thần đóng vai trò quan trọng trong sức khỏe tổng thể của chúng ta và có ảnh hưởng lớn đến chất lượng cuộc sống. Điều trị sớm các vấn đề sức khỏe tâm thần có thể thay đổi, thậm chí cứu sống mạng sống. Đội ngũ chuyên gia của chúng tôi không chỉ tư vấn về sức khỏe thể chất mà còn hỗ trợ bệnh nhân trong việc giải quyết các vấn đề tâm lý, mang đến sự chăm sóc toàn diện cho sức khỏe.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "e82e3dd6-26a3-4146-b200-47d52fc6bcd0",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-01T07:20:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Chuyên môn tốt",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Chuyên môn tốt",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "44d96e8c-d8c1-49f2-9a17-b3e23ef7dead",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:19:00.000Z",
+    "last_edited_time": "2024-05-01T07:37:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Các bác sĩ và chuyên gia có trình độ học vấn tốt và hiểu biết sâu rộng trong lĩnh vực chuyên môn của mình. Họ cũng thường xuyên tham gia các khóa đào tạo chuyên ngành, để cập nhật những nghiên cứu khoa học mới nhất và áp dụng các phác đồ điều trị theo nền tảng y học chứng cứ.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Các bác sĩ và chuyên gia có trình độ học vấn tốt và hiểu biết sâu rộng trong lĩnh vực chuyên môn của mình. Họ cũng thường xuyên tham gia các khóa đào tạo chuyên ngành, để cập nhật những nghiên cứu khoa học mới nhất và áp dụng các phác đồ điều trị theo nền tảng y học chứng cứ.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "754fed1d-fb33-419b-b3ff-c3c60f5e380d",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:08:00.000Z",
+    "last_edited_time": "2024-05-01T09:02:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bác Đoàn giải thích nhiệt tình, dễ hiểu. Trình độ chuyên môn của bác cao, phương pháp điều trị tiên tiến, cập nhật xu hướng mới chứ không như phần lớn các bác sĩ khác. Gia đình vô cùng tin tưởng bác và rất cảm ơn bác với những thông tin chia sẻ chi tiết về việc dùng kháng sinh để tránh việc dùng kháng sinh bừa bãi cho con.\nTeam wellcare take care nhiệt tình, chuyên nghiệp. (Lê Quỳnh Mai 11/2023)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bác Đoàn giải thích nhiệt tình, dễ hiểu. Trình độ chuyên môn của bác cao, phương pháp điều trị tiên tiến, cập nhật xu hướng mới chứ không như phần lớn các bác sĩ khác. Gia đình vô cùng tin tưởng bác và rất cảm ơn bác với những thông tin chia sẻ chi tiết về việc dùng kháng sinh để tránh việc dùng kháng sinh bừa bãi cho con.\nTeam wellcare take care nhiệt tình, chuyên nghiệp. (Lê Quỳnh Mai 11/2023)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "cd55703b-5b24-44bf-b3d6-8cb9e91b0d2a",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:19:00.000Z",
+    "last_edited_time": "2024-05-01T07:32:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Giàu kinh nghiệm lâm sàng",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Giàu kinh nghiệm lâm sàng",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "51d3b055-5886-4a66-9042-0fcaf60b3760",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:32:00.000Z",
+    "last_edited_time": "2024-05-01T08:23:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Kinh nghiệm lâm sàng cũng rất quan trọng, mang đến trải nghiệm thực tiễn, mài giũa kỹ năng, nâng cao khả năng đưa ra quyết định, góp phần nâng cao năng lực cho các chuyên gia y tế. Đội ngũ của các bác sĩ và chuyên gia tâm lý của chúng tôi có số năm kinh nghiệp trung bình là 17.7 năm. Họ có đủ năng lực để lập ra các kế hoạch điều trị hiệu quả cho đa dạng các vấn đề sức khỏe thường gặp.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Kinh nghiệm lâm sàng cũng rất quan trọng, mang đến trải nghiệm thực tiễn, mài giũa kỹ năng, nâng cao khả năng đưa ra quyết định, góp phần nâng cao năng lực cho các chuyên gia y tế. Đội ngũ của các bác sĩ và chuyên gia tâm lý của chúng tôi có số năm kinh nghiệp trung bình là 17.7 năm. Họ có đủ năng lực để lập ra các kế hoạch điều trị hiệu quả cho đa dạng các vấn đề sức khỏe thường gặp.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "20566b36-2df1-4d91-a51d-cc74e97ddb34",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:23:00.000Z",
+    "last_edited_time": "2024-05-01T09:02:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Mẹ cháu cám ơn bs Xuân Linh rất rất nhiều. Nhờ có bs theo dõi và tư vấn nhiệt tình nên lần này cháu không bị uống kháng sinh oan và không phải tốn tiền làm các xét nghiệm không cần thiết.  Vì mẹ cháu đã cho cháu đi khám và bs khác kê kháng sinh luôn. Mẹ cháu sợ quá nên phải nhờ đến wellcare để gọi cho bs Linh. Cháu đã bị sốt 2 ngày hâm hấp và 3 ngày sốt cao, sưng amidan, đau đầu, đau bụng, bs chuẩn đoán cháu bị nhiễm siêu vi. Mẹ cháu đã cố gắng kiên trì không cho cháu uống ks và cháu đã vượt qua đợt ốm này. Mẹ cháu cám ơn bs lắm lắm a. Vì cháu rất hay ốm, trung bình 1 ốm 1 lần mà lần nào các bs ở địa phương cháu khám cũng kê kháng sinh, mẹ cháu hoang mang lắm mà ko biết phải làm sao. Giờ nhờ có wellcare mà mẹ con cháu có thể nhờ bác sĩ Linh khám rất dễ dàng. Chúc bs Linh thật nhiều sức khoẻ và niềm vui. (Nguyễn Minh Phương, 02/2019)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Mẹ cháu cám ơn bs Xuân Linh rất rất nhiều. Nhờ có bs theo dõi và tư vấn nhiệt tình nên lần này cháu không bị uống kháng sinh oan và không phải tốn tiền làm các xét nghiệm không cần thiết.  Vì mẹ cháu đã cho cháu đi khám và bs khác kê kháng sinh luôn. Mẹ cháu sợ quá nên phải nhờ đến wellcare để gọi cho bs Linh. Cháu đã bị sốt 2 ngày hâm hấp và 3 ngày sốt cao, sưng amidan, đau đầu, đau bụng, bs chuẩn đoán cháu bị nhiễm siêu vi. Mẹ cháu đã cố gắng kiên trì không cho cháu uống ks và cháu đã vượt qua đợt ốm này. Mẹ cháu cám ơn bs lắm lắm a. Vì cháu rất hay ốm, trung bình 1 ốm 1 lần mà lần nào các bs ở địa phương cháu khám cũng kê kháng sinh, mẹ cháu hoang mang lắm mà ko biết phải làm sao. Giờ nhờ có wellcare mà mẹ con cháu có thể nhờ bác sĩ Linh khám rất dễ dàng. Chúc bs Linh thật nhiều sức khoẻ và niềm vui. (Nguyễn Minh Phương, 02/2019)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "9fb770f8-e183-41b8-b231-3f3376b182c1",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:18:00.000Z",
+    "last_edited_time": "2024-05-01T09:14:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Điều trị cá nhân hóa",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Điều trị cá nhân hóa",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "9053c55b-cbb5-4dd2-9f4e-153bcecff1d0",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:18:00.000Z",
+    "last_edited_time": "2024-05-01T07:51:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Các bác sĩ và chuyên gia tâm lý tiếp cận vấn đề một cách cá nhân hóa, tùy chỉnh phác đồ điều trị nhằm đáp ứng nhu cầu đặc biệt của từng người. Bác sĩ chủ động lắng nghe, xem xét yếu tố tiền sử, trao đổi cởi mở và thẳng thắn nhằm đảm bảo việc điều trị cá nhân hóa đạt hiệu quả tốt. Đây là nền tảng cho một quan hệ bác sĩ-bệnh nhân và chuyên gia tâm lý - thân chủ tốt đẹp và hiệu quả.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Các bác sĩ và chuyên gia tâm lý tiếp cận vấn đề một cách cá nhân hóa, tùy chỉnh phác đồ điều trị nhằm đáp ứng nhu cầu đặc biệt của từng người. Bác sĩ chủ động lắng nghe, xem xét yếu tố tiền sử, trao đổi cởi mở và thẳng thắn nhằm đảm bảo việc điều trị cá nhân hóa đạt hiệu quả tốt. Đây là nền tảng cho một quan hệ bác sĩ-bệnh nhân và chuyên gia tâm lý - thân chủ tốt đẹp và hiệu quả.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "9d06a746-9534-4f64-b4e6-8f37189ea094",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:15:00.000Z",
+    "last_edited_time": "2024-05-01T09:13:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Cảm ơn bác sĩ Mai Duy Linh đã tư vấn rất có tâm, theo sát đúng nhu cầu và câu hỏi đặt ra, giải thích tận tình để mình hiểu được thêm về căn bệnh. Mình và gia đình rất biết ơn bác sĩ. Cảm ơn sự chủ động của đội ngũ hỗ trợ, giúp mình hoàn thành phần chuẩn bị để buổi tư vấn hiệu quả. Ứng dụng hoạt động tốt và cập nhật chính xác. Góp ý cho ứng dụng: thông báo lỗi nên hiển thị lâu hơn để người dùng kịp đọc. Khi mình upload video quá dung lương, thông báo hiện quá nhanh và tắt đi làm mình không biết lỗi gì, phải làm lại vài lần. (Phạm Thị Ngọc Trinh, 08/2023)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Cảm ơn bác sĩ Mai Duy Linh đã tư vấn rất có tâm, theo sát đúng nhu cầu và câu hỏi đặt ra, giải thích tận tình để mình hiểu được thêm về căn bệnh. Mình và gia đình rất biết ơn bác sĩ. Cảm ơn sự chủ động của đội ngũ hỗ trợ, giúp mình hoàn thành phần chuẩn bị để buổi tư vấn hiệu quả. Ứng dụng hoạt động tốt và cập nhật chính xác. Góp ý cho ứng dụng: thông báo lỗi nên hiển thị lâu hơn để người dùng kịp đọc. Khi mình upload video quá dung lương, thông báo hiện quá nhanh và tắt đi làm mình không biết lỗi gì, phải làm lại vài lần. (Phạm Thị Ngọc Trinh, 08/2023)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "3500d261-b667-4773-8343-6fd3258c41e3",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:51:00.000Z",
+    "last_edited_time": "2024-05-01T07:51:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sự cảm thông",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sự cảm thông",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "113a1632-716f-4d7a-b6ef-af6605e83409",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:51:00.000Z",
+    "last_edited_time": "2024-05-01T09:10:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Đội ngũ bác sĩ và chuyên gia tâm lý có khả năng thấu hiểu và đồng cảm với trải nghiệm của bệnh nhân. Bệnh nhân cảm thấy được lắng nghe và được chia sẻ. Lòng cảm thông đã giúp các bác sĩ và chuyên gia tâm lý kết nối với bệnh nhân ở một mức độ sâu hơn, tạo niềm tin, giao tiếp cởi mở và thẳng thắn. Mục tiêu của các bác sĩ và chuyên gia tâm lý không chỉ dừng ở cung cấp kiến thức khoa, mà còn hỗ trợ cảm xúc, nhờ đó mang lại hiệu quả điều trị cao hơn.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Đội ngũ bác sĩ và chuyên gia tâm lý có khả năng thấu hiểu và đồng cảm với trải nghiệm của bệnh nhân. Bệnh nhân cảm thấy được lắng nghe và được chia sẻ. Lòng cảm thông đã giúp các bác sĩ và chuyên gia tâm lý kết nối với bệnh nhân ở một mức độ sâu hơn, tạo niềm tin, giao tiếp cởi mở và thẳng thắn. Mục tiêu của các bác sĩ và chuyên gia tâm lý không chỉ dừng ở cung cấp kiến thức khoa, mà còn hỗ trợ cảm xúc, nhờ đó mang lại hiệu quả điều trị cao hơn.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "605bfeb7-4bb2-4977-8bf7-325973eeba19",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:28:00.000Z",
+    "last_edited_time": "2024-05-01T09:07:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sau một tháng đồng hành cùng anh Ân, em đã được giúp đỡ rất nhiều. Trong những buổi session với anh Ân, em cảm thấy được lắng nghe và công nhận, cảm thấy câu chuyện và những cảm xúc của mình có ý nghĩa. Anh Ân hướng dẫn cho em những cách chấp nhận bản thân và tự tin hơn với bản thân mình, vui vẻ với những gì hiện tại mình đang có. Điều này khiến cho em không còn có những phản ứng thái quá đối với những điều đang xảy ra trong cuộc sống. Anh Ân cũng cho em những mindset mới để nhìn nhận cuộc sống một cách tích cực và nhẹ nhàng hơn rất nhiều. Em cảm ơn anh Ân. (Nguyễn Thảo Anh, 04/2024)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sau một tháng đồng hành cùng anh Ân, em đã được giúp đỡ rất nhiều. Trong những buổi session với anh Ân, em cảm thấy được lắng nghe và công nhận, cảm thấy câu chuyện và những cảm xúc của mình có ý nghĩa. Anh Ân hướng dẫn cho em những cách chấp nhận bản thân và tự tin hơn với bản thân mình, vui vẻ với những gì hiện tại mình đang có. Điều này khiến cho em không còn có những phản ứng thái quá đối với những điều đang xảy ra trong cuộc sống. Anh Ân cũng cho em những mindset mới để nhìn nhận cuộc sống một cách tích cực và nhẹ nhàng hơn rất nhiều. Em cảm ơn anh Ân. (Nguyễn Thảo Anh, 04/2024)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "ccd7ca3f-09de-4305-9638-a98446ce6513",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:18:00.000Z",
+    "last_edited_time": "2024-05-01T07:51:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Phòng ngừa tích cực",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Phòng ngừa tích cực",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "277427b1-b266-47c0-8eb4-9b9eb984d5bf",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T07:51:00.000Z",
+    "last_edited_time": "2024-05-01T09:01:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Các chuyên gia y tế hiểu rõ tầm quan trọng của phòng ngừa và giáo dục sức khỏe. Bắt đầu từ mục tiêu điều chỉnh để có một lối sống lành mạnh, và sự chú tâm giải thích cặn kẽ nhằm giúp bệnh nhân hiểu rõ nguyên nhân gây ra vấn đề sức khỏe, các bác sĩ và chuyên gia tâm lý hướng đến một kết quả điều trị lâu dài và sức khỏe bền vững hơn cho bệnh nhân và thân chủ của mình.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Các chuyên gia y tế hiểu rõ tầm quan trọng của phòng ngừa và giáo dục sức khỏe. Bắt đầu từ mục tiêu điều chỉnh để có một lối sống lành mạnh, và sự chú tâm giải thích cặn kẽ nhằm giúp bệnh nhân hiểu rõ nguyên nhân gây ra vấn đề sức khỏe, các bác sĩ và chuyên gia tâm lý hướng đến một kết quả điều trị lâu dài và sức khỏe bền vững hơn cho bệnh nhân và thân chủ của mình.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "ac45922a-4fb7-4830-a48f-4b7c5854a790",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-01T08:41:00.000Z",
+    "last_edited_time": "2024-05-01T08:42:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Gia đình cảm ơn Bác sĩ và Wellcare rất nhiều. Sau khi Bác Duyên xem Hồ sơ bệnh án của Bé, Bác đã chẩn đoán, giải thích rõ và dễ hiểu cho Gia đình biết được nguyên nhân gốc rễ của vấn đề ho dai dẳng của Bé. Đặc biệt là không phải dùng bất kỳ 1 loại thuốc nào ngoại trừ các phương pháp hướng dẫn và dặn dò của Bác. Gia đinh rất yên tâm và tin tưởng Bác sĩ Duyên và hệ thống khám từ xa Wellcare. (Nguyễn Hữu Thọ, 02/2022)",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Gia đình cảm ơn Bác sĩ và Wellcare rất nhiều. Sau khi Bác Duyên xem Hồ sơ bệnh án của Bé, Bác đã chẩn đoán, giải thích rõ và dễ hiểu cho Gia đình biết được nguyên nhân gốc rễ của vấn đề ho dai dẳng của Bé. Đặc biệt là không phải dùng bất kỳ 1 loại thuốc nào ngoại trừ các phương pháp hướng dẫn và dặn dò của Bác. Gia đinh rất yên tâm và tin tưởng Bác sĩ Duyên và hệ thống khám từ xa Wellcare. (Nguyễn Hữu Thọ, 02/2022)",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "86720501-723c-4cc3-8855-b91c3930966f",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T01:32:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Các bước Khám từ xa",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Các bước Khám từ xa",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "74da6ce7-9eb5-4a94-9c12-ee6a1c3e4def",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-04-26T01:49:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bước 1: Chọn bác sĩ và chuẩn bị trước khi khám",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bước 1: Chọn bác sĩ và chuẩn bị trước khi khám",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7c3839f8-464b-4e42-a751-4b098c6766d5",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T02:21:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Chọn bác sĩ và Giữ hẹn trên ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Chọn bác sĩ và Giữ hẹn trên ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "ứng dụng",
+            "link": {
+              "url": "https://wellcare.vn/tai-ung-dung"
+            }
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "ứng dụng",
+          "href": "https://wellcare.vn/tai-ung-dung"
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": " hoặc ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": " hoặc ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "website",
+            "link": {
+              "url": "https://khamtuxa.vn/"
+            }
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "website",
+          "href": "https://khamtuxa.vn/"
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": ". Người dùng cũng có thể yêu cầu hỗ trợ hướng dẫn chọn bác sĩ phù hợp với vấn đề sức khỏe bằng cách nhắn tin cho nhân viên hỗ trợ.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": ". Người dùng cũng có thể yêu cầu hỗ trợ hướng dẫn chọn bác sĩ phù hợp với vấn đề sức khỏe bằng cách nhắn tin cho nhân viên hỗ trợ.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "f38abae6-a9c0-4f93-9d65-6d2912cb3c37",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:48:00.000Z",
+    "last_edited_time": "2024-05-02T01:37:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": true,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Ở các bước đăng ký, người dùng được khuyến nghị cung cấp trước cho bác sĩ thông tin sức khỏe, bao gồm",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Ở các bước đăng ký, người dùng được khuyến nghị cung cấp trước cho bác sĩ thông tin sức khỏe, bao gồm",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": ":",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": ":",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "bbe0815c-eb2e-4e2f-be20-006375a5b30b",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T01:39:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "callout",
+    "callout": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Thông tin càng chi tiết & cụ thể, hiệu quả khám từ xa càng cao.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Thông tin càng chi tiết & cụ thể, hiệu quả khám từ xa càng cao.",
+          "href": null
+        }
+      ],
+      "icon": {
+        "type": "emoji",
+        "emoji": "💡"
+      },
+      "color": "gray_background"
+    }
+  },
+  {
+    "object": "block",
+    "id": "46b2eec2-1097-4168-901e-9f5661d2770a",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T01:42:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bước 2: Trò chuyện cùng bác sĩ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bước 2: Trò chuyện cùng bác sĩ",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "dc0801c0-08b9-447a-b884-2ac6b42beb0f",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:22:00.000Z",
+    "last_edited_time": "2024-05-02T03:07:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bạn cần đảm bảo có kết nối Internet ổn định và một không gian yên tĩnh, riêng tư trước khi bước vào cuộc tư vấn, khám từ xa.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bạn cần đảm bảo có kết nối Internet ổn định và một không gian yên tĩnh, riêng tư trước khi bước vào cuộc tư vấn, khám từ xa.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "3b7fe1ed-aa14-4028-ac83-465d9ea0767d",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T03:07:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bạn cũng cần tải ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bạn cũng cần tải ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "ứng dụng",
+            "link": {
+              "url": "https://wellcare.vn/tai-ung-dung"
+            }
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "ứng dụng",
+          "href": "https://wellcare.vn/tai-ung-dung"
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": ", cấp quyền cho ứng dụng gửi thông báo, sử dụng camera và micro để có thể gọi hoặc nhận cuộc gọi từ bác sĩ và chuyên gia tâm lý.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": ", cấp quyền cho ứng dụng gửi thông báo, sử dụng camera và micro để có thể gọi hoặc nhận cuộc gọi từ bác sĩ và chuyên gia tâm lý.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "c83b0e34-dcb2-417a-978c-53d498dd492b",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:48:00.000Z",
+    "last_edited_time": "2024-05-02T03:17:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Hệ thống hỗ trợ tất cả các hình thức gọi video, gọi Internet và gọi điện thoại truyền thống vào tổng đài dành riêng cho các cuộc khám từ xa.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Hệ thống hỗ trợ tất cả các hình thức gọi video, gọi Internet và gọi điện thoại truyền thống vào tổng đài dành riêng cho các cuộc khám từ xa.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "4bca2219-d19f-4037-a2d0-b98e4bb7db15",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T03:21:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bước 3: Xem Chẩn đoán, Dặn dò về thuốc và chăm sóc",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bước 3: Xem Chẩn đoán, Dặn dò về thuốc và chăm sóc",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "1b719a3c-f181-4e8c-aa4d-591fba74fe34",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T03:47:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sau khi bác sĩ xác nhận đã ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sau khi bác sĩ xác nhận đã ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "'Hoàn tất' ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "'Hoàn tất' ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "ca khám, hệ thống sẽ gửi thông báo trên ứng dụng. Người dùng lúc này có thể xem được Chẩn đoán, Dặn dò và Thuốc gọi ý (nếu có) khi trở vào bệnh án điện tử trên ứng dụng.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "ca khám, hệ thống sẽ gửi thông báo trên ứng dụng. Người dùng lúc này có thể xem được Chẩn đoán, Dặn dò và Thuốc gọi ý (nếu có) khi trở vào bệnh án điện tử trên ứng dụng.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "502fe1ce-b4e9-453f-94de-122107501bd5",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T03:51:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Người dùng cũng có thể chấm điểm và viết góp ý sau mỗi cuộc tư vấn. Định kỳ hàng tuần, các bác sĩ và chuyên gia tâm lý đều đọc kỹ và ghi nhận mọi ý kiến đóng góp của từng ca khám.  ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Người dùng cũng có thể chấm điểm và viết góp ý sau mỗi cuộc tư vấn. Định kỳ hàng tuần, các bác sĩ và chuyên gia tâm lý đều đọc kỹ và ghi nhận mọi ý kiến đóng góp của từng ca khám.  ",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "a57a9517-c394-4895-ad86-3ddc0a5c3c4e",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:14:00.000Z",
+    "last_edited_time": "2024-05-02T03:54:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Chi phí khám online và Hướng dẫn thanh toán:",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Chi phí khám online và Hướng dẫn thanh toán:",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "fb8d6fc0-5f7d-4e21-b96b-d78c7d3a14ca",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-04-26T02:18:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Mức phí khám từ xa bao gồm:",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Mức phí khám từ xa bao gồm:",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "207c1aa5-b35c-4ee8-85ed-c5065cbc482c",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:18:00.000Z",
+    "last_edited_time": "2024-05-02T03:59:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Phí tư vấn bác sĩ - phụ thuộc vào từng lựa chọn: phí khám có sự khác biệt tùy theo năng lực chuyên gia và thời lượng tư vấn dài hay ngắn. Có phụ thu phí khám cho lựa chọn khác, như: gọi video, ngôn ngữ tư vấn bằng tiếng Anh, và cho các ngày lễ tết.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Phí tư vấn bác sĩ - phụ thuộc vào từng lựa chọn: phí khám có sự khác biệt tùy theo năng lực chuyên gia và thời lượng tư vấn dài hay ngắn. Có phụ thu phí khám cho lựa chọn khác, như: gọi video, ngôn ngữ tư vấn bằng tiếng Anh, và cho các ngày lễ tết.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "71381d62-99b0-4997-b294-baa41aeaa96f",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:19:00.000Z",
+    "last_edited_time": "2024-05-02T06:38:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Phí dịch vụ Careteam: một mức phí cố định cho từng cuộc tư vấn. Phí này được miễn cho người dùng có gói thành viên (12 tháng hiệu lực).",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Phí dịch vụ Careteam: một mức phí cố định cho từng cuộc tư vấn. Phí này được miễn cho người dùng có gói thành viên (12 tháng hiệu lực).",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d03a85f2-c4de-4122-b46d-101796e452ec",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:18:00.000Z",
+    "last_edited_time": "2024-05-02T04:09:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Người dùng cần Nạp tiền vào Sổ khám trước khi thanh toán:",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Người dùng cần Nạp tiền vào Sổ khám trước khi thanh toán:",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "1f530cb1-e124-48cc-a4b4-4eaf3e7987bd",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-04-26T02:17:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Ví điện tử Momo, Ví điện tử ZaloPay",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Ví điện tử Momo, Ví điện tử ZaloPay",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "b3c8616a-8f2d-4977-afd8-bd1878b3f8d3",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-04-26T02:17:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Thẻ ATM hoặc Thẻ tín dụng, qua Cổng thanh toán an toàn của Zalopay",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Thẻ ATM hoặc Thẻ tín dụng, qua Cổng thanh toán an toàn của Zalopay",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d3c73eb3-a379-4ee0-bac7-c56c028e2491",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-05-02T04:13:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Chuyển khoản (ghi nội dung chuyển khoản là số điện thoại đã đăng ký) đến tài khoản ngân hàng sau:",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Chuyển khoản (ghi nội dung chuyển khoản là số điện thoại đã đăng ký) đến tài khoản ngân hàng sau:",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "98a6d398-6cb4-4736-8126-17cc6a7699a4",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-05-02T04:10:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "CTCP Cong nghe mHealth - 0261003454806 - ngân hàng Vietcombank, chi nhánh tpHCM",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "CTCP Cong nghe mHealth - 0261003454806 - ngân hàng Vietcombank, chi nhánh tpHCM",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d7a1dd19-b517-45b7-a4bf-54ec8e5ae314",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T02:15:00.000Z",
+    "last_edited_time": "2024-05-03T08:53:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sau khi hệ thống nhận được thanh toán (30 phút với hình thức chuyển khoản), trên ứng dụng sẽ có bệnh án điện tử kèm giờ khám và nút GỌI bác sĩ.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sau khi hệ thống nhận được thanh toán (30 phút với hình thức chuyển khoản), trên ứng dụng sẽ có bệnh án điện tử kèm giờ khám và nút GỌI bác sĩ.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "1f883f28-3cbf-445f-a943-0087a0f5e33a",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:20:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bắt đầu từ đâu? ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bắt đầu từ đâu? ",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "ba3e8f64-9510-4182-8e2f-c9b8ea6e36d2",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:28:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Tải ứng dụng, mở sổ khám",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Tải ứng dụng, mở sổ khám",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "5ebb65e5-3bbf-44bb-ad7e-2e0ebaa78a92",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:35:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sau khi tải ứng dụng, người dùng đăng ký sổ khám bằng số điện thoại, thêm thông tin của mình và người thân. Sổ khám sẽ là nơi lưu trữ bệnh sử cho nhiều thành viên trong gia đình.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Sau khi tải ứng dụng, người dùng đăng ký sổ khám bằng số điện thoại, thêm thông tin của mình và người thân. Sổ khám sẽ là nơi lưu trữ bệnh sử cho nhiều thành viên trong gia đình.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7be486a9-b59f-4dbd-938d-b575cc626a00",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T01:58:00.000Z",
+    "last_edited_time": "2024-05-02T06:37:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Bạn nên đăng ký bằng số điện thoại thường dùng nhất, để hệ thống luôn có thể hỗ trợ và kết nối thành công.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Bạn nên đăng ký bằng số điện thoại thường dùng nhất, để hệ thống luôn có thể hỗ trợ và kết nối thành công.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "7956fd2a-c1b7-437a-bdbf-0681495565bb",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:39:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Trở thành thành viên",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Trở thành thành viên",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "2e4b1c00-42d8-459c-9fd6-de507523a545",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:41:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Đăng ký gói thành viên sẽ giúp người dùng được truy cập toàn bộ kho tri thức và các công cụ chăm sóc và giáo dục sức khỏe, được miễn phí dịch vụ ở mỗi cuộc tư vấn, cũng như nhiều ưu đãi và đặc quyền khác.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Đăng ký gói thành viên sẽ giúp người dùng được truy cập toàn bộ kho tri thức và các công cụ chăm sóc và giáo dục sức khỏe, được miễn phí dịch vụ ở mỗi cuộc tư vấn, cũng như nhiều ưu đãi và đặc quyền khác.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "2e3a1f70-590f-4343-ad16-5bcdadd518fc",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:42:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Doanh nghiệp mua gói phúc lợi sức khỏe cho nhân viên",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Doanh nghiệp mua gói phúc lợi sức khỏe cho nhân viên",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "6d2a94ed-661a-47d4-9abd-4d747fd53fe6",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-04-26T00:33:00.000Z",
+    "last_edited_time": "2024-05-02T06:45:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Các doanh nghiệp cũng có thể đăng ký chương trình phúc lợi sức khỏe cho nhân viên của mình, để nhân viên được hưởng dịch vụ chăm sóc sức khỏe chất lượng cao từ bất cứ nơi nào trên thế giới, giảm bớt áp lực về thời gian và công sức đi lại.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Các doanh nghiệp cũng có thể đăng ký chương trình phúc lợi sức khỏe cho nhân viên của mình, để nhân viên được hưởng dịch vụ chăm sóc sức khỏe chất lượng cao từ bất cứ nơi nào trên thế giới, giảm bớt áp lực về thời gian và công sức đi lại.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "b6cf675d-776b-4da0-8710-079cc8dad854",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-03T09:10:00.000Z",
+    "last_edited_time": "2024-05-03T09:10:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Vui lòng email tới ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Vui lòng email tới ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "xinchao@wellcare.vn",
+            "link": {
+              "url": "mailto:xinchao@wellcare.vn"
+            }
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "xinchao@wellcare.vn",
+          "href": "mailto:xinchao@wellcare.vn"
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": " để được tư vấn hoặc nhận báo giá.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": " để được tư vấn hoặc nhận báo giá.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "08089e91-0fe7-414e-b761-8c0e783506b2",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-03-14T04:16:00.000Z",
+    "last_edited_time": "2024-04-26T01:46:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Câu hỏi thường gặp",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Câu hỏi thường gặp",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "cc396b35-e362-424d-9bcc-734518216593",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T06:39:00.000Z",
+    "last_edited_time": "2024-05-02T07:41:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "child_database",
+    "child_database": {
+      "title": ""
+    }
+  },
+  {
+    "object": "block",
+    "id": "8df0ca44-111a-4f9a-89c5-b9f38bc55d69",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T02:22:00.000Z",
+    "last_edited_time": "2024-05-02T02:23:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Nguồn",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Nguồn",
+          "href": null
+        }
+      ],
+      "is_toggleable": false,
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "e03ab68f-83c0-4f2b-8758-cbcde5a65cb8",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T02:22:00.000Z",
+    "last_edited_time": "2024-05-02T02:22:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Snoswell CL, Chelberg G, De Guzman KR, Haydon HH, Thomas EE, Caffery LJ, Smith AC. The clinical effectiveness of telehealth: A systematic review of meta-analyses from 2010 to 2019. J Telemed Telecare. 2023 Oct;29(9):669-684. doi: 10.1177/1357633X211022907. Epub 2021 Jun 29. PMID: 34184580.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Snoswell CL, Chelberg G, De Guzman KR, Haydon HH, Thomas EE, Caffery LJ, Smith AC. The clinical effectiveness of telehealth: A systematic review of meta-analyses from 2010 to 2019. J Telemed Telecare. 2023 Oct;29(9):669-684. doi: 10.1177/1357633X211022907. Epub 2021 Jun 29. PMID: 34184580.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "4fd57d03-9b7f-450b-9eb9-cb45007dd017",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T02:35:00.000Z",
+    "last_edited_time": "2024-05-02T02:35:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Carrillo de Albornoz S, Sia KL, Harris A. The effectiveness of teleconsultations in primary care: systematic review. Fam Pract. 2022 Jan 19;39(1):168-182. doi: 10.1093/fampra/cmab077. PMID: 34278421; PMCID: PMC8344904.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Carrillo de Albornoz S, Sia KL, Harris A. The effectiveness of teleconsultations in primary care: systematic review. Fam Pract. 2022 Jan 19;39(1):168-182. doi: 10.1093/fampra/cmab077. PMID: 34278421; PMCID: PMC8344904.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "86b534a8-53ac-4a2a-8bde-a0fed53bd24a",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T02:38:00.000Z",
+    "last_edited_time": "2024-05-02T02:38:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Ma, Y., Zhao, C., Zhao, Y. ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Ma, Y., Zhao, C., Zhao, Y. ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "et al.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "et al.",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": " Telemedicine application in patients with chronic disease: a systematic review and meta-analysis. ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": " Telemedicine application in patients with chronic disease: a systematic review and meta-analysis. ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "BMC Med Inform Decis Mak",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": true,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "BMC Med Inform Decis Mak",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": " ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": " ",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": "22",
+            "link": null
+          },
+          "annotations": {
+            "bold": true,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "22",
+          "href": null
+        },
+        {
+          "type": "text",
+          "text": {
+            "content": ", 105 (2022). https://doi.org/10.1186/s12911-022-01845-2",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": ", 105 (2022). https://doi.org/10.1186/s12911-022-01845-2",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "633ddcf7-d408-4aff-ab45-e0eab25e26f0",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T02:38:00.000Z",
+    "last_edited_time": "2024-05-02T02:38:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "numbered_list_item",
+    "numbered_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Xiao Z, Han X. Evaluation of the Effectiveness of Telehealth Chronic Disease Management System: Systematic Review and Meta-analysis. J Med Internet Res. 2023 Apr 27;25:e44256. doi: 10.2196/44256. PMID: 37103993; PMCID: PMC10176143.",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Xiao Z, Han X. Evaluation of the Effectiveness of Telehealth Chronic Disease Management System: Systematic Review and Meta-analysis. J Med Internet Res. 2023 Apr 27;25:e44256. doi: 10.2196/44256. PMID: 37103993; PMCID: PMC10176143.",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "885dcca3-f1a3-4136-9b98-4712ea4335a6",
+    "parent": {
+      "type": "page_id",
+      "page_id": "51b1c982-b62b-4d11-bd19-adf4f35a6ebf"
+    },
+    "created_time": "2024-05-02T07:39:00.000Z",
+    "last_edited_time": "2024-05-02T07:39:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "d96b7091-e2a5-4fbf-a577-4bec593fc492",
+    "parent": {
+      "type": "block_id",
+      "block_id": "f38abae6-a9c0-4f93-9d65-6d2912cb3c37"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T01:37:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Viết mô tả các vấn đề sức khỏe hiện tại & diễn tiến các triệu chứng theo trình tự thời gian;",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Viết mô tả các vấn đề sức khỏe hiện tại & diễn tiến các triệu chứng theo trình tự thời gian;",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "e94e9c2a-0e41-4319-8f98-3b7d23b5b1ca",
+    "parent": {
+      "type": "block_id",
+      "block_id": "f38abae6-a9c0-4f93-9d65-6d2912cb3c37"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T01:38:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Liệt kê những thắc mắc, lo lắng dưới dạng các câu hỏi;",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Liệt kê những thắc mắc, lo lắng dưới dạng các câu hỏi;",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "id": "ab6e8127-98de-41a4-b31e-4302c310073f",
+    "parent": {
+      "type": "block_id",
+      "block_id": "f38abae6-a9c0-4f93-9d65-6d2912cb3c37"
+    },
+    "created_time": "2024-04-26T01:46:00.000Z",
+    "last_edited_time": "2024-05-02T01:39:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "94a0c492-d3ef-4f3d-b4c5-bebe2e813aa1"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "d0f098f4-da63-47b4-9be2-18fa2c185e11"
+    },
+    "has_children": false,
+    "archived": false,
+    "in_trash": false,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Tải các hình ảnh và video clip liên quan, chẳng hạn như: đơn thuốc cũ / X-quang / xét nghiệm / siêu âm / hình ảnh tổn thương da v.v..",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Tải các hình ảnh và video clip liên quan, chẳng hạn như: đơn thuốc cũ / X-quang / xét nghiệm / siêu âm / hình ảnh tổn thương da v.v..",
+          "href": null
+        }
+      ],
+      "color": "default"
+    }
+  }
+]

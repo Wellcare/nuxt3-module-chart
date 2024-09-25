@@ -1,0 +1,13 @@
+node_modules
+dist
+.nuxt
+coverage
+*.log*
+.DS_Store
+.code
+*.iml
+*-lock.*
+templates/*
+playground/assets/*
+playground/.nuxt/*
+playground/node_modules/*

@@ -1,0 +1,44 @@
+{
+    "i18n-ally.localesPaths": ["lang"],
+    "i18n-ally.keystyle": "flat",
+    "cSpell.words": [
+        "alphaonhover",
+        "AVARY",
+        "composables",
+        "descr",
+        "EXIF",
+        "Flowbite",
+        "greyonhovercolor",
+        "minampl",
+        "nuxt",
+        "primeui",
+        "srcsets",
+        "tailwindcss",
+        "topwrapper",
+        "touchless",
+        "uptitle",
+        "userpic",
+        "valign",
+        "Zehring",
+        "primevue",
+        "nuxtjs",
+        "jsdevtools",
+        "vueuse",
+        "changelogen",
+        "muot",
+        "jsonld",
+        "videojs",
+        "primeicons",
+        "DEVTOPS"
+    ],
+    "tailwindCSS.experimental.classRegex": ["tw`(.*?)`", "tw\\('(.*?)'\\)"],
+    "tailwindCSS.experimental.configFile": "./playground/configs/tailwindcss.config.ts",
+    "tailwindCSS.validate": true,
+    "tailwindCSS.emmetCompletions": true,
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+}
