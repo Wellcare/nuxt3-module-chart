@@ -1,26 +1,21 @@
-<script setup lang="ts">
-const { locale, setLocale } = useI18n()
-</script>
-
+<!-- pages/index.vue -->
 <template>
-    <div class="flex h-screen flex-col items-center justify-center">
-        <h1 class="text-primary-500 text-4xl font-bold dark:text-red-600">
-            Welcome to the Home Page
-        </h1>
-        <p class="mt-4 text-lg">
-            This is a simple example of a home page using Vue 3 and Tailwind
-            CSS.
-        </p>
-
-        <p>{{ locale }}</p>
-
-        <Button @click="setLocale('en')">en</Button>
-        <Button @click="setLocale('vi')">vi</Button>
-
-        <p>{{ $t('welcome') }}</p>
-
-        <SwitchDarkMode />
-
-        <WDemo />
-    </div>
+    <Card class="shadow-lg">
+        <template #title>
+            <h1
+                class="text-4xl font-bold uppercase text-gray-900 dark:text-white">
+                {{ $t('welcome') }} Nuxt3-module-chart
+            </h1>
+        </template>
+        <template #content>
+            <p class="mb-4 text-xl text-gray-600 dark:text-gray-400">
+                This is a simple example of a home page using Nuxt 3, Tailwind
+                CSS, and PrimeVue.
+            </p>
+            <Divider />
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Current language: {{ $i18n.locale }}
+            </p>
+        </template>
+    </Card>
 </template>
