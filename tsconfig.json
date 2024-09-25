@@ -1,19 +1,4 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "noImplicitAny": false,
-        "declaration": true,
-        "typeRoots": ["./node_modules/@types/", "./types", "./node_modules"],
-        "types": [
-            "@nuxtjs/i18n",
-            "vite/client",
-            "@nuxt/schema",
-            "@nuxt/devtools",
-            "dayjs-nuxt",
-            // "@pinia/nuxt",
-            "node"
-        ]
-    },
     "extends": "./playground/.nuxt/tsconfig.json",
     "include": ["src", "playground", "build.config.ts"],
     "exclude": [

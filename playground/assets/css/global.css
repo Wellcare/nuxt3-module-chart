@@ -1,69 +1,11 @@
-@layer tailwind-base, primevue, tailwind-utilities;
-
-@layer tailwind-base {
-    @tailwind base;
-}
-
-@layer tailwind-utilities {
-    @tailwind components;
-    @tailwind utilities;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
     font-family: 'Inter', sans-serif;
 }
-@layer base {
-    html,
-    p {
-        line-height: 1.5;
-        font-weight: 400;
-        font-size: 14px;
-    }
-    h1 {
-        @apply mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:mb-4 sm:text-3xl md:mb-5 md:text-4xl xl:mb-6 xl:text-5xl 2xl:text-6xl dark:text-white !important;
-    }
-    h2 {
-        @apply mb-2 text-3xl font-bold tracking-tight text-slate-800 sm:mb-3 md:mb-4 md:text-4xl xl:mb-5 dark:text-white !important;
-    }
-    h3 {
-        @apply mb-2 text-2xl font-semibold tracking-tight text-slate-700 md:mb-3 md:text-3xl xl:mb-4 dark:text-white !important;
-    }
-    h4 {
-        @apply mb-3 text-xl font-semibold tracking-tight text-slate-600 md:text-2xl dark:text-white !important;
-    }
-    h5 {
-        @apply mb-2 text-lg font-medium tracking-tight text-slate-500 md:text-xl dark:text-white !important;
-    }
-}
 
-@layer utilities {
-    .custom-scrollbar {
-        scrollbar-width: thin;
-        scrollbar-color: rgb(var(--bg-gray-300)) #e5e7eb;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #e5e7eb;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: rgb(var(--bg-gray-300));
-        border-radius: 10px;
-        border: 2px solid #e5e7eb;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
-}
 ::selection {
     background: var(--p-primary-500);
     color: #fff;

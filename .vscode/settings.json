@@ -1,6 +1,4 @@
 {
-    "i18n-ally.localesPaths": ["lang"],
-    "i18n-ally.keystyle": "flat",
     "cSpell.words": [
         "alphaonhover",
         "AVARY",
@@ -32,7 +30,7 @@
         "DEVTOPS"
     ],
     "tailwindCSS.experimental.classRegex": ["tw`(.*?)`", "tw\\('(.*?)'\\)"],
-    "tailwindCSS.experimental.configFile": "./playground/configs/tailwindcss.config.ts",
+    "tailwindCSS.experimental.configFile": "./playground/tailwind.config.js",
     "tailwindCSS.validate": true,
     "tailwindCSS.emmetCompletions": true,
     "files.associations": {
@@ -40,5 +38,7 @@
     },
     "editor.quickSuggestions": {
         "strings": true
-    }
+    },
+    "i18n-ally.localesPaths": ["playground/lang", "src/runtime/lang"],
+    "i18n-ally.keystyle": "nested"
 }

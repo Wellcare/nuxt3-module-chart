@@ -10,14 +10,6 @@
         "postinstall": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' nuxt prepare"
     },
     "dependencies": {
-        "@nuxt/image": "^1.7.0",
         "nuxt": "latest"
-    },
-    "devDependencies": {
-        "@nuxtjs/critters": "0.7.1",
-        "@nuxtjs/google-fonts": "3.2.0",
-        "@nuxtjs/i18n": "8.3.1",
-        "@vueuse/nuxt": "10.9.0",
-        "dayjs-nuxt": "2.1.9"
     }
 }

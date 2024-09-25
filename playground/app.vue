@@ -24,10 +24,8 @@ useHead({
 </script>
 
 <template>
-    <NuxtLayout class="bg-white text-black dark:text-white dark:bg-black">
-        <NuxtPage />
-        <Toast />
-    </NuxtLayout>
+    <NuxtLayout />
+    <Toast />
 </template>
 
 <style>
@@ -37,5 +35,15 @@ body,
     height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+html.p-light {
+    background-color: white;
+    color: black;
+}
+
+html.p-dark {
+    background-color: black;
+    color: white;
 }
 </style>
