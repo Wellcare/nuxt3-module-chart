@@ -29,9 +29,9 @@ const toggleMenu = (event: Event) => {
 </script>
 
 <template>
-    <div class="flex min-h-screen flex-col bg-gray-100 dark:bg-gray-900">
+    <div class="flex min-h-screen flex-col">
         <!-- Navigation -->
-        <Menubar class="bg-white p-3 shadow-md dark:bg-gray-800">
+        <Menubar>
             <template #start>
                 <NuxtLink to="/">
                     <img src="/logo.svg" alt="Logo" class="mr-2 h-8" />
