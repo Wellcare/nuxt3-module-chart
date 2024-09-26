@@ -14,26 +14,19 @@ import {
 } from './configs'
 
 dotEnv.config({ path: '../.env' })
-
 const env: any = process.env
+
 export default defineNuxtConfig({
     ssr: false,
+
     runtimeConfig,
 
-    modules: [
-        '@vueuse/nuxt',
-        'nuxt-jsonld',
-        'dayjs-nuxt',
-        '@nuxt/test-utils/module',
-        ['@nuxtjs/google-fonts', googleFont],
-        ['../src/module', module],
-        ['@nuxtjs/i18n', i18n],
-        'nuxt-marquee',
-        '@primevue/nuxt-module',
-        '@nuxtjs/tailwindcss',
-        '@nuxtjs/color-mode',
-        '@nuxt/image',
-    ],
+    devtools: {
+        enabled: env.NUXT_DEVTOOLS_ENABLED === 'true',
+        timeline: {
+            enabled: env.NUXT_DEVTOOLS_TIMELINE_ENABLED === 'true',
+        },
+    },
 
     colorMode: {
         classPrefix: 'p-',
@@ -42,18 +35,35 @@ export default defineNuxtConfig({
 
     css: ['~/assets/css/index.css', 'primeicons/primeicons.css'],
 
-    devtools: {
-        enabled: env.NUXT_DEVTOPS_ENABLED === 'true',
-        timeline: {
-            enabled: env.NUXT_DEVTOPS_TIMELINE_ENABLED === 'true',
-        },
-    },
+    modules: [
+        '@wellcare/nuxt3-module-data-layer',
+        '@vueuse/nuxt',
+        'nuxt-jsonld',
+        'dayjs-nuxt',
+        '@nuxt/test-utils/module',
+        ['@nuxtjs/google-fonts', googleFont],
+        ['../src/module', module],
+        '@nuxtjs/i18n',
+        'nuxt-marquee',
+        '@primevue/nuxt-module',
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/color-mode',
+        '@nuxt/image',
+    ],
+
+    i18n,
 
     app,
+
     nitro,
+
     tailwindcss,
+
     primevue,
+
     image,
+
     vite,
+
     compatibilityDate: '2024-09-25',
 })
