@@ -14,6 +14,7 @@ This is a starter kit for developing Nuxt 3 modules. It provides a basic structu
 -   Auto-import components (customizable)
 -   Integrated Tailwind CSS and PrimeVue 4 (optional)
 -   ESLint and Prettier integration for code quality assurance
+-   Basic sign in oidc with keycloak
 
 ## Quick Setup
 

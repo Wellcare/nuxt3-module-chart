@@ -23,5 +23,5 @@ const icon = computed(() => {
 </script>
 
 <template>
-    <Button :icon="icon" size="small" @click="toggleDark" />
+    <Button :icon="icon" @click="toggleDark" />
 </template>
