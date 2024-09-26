@@ -1,2 +1,2 @@
-export const namespace = 'muot-ui'
+export const namespace = 'nuxt3-module-starter'
 export * from './module.config'

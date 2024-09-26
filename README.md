@@ -1,64 +1,76 @@
-# @wellcare/muot-ui
->
-> UI là phải mượt
->
+# @wellcare/nuxt3-module-starter
 
-[![Build Status](https://ci.mhealthvn.com/api/badges/Wellcare/muot-ui/status.svg)](https://ci.mhealthvn.com/Wellcare/muot-ui)
+> Nơi huyền thoại được sinh ra 🚀
 
-We follow [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/), this repo contain the `molecules` components. It is built from the `atomic` components of the existing tailwind UI frameworks, see [all atomic components here](./docs/atomic-components.md).
+## Introduction
 
-From the perspective of container/presentation or [container/view pattern](https://www.patterns.dev/vue/container-presentational), all the components in this repo fit with the `view layer`.
-
-To build custom component, [refer this this guide](https://tailwind.primevue.org/guides/building-ui-library/).
-
-### Test Coverage
-
-| Statements                                                                         | Branches                                                                       | Functions                                                                        | Lines                                                                    |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| ![Statements](https://img.shields.io/badge/statements-42.45%25-red.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-100%25-brightgreen.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-16.66%25-red.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-42.45%25-red.svg?style=flat) |
+This is a starter kit for developing Nuxt 3 modules. It provides a basic structure and essential tools to help you quickly begin building your own Nuxt 3 module.
 
 ## Features
-  - Follow Atomic Design
--   TailwindCSS
--   Components extended from PrimeVue (and other popular component libraries) 
--   Auto Imports, customizable prefix (default `w`)
 
-## Quick setup
+-   Basic Nuxt 3 module structure
+-   TypeScript support
+-   Built-in testing with Vitest
+-   Auto-import components (customizable)
+-   Integrated Tailwind CSS and PrimeVue 4 (optional)
+-   ESLint and Prettier integration for code quality assurance
 
-1. Add `@wellcare/muot-ui` dependency to your project
+## Quick Setup
 
-```bash
-pnpm install @wellcare/muot-ui
-```
+1. Clone this repository
+2. Install dependencies:
+    ```bash
+    pnpm install
+    ```
+3. Develop your module in the `src` directory
 
-2. Add `@wellcare/muot-ui` to the `modules` section of `nuxt.config.js`
+## Usage in a Nuxt Project
+
+1. Add the module to your Nuxt project:
+    ```bash
+    pnpm add -D @wellcare/nuxt3-module-starter
+    ```
+2. Add the module to your `nuxt.config.ts`:
+    ```js
+    export default defineNuxtConfig({
+        modules: ['@wellcare/nuxt3-module-starter'],
+    })
+    ```
+
+## Configuration
+
+You can configure the module by adding a `nuxt3-module-starter` object in your `nuxt.config.ts`:
 
 ```js
-{
-  modules: [
-    '@wellcare/muot-ui',
-  ],
-}
-```
-
-## Options
-
-You can override the `@wellcare/muot-ui` defaults like this:
-
-```js
-// nuxt.config.js
-import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
-    modules: ['@wellcare/muot-ui'],
-    'muot-ui': {
-        prefix: 'w',
-        level: 1
+    modules: ['@wellcare/nuxt3-module-starter'],
+    'nuxt3-module-starter': {
+        // Your options here
+        prefix: 'custom',
+        // ...
     },
 })
 ```
 
 ## Development
 
-1. Clone this repository
-2. Install dependencies using `pnpm install`
-3. Start development server using `pnpm dev`
+1. Run the development environment:
+    ```bash
+    pnpm dev
+    ```
+2. Run tests:
+    ```bash
+    pnpm test
+    ```
+3. Lint code:
+    ```bash
+    pnpm lint
+    ```
+
+## Contributing
+
+We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+
+## License
+
+[MIT License](LICENSE)

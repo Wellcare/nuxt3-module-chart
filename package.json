@@ -1,7 +1,7 @@
 {
-    "name": "@wellcare/muot-ui",
+    "name": "@wellcare/nuxt3-module-starter",
     "version": "0.3.2",
-    "description": "MuotUI - Làm UI là phải mượt",
+    "description": "Nơi huyền thoại được sinh ra 🚀",
     "keywords": [
         "nuxt",
         "module",
@@ -9,8 +9,8 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wellcare/muot-ui.git",
-        "directory": "packages/muot-ui"
+        "url": "git+https://github.com/wellcare/nuxt3-module-starter.git",
+        "directory": "packages/nuxt3-module-starter"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
