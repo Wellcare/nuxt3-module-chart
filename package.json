@@ -67,6 +67,7 @@
         "@nuxtjs/google-fonts": "3.2.0",
         "@nuxtjs/i18n": "^8.3.1",
         "@nuxtjs/tailwindcss": "^6.12.1",
+        "@pinia/nuxt": "^0.5.4",
         "@primevue/nuxt-module": "^4.0.7",
         "@testing-library/vue": "8.0.3",
         "@types/node": "20.12.7",
