@@ -15,12 +15,4 @@ module.exports = {
         './error.vue',
     ],
     plugins: [primeui],
-    theme: {
-        extend: {
-            colors: {
-                primary: 'var(--p-primary-500)',
-                surface: 'var(--p-surface-500)',
-            },
-        },
-    },
 }

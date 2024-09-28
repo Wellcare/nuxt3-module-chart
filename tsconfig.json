@@ -1,4 +1,7 @@
 {
+    "compilerOptions": {
+        "types": ["vite/client"]
+    },
     "extends": "./playground/.nuxt/tsconfig.json",
     "include": ["src", "playground", "build.config.ts"],
     "exclude": [
