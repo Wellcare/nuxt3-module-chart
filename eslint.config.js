@@ -11,10 +11,7 @@ export default createConfigForNuxt({
     },
 }).append(
     {
-        ignores: [
-            'playground/assets/presets/primary/**/*.js',
-            'playground/assets/presets/aura/**/*.js',
-        ],
+        ignores: ['playground/assets/**'],
     },
     {
         files: ['src/**', 'playground/**'],
