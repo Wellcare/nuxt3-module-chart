@@ -32,9 +32,9 @@
     "scripts": {
         "build:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
         "dev:build": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' nuxi build playground",
-        "dev": "cd playground && cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' nuxi dev -o -p 3000 --host && pnpm lint",
-        "lint:all": "pnpm lint .",
-        "lint": "eslint .",
+        "dev": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' && pnpm lint && cd playground && nuxi dev -o -p 3000 --host ",
+        "lint:all": "eslint .",
+        "lint": "eslint src playground",
         "lint:fix": "pnpm lint --fix",
         "prepack": "nuxt-module-build build",
         "prepare": "husky && cd playground && nuxi prepare",
