@@ -3,7 +3,7 @@ import {
     addComponentsDir,
     addImportsDir,
     addPlugin,
-    addTypeTemplate,
+    addTemplate,
     createResolver,
     defineNuxtModule,
     installModule,
@@ -156,31 +156,25 @@ export default defineNuxtModule<ModuleOptions>({
         addDirs()
 
         // ==================== TYPE EXPORTS ====================
-        const exportTypes = () => {
-            const typeDirectories = ['models', 'types']
-            let typeExports = ''
+        const templateClient = addTemplate({
+            filename: `types/${namespace}.d.ts`,
+            getContents: () => `
+                import type * as types from '${resolve('./runtime/types')}'
 
-            typeDirectories.forEach((dir) => {
-                const typePath = resolve(`./runtime/${dir}`)
-                if (existsSync(typePath) && statSync(typePath).isDirectory()) {
-                    readdirSync(typePath).forEach((file) => {
-                        if (file.endsWith('.ts')) {
-                            const typeName = file.replace('.ts', '')
-                            typeExports += `export * from '${namespace}/runtime/${dir}/${typeName}'\n`
-                        }
-                    })
+                declare module '@nuxt/schema' {
+                    interface NuxtConfig {
+                        nuxt3ModuleStarter?: types.ModuleOptions
+                    }
                 }
-            })
 
-            // Add type template
-            addTypeTemplate({
-                filename: `types/${namespace}.d.ts`,
-                getContents: () => typeExports,
-            })
+                declare global {
+                    export type ModuleOptions = types.ModuleOptions
+                }`,
+        })
 
-            log('Type exports added', 'success')
-        }
-        exportTypes()
+        nuxt.hook('prepare:types', ({ references }) => {
+            references.push({ path: templateClient.dst })
+        })
 
         // ==================== NITRO CONFIG ====================
         nuxt.hook('nitro:config', (nitroConfig) => {
