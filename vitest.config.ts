@@ -1,24 +1,10 @@
-import { defineVitestConfig } from '@nuxt/test-utils/config'
+import { defineConfig } from 'vitest/config'
 
-export default defineVitestConfig({
-    root: '.',
+export default defineConfig({
     test: {
-        globals: true,
-        css: true,
-        mockReset: true,
-        restoreMocks: true,
-        clearMocks: true,
-        include: ['./tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         coverage: {
-            exclude: ['./src/config'],
-            include: ['src/runtime/composables'],
+            include: ['src'],
             reporter: ['text', 'json', 'html', 'lcov'],
-            reportsDirectory: './coverage',
-        },
-        alias: {
-            '@/*': './*',
-            '~/*': './*',
-            '@runtime/*': './runtime',
         },
     },
 })
