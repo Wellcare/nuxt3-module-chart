@@ -13,7 +13,7 @@ import {
     vite,
 } from './configs'
 
-dotEnv.config({ path: '../.env' })
+dotEnv.config({ path: './.env' })
 const env: any = process.env
 
 export default defineNuxtConfig({

@@ -18,3 +18,32 @@ body {
     background: rgb(var(--p-primary-500));
     color: #fff;
 }
+
+@layer components {
+    h1 {
+        @apply text-4xl font-bold tracking-tight md:text-5xl;
+    }
+
+    h2 {
+        @apply text-3xl font-bold tracking-tight md:text-4xl;
+    }
+
+    h3 {
+        @apply text-2xl font-medium md:text-3xl;
+    }
+
+    h4 {
+        @apply text-xl font-medium md:text-2xl;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    .card {
+        @apply rounded-lg bg-[var(--p-surface-50)] p-3 dark:bg-[var(--p-surface-900)];
+    }
+    .link {
+        @apply underline decoration-transparent underline-offset-2 transition hover:text-[var(--p-primary-500)] hover:decoration-[var(--p-primary-500)];
+    }
+}

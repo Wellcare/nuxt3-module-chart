@@ -1,1 +1,1 @@
-
+export * from './observation.model'
