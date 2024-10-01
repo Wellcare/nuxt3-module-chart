@@ -18,7 +18,7 @@ import {
     writeFileSync,
 } from 'node:fs'
 import { join } from 'node:path'
-import { namespace } from './runtime/configs'
+import { namespace, validate } from './runtime/configs'
 import type { ModuleOptions } from './runtime/types'
 
 export default defineNuxtModule<ModuleOptions>({
@@ -37,17 +37,20 @@ export default defineNuxtModule<ModuleOptions>({
         ) => logger[type](`[${namespace}] ${message}`)
         const { resolve } = createResolver(import.meta.url)
         const runtimeDir = resolve('./runtime')
+        console.log(nuxt.options.srcDir)
+
+        nuxt.options.build.transpile.push('primevue')
 
         // ==================== CONFIG VALIDATION ====================
-        // if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {
-        //     validate({
-        //         buildConfig: options,
-        //         runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
-        //         publicRuntimeConfig: nuxt.options.runtimeConfig.public[
-        //             namespace
-        //         ] as any,
-        //     })
-        // }
+        if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {
+            validate({
+                buildConfig: options,
+                runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
+                publicRuntimeConfig: nuxt.options.runtimeConfig.public[
+                    namespace
+                ] as any,
+            })
+        }
 
         nuxt.options.css.push(resolve('./runtime/assets/styles.css'))
 
@@ -61,6 +64,10 @@ export default defineNuxtModule<ModuleOptions>({
                         resolve('./runtime/components/**/*.{vue,mjs,ts}'),
                         resolve('./runtime/pages/**/*.{vue,mjs,ts}'),
                         resolve('./runtime/*.{mjs,js,ts}'),
+                        join(
+                            nuxt.options.srcDir,
+                            'assets/presets/**/*.{js,vue,ts}',
+                        ),
                     ],
                 },
             },

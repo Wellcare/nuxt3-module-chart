@@ -5,5 +5,8 @@ export const primevue: any = {
         unstyled: true,
     },
     autoImport: true,
+    directives: {
+        include: '*',
+    },
     importPT: { from: path.resolve(__dirname, '../assets/presets/aura/') },
 }
