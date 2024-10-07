@@ -3,7 +3,7 @@ import {
     addComponentsDir,
     addImportsDir,
     addPlugin,
-    addTypeTemplate,
+    addTemplate,
     createResolver,
     defineNuxtModule,
     installModule,
@@ -18,7 +18,7 @@ import {
     writeFileSync,
 } from 'node:fs'
 import { join } from 'node:path'
-import { namespace } from './runtime/configs'
+import { namespace, validate } from './runtime/configs'
 import type { ModuleOptions } from './runtime/types'
 
 export default defineNuxtModule<ModuleOptions>({
@@ -37,17 +37,20 @@ export default defineNuxtModule<ModuleOptions>({
         ) => logger[type](`[${namespace}] ${message}`)
         const { resolve } = createResolver(import.meta.url)
         const runtimeDir = resolve('./runtime')
+        console.log(nuxt.options.srcDir)
+
+        nuxt.options.build.transpile.push('primevue')
 
         // ==================== CONFIG VALIDATION ====================
-        // if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {
-        //     validate({
-        //         buildConfig: options,
-        //         runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
-        //         publicRuntimeConfig: nuxt.options.runtimeConfig.public[
-        //             namespace
-        //         ] as any,
-        //     })
-        // }
+        if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {
+            validate({
+                buildConfig: options,
+                runtimeConfig: nuxt.options.runtimeConfig[namespace] as any,
+                publicRuntimeConfig: nuxt.options.runtimeConfig.public[
+                    namespace
+                ] as any,
+            })
+        }
 
         nuxt.options.css.push(resolve('./runtime/assets/styles.css'))
 
@@ -61,6 +64,10 @@ export default defineNuxtModule<ModuleOptions>({
                         resolve('./runtime/components/**/*.{vue,mjs,ts}'),
                         resolve('./runtime/pages/**/*.{vue,mjs,ts}'),
                         resolve('./runtime/*.{mjs,js,ts}'),
+                        join(
+                            nuxt.options.srcDir,
+                            'assets/presets/**/*.{js,vue,ts}',
+                        ),
                     ],
                 },
             },
@@ -156,31 +163,25 @@ export default defineNuxtModule<ModuleOptions>({
         addDirs()
 
         // ==================== TYPE EXPORTS ====================
-        const exportTypes = () => {
-            const typeDirectories = ['models', 'types']
-            let typeExports = ''
+        const templateClient = addTemplate({
+            filename: `types/${namespace}.d.ts`,
+            getContents: () => `
+                import type * as types from '${resolve('./runtime/types')}'
 
-            typeDirectories.forEach((dir) => {
-                const typePath = resolve(`./runtime/${dir}`)
-                if (existsSync(typePath) && statSync(typePath).isDirectory()) {
-                    readdirSync(typePath).forEach((file) => {
-                        if (file.endsWith('.ts')) {
-                            const typeName = file.replace('.ts', '')
-                            typeExports += `export * from '${namespace}/runtime/${dir}/${typeName}'\n`
-                        }
-                    })
+                declare module '@nuxt/schema' {
+                    interface NuxtConfig {
+                        nuxt3ModuleStarter?: types.ModuleOptions
+                    }
                 }
-            })
 
-            // Add type template
-            addTypeTemplate({
-                filename: `types/${namespace}.d.ts`,
-                getContents: () => typeExports,
-            })
+                declare global {
+                    export type ModuleOptions = types.ModuleOptions
+                }`,
+        })
 
-            log('Type exports added', 'success')
-        }
-        exportTypes()
+        nuxt.hook('prepare:types', ({ references }) => {
+            references.push({ path: templateClient.dst })
+        })
 
         // ==================== NITRO CONFIG ====================
         nuxt.hook('nitro:config', (nitroConfig) => {

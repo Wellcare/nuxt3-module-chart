@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface BaseRuntimeConfig {}
-export interface BasePublicRuntimeConfig {}
+export interface BasePublicRuntimeConfig {
+    socketEndPoint: string
+}
 
 declare module 'nuxt/schema' {
     interface RuntimeConfig {
@@ -17,5 +19,4 @@ declare module 'nuxt/schema' {
 export interface ModuleOptions {
     // Options passed directly
     prefix?: string
-    css?: boolean
 }
