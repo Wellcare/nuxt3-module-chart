@@ -2,5 +2,15 @@
   "welcome": "welcome",
   "hello word": "Hello word",
   "sign in": "Sign in",
-  "sign out": "Sign out"
+  "sign out": "Sign out",
+  "updated": "Updated",
+  "weight": "Weight",
+  "height": "Height",
+  "bmi": "BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "person_height": "Height",
+  "person_weight": "Weight",
+  "person_head_circumference": "Head Circumference",
+  "person_bmi": "BMI"
 }

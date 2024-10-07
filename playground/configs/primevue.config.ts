@@ -6,7 +6,7 @@ export const primevue: any = {
     },
     autoImport: true,
     directives: {
-        include: '*',
+        include: ['Ripple', 'Tooltip'],
     },
     importPT: { from: path.resolve(__dirname, '../assets/presets/aura/') },
 }

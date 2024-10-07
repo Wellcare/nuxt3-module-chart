@@ -107,5 +107,5 @@ const data = {
 </script>
 
 <template>
-    <WChart component-id="chart-1" :data="data" />
+    <WChartCommon component-id="chart-1" :data="data" />
 </template>

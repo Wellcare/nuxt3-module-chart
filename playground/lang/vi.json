@@ -2,5 +2,15 @@
   "welcome": "chào mừng",
   "hello word": "Xin chào thế giới",
   "sign in": "Đăng nhập",
-  "sign out": "Đăng xuất"
+  "sign out": "Đăng xuất",
+  "updated": "Cập nhật",
+  "weight": "Cân nặng",
+  "height": "Chiều cao",
+  "bmi": "Chỉ số BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "person_height": "Chiều cao",
+  "person_weight": "Cân nặng",
+  "person_head_circumference": "Chu vi đầu",
+  "person_bmi": "Chỉ số BMI"
 }
