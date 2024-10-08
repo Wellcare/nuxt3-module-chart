@@ -4,10 +4,6 @@
     "bmi": "BMI",
     "kg": "kg",
     "cm": "cm",
-    "person_height": "Height",
-    "person_weight": "Weight",
-    "person_head_circumference": "Head Circumference",
-    "person_bmi": "BMI",
     "updated": "Updated",
     "submit": "Submit"
 }
