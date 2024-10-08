@@ -6,8 +6,8 @@ import {
     addTemplate,
     createResolver,
     defineNuxtModule,
-    installModule,
     useLogger,
+    type Resolver,
 } from '@nuxt/kit'
 import {
     copyFileSync,
@@ -18,8 +18,20 @@ import {
     writeFileSync,
 } from 'node:fs'
 import { join } from 'node:path'
+
 import { namespace, validate } from './runtime/configs'
 import type { ModuleOptions } from './runtime/types'
+// Use import() for Tailwind Config type
+interface TailwindConfig {
+    content: any
+}
+
+// Extend NuxtHooks to include the tailwindcss:config hook
+declare module '@nuxt/schema' {
+    interface NuxtHooks {
+        'tailwindcss:config': (config: Partial<TailwindConfig>) => void
+    }
+}
 
 export default defineNuxtModule<ModuleOptions>({
     meta: {
@@ -52,27 +64,40 @@ export default defineNuxtModule<ModuleOptions>({
             })
         }
 
-        nuxt.options.css.push(resolve('./runtime/assets/styles.css'))
+        // Updated Tailwind configuration approach
+        const configureTailwind = (
+            tailwindConfig: Partial<TailwindConfig>,
+            srcResolver: Resolver,
+        ) => {
+            const runtimeDir = srcResolver.resolve('./runtime')
 
-        await installModule('@nuxtjs/tailwindcss', {
-            // module configuration
-            exposeConfig: true,
-            config: {
-                darkMode: ['selector', '[class*="p-dark"]'],
-                content: {
-                    files: [
-                        resolve('./runtime/components/**/*.{vue,mjs,ts}'),
-                        resolve('./runtime/pages/**/*.{vue,mjs,ts}'),
-                        resolve('./runtime/*.{mjs,js,ts}'),
-                        join(
-                            nuxt.options.srcDir,
-                            'assets/presets/**/*.{js,vue,ts}',
-                        ),
-                    ],
-                },
+            // in case 'content: undefined' which is highly unlikely, we provide default value
+            tailwindConfig.content = tailwindConfig.content ?? { files: [] }
+
+            const contentPaths = [
+                srcResolver.resolve(runtimeDir, 'components/**/*.{vue,mjs,ts}'),
+                srcResolver.resolve(runtimeDir, 'config/**/*.{vue,mjs,ts}'),
+                join(nuxt.options.srcDir, 'assets/presets/**/*.{js,vue,ts}'),
+            ]
+
+            if (Array.isArray(tailwindConfig.content)) {
+                // content: string[]
+                tailwindConfig.content.push(...contentPaths)
+            } else {
+                tailwindConfig.content.files.push(...contentPaths)
+            }
+        }
+
+        // Apply Tailwind configuration
+        nuxt.hooks.hook(
+            'tailwindcss:config',
+            (tailwindConfig: Partial<TailwindConfig>) => {
+                configureTailwind(
+                    tailwindConfig,
+                    createResolver(import.meta.url),
+                )
             },
-        })
-
+        )
         // ==================== RUNTIME SETUP ====================
         nuxt.options.build.transpile.push(runtimeDir)
         log('Runtime directory transpiled', 'success')
