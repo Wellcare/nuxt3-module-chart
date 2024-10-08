@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, useObservations } from '#imports'
 import type { Observation } from '../../models'
-import type { IBodyIndexCard } from '../internal/BodyIndex/Card.vue'
-import BodyIndexCard from '../internal/BodyIndex/Card.vue'
+import type { IBodyIndexCard } from '../internal/BodyIndex/card.vue'
+import BodyIndexCard from '../internal/BodyIndex/card.vue'
 import WrapperDynamicForm from '../internal/BodyIndex/Form/index.vue'
 
 // Props
