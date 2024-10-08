@@ -4,7 +4,6 @@ import {
     app,
     googleFont,
     i18n,
-    image,
     module,
     nitro,
     primevue,
@@ -62,8 +61,6 @@ export default defineNuxtConfig({
     tailwindcss,
 
     primevue,
-
-    image,
 
     vite,
 
