@@ -30,14 +30,14 @@
         "dist"
     ],
     "scripts": {
-        "build:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
+        "build:prepare": "nuxt-module-build build",
         "dev:build": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' && pnpm lint && nuxi build playground",
         "dev": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' && pnpm lint && nuxi dev playground -o -p 3000 --host ",
         "lint:all": "eslint .",
         "lint": "eslint src playground",
         "lint:fix": "pnpm lint --fix",
         "prepack": "nuxt-module-build build",
-        "prepare": "husky && cd playground && nuxi prepare",
+        "prepare": "husky && nuxi prepare playground",
         "readme:coverage": "istanbul-badges-readme",
         "release": "bump && pnpm publish",
         "test:ci": "vitest run --coverage.enabled --coverage.reporter='json-summary'",
