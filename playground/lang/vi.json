@@ -1,9 +1,8 @@
 {
-  "welcome": "chào mừng",
-  "hello word": "Xin chào thế giới",
-  "sign in": "Đăng nhập",
-  "sign out": "Đăng xuất",
-  "updated": "Cập nhật",
+  "error": "Lỗi",
+  "warning": "Cảnh báo",
+  "info": "Thông tin",
+  "success": "Thành công",
   "weight": "Cân nặng",
   "height": "Chiều cao",
   "bmi": "Chỉ số BMI",
@@ -12,5 +11,9 @@
   "person_height": "Chiều cao",
   "person_weight": "Cân nặng",
   "person_head_circumference": "Chu vi đầu",
-  "person_bmi": "Chỉ số BMI"
+  "person_bmi": "Chỉ số BMI",
+  "updated": "Cập nhật",
+  "observationDate": "Ngày",
+  "headCircumference": "Chu vi vòng đầu",
+  "submit": "Gửi"
 }

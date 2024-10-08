@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { computed, onMounted, useObservations } from '#imports'
+import { computed, onMounted, ref, useObservations } from '#imports'
 import type { Observation } from '../../models'
 import type { IBodyIndexCard } from '../internal/BodyIndex/Card.vue'
 import BodyIndexCard from '../internal/BodyIndex/Card.vue'
+import WrapperDynamicForm from '../internal/BodyIndex/Form/index.vue'
 
-const { userId } = defineProps({
-    userId: {
-        type: String,
-        default: '',
-    },
-})
+// Props
+interface Props {
+    userId: string
+}
 
+const { userId } = defineProps<Props>()
+
+// Refs
+const wrapperDynamicFormRef = ref<InstanceType<typeof WrapperDynamicForm>>()
+
+// Observations Hook Response
 const { observations, isLoading, subscribe } = useObservations({
     userId: userId,
     initialQuery: {
@@ -28,6 +33,7 @@ const { observations, isLoading, subscribe } = useObservations({
     },
 })
 
+// Computed for Adapted Observations
 const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     if (observations.value) {
         return adaptVitalSigns(observations.value.results)
@@ -35,6 +41,7 @@ const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     return defaultCards
 })
 
+// Function for icon and color
 const getIconAndColor = (
     key: string,
 ): { icon: string; bgColor: string; iconColor: string } => {
@@ -72,6 +79,7 @@ const getIconAndColor = (
     }
 }
 
+// Default cards array
 const defaultCards: IBodyIndexCard[] = [
     {
         _id: '',
@@ -115,6 +123,7 @@ const defaultCards: IBodyIndexCard[] = [
     },
 ]
 
+// Adapting vital signs
 const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     return defaultCards.map((card) => {
         const obs = rawObservations.find((o) => o.key === card.key)
@@ -130,21 +139,30 @@ const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     })
 }
 
+// Handling form additions
+const handleAdd = (label: IBodyIndexCard['typeChart']) => {
+    wrapperDynamicFormRef.value?.open(label)
+}
+
+// Emits
 defineEmits(['click', 'add'])
 
+// Lifecycle hook
 onMounted(() => {
     subscribe()
 })
 </script>
 
 <template>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <BodyIndexCard
-            v-for="item in adaptedObservations"
-            :key="item._id || item.key"
-            :body-index="item"
-            :loading="isLoading"
-            @add="(data) => $emit('add', data)"
-            @click="(data) => $emit('click', data)" />
-    </div>
+    <WrapperDynamicForm ref="wrapperDynamicFormRef">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <BodyIndexCard
+                v-for="item in adaptedObservations"
+                :key="item._id || item.key"
+                :body-index="item"
+                :loading="isLoading"
+                @add="handleAdd"
+                @click="(data) => $emit('click', data)" />
+        </div>
+    </WrapperDynamicForm>
 </template>

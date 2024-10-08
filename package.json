@@ -78,6 +78,7 @@
         "@vue/test-utils": "2.4.5",
         "@vueuse/nuxt": "^11.1.0",
         "@wellcare/nuxt3-module-data-layer": "^0.6.2",
+        "@wellcare/muot-ui": "^0.3.5",
         "changelogen": "0.5.5",
         "cross-env": "7.0.3",
         "dayjs-nuxt": "2.1.11",

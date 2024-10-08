@@ -8,5 +8,8 @@
     "person_weight": "Cân nặng",
     "person_head_circumference": "Chu vi đầu",
     "person_bmi": "Chỉ số BMI",
-    "updated": "Cập nhật"
+    "updated": "Cập nhật",
+    "observationDate": "Ngày",
+    "headCircumference": "Chu vi vòng đầu",
+    "submit": "Gửi"
 }

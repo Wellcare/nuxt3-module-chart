@@ -93,12 +93,8 @@
             :popup="true" />
 
         <!-- Main content -->
-        <div
-            class="mx-auto w-full max-w-7xl flex-grow px-4 py-6 sm:px-6 lg:px-8">
-            <div class="py-6">
-                <NuxtPage />
-            </div>
-        </div>
+
+        <NuxtPage />
 
         <!-- Footer -->
         <footer class="dark:bg-surface-900 mt-auto bg-white shadow-md">

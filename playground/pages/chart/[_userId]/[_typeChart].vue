@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+    middleware: 'auth',
+})
+
 const route = useRoute()
 
 const chartType = computed(() => {
@@ -9,5 +13,5 @@ const chartType = computed(() => {
 </script>
 
 <template>
-    <WChart :type="chartType" />
+    <div class="p-6"><WChart :type="chartType" /></div>
 </template>

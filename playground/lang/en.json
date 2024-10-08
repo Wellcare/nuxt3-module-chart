@@ -1,9 +1,8 @@
 {
-  "welcome": "welcome",
-  "hello word": "Hello word",
-  "sign in": "Sign in",
-  "sign out": "Sign out",
-  "updated": "Updated",
+  "error": "Error message",
+  "warning": "Warning message",
+  "info": "Info message",
+  "success": "Success message",
   "weight": "Weight",
   "height": "Height",
   "bmi": "BMI",
@@ -12,5 +11,9 @@
   "person_height": "Height",
   "person_weight": "Weight",
   "person_head_circumference": "Head Circumference",
-  "person_bmi": "BMI"
+  "person_bmi": "BMI",
+  "updated": "Updated",
+  "observationDate": "Observation Date",
+  "headCircumference": "Head Circumference",
+  "submit": "Submit"
 }

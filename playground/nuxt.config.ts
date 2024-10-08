@@ -37,6 +37,7 @@ export default defineNuxtConfig({
 
     modules: [
         '@wellcare/nuxt3-module-data-layer',
+        '@wellcare/muot-ui',
         '@vueuse/nuxt',
         'nuxt-jsonld',
         'dayjs-nuxt',

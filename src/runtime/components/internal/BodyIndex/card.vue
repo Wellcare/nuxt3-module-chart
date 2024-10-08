@@ -47,7 +47,7 @@ watch(locale, (newLocale) => {
 
 const handleAdd = (event: Event) => {
     event.stopPropagation()
-    emit('add', props.bodyIndex.key)
+    emit('add', props.bodyIndex.typeChart)
 }
 
 const handleClick = () => {
@@ -87,7 +87,7 @@ const formattedLastUpdated = computed(() => {
                         :class="[bodyIndex.icon, bodyIndex.iconColor]"
                         :size="20" />
                     <Skeleton v-if="loading" width="80px" height="16px" />
-                    <p v-else class="m-0 text-sm font-semibold">
+                    <p v-else class="m-0 text-sm font-semibold text-black">
                         {{ t(bodyIndex.label) }}
                     </p>
                 </div>
