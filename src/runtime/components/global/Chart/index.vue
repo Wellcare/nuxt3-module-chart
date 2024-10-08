@@ -1,65 +1,50 @@
 <script setup lang="ts">
-import type { PropType } from '#imports'
-import { computed, onMounted } from '#imports'
-import { vega } from '../../../configs'
+import type { Component } from '#imports'
+import { computed, defineAsyncComponent, markRaw } from '#imports'
 
-const props = defineProps({
-    componentId: {
-        type: String,
-        required: true,
-    },
-    data: {
-        type: Object,
-        required: true,
-    },
-    type: {
-        type: String as PropType<'line' | 'bar' | 'gauge'>,
-        default: '',
-    },
-    isNullData: {
-        type: Boolean,
-        default: false,
-    },
-})
+const props = defineProps<{
+    type: string
+}>()
 
-const dataVega = computed(() => (props.isNullData ? {} : props.data))
+const componentMap: Record<string, () => Promise<Component>> = {
+    percentile: () => import('../Chart/Percentile/index.vue'),
+    // Add more components here as needed
+}
 
-const render = async () => {
-    const vegaScripts = [
-        'https://cdn.jsdelivr.net/npm/vega@5',
-        'https://cdn.jsdelivr.net/npm/vega-lite@5',
-        'https://cdn.jsdelivr.net/npm/vega-embed@6',
-    ]
-
-    for (const script of vegaScripts) {
-        await loadScript(script)
+const component = computed(() => {
+    if (!props.type) {
+        return null
     }
 
-    vegaEmbed(
-        `#${props.componentId}`,
-        { ...dataVega.value, config: vega.config },
-        { actions: false, renderer: 'svg' },
+    const asyncComponent = componentMap[props.type]
+    if (!asyncComponent) {
+        console.warn(`Unknown component type: ${props.type}`)
+        return null
+    }
+
+    return markRaw(
+        defineAsyncComponent({
+            loader: asyncComponent,
+            // Add error and loading handling
+            onError: (error, retry, fail, attempts) => {
+                if (attempts <= 3) {
+                    retry()
+                } else {
+                    console.error(
+                        `Failed to load component: ${props.type}`,
+                        error,
+                    )
+                    fail()
+                }
+            },
+        }),
     )
-}
-
-const loadScript = (src: string): Promise<void> => {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = src
-        script.onload = () => resolve()
-        script.onerror = () =>
-            reject(new Error(`Failed to load script: ${src}`))
-        document.head.appendChild(script)
-    })
-}
-
-onMounted(() => {
-    render()
 })
 </script>
 
 <template>
-    <div :id="componentId" />
+    <component :is="component" v-if="component" />
+    <div v-else-if="type && !component" class="error-message">
+        Unknown component type: {{ type }}
+    </div>
 </template>
-
-<style scoped></style>

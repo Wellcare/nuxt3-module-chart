@@ -12,7 +12,7 @@ import { OBSERVATION_URL } from '../constants'
 import type { Observation, QueryObs } from '../models'
 
 interface ObservationOptions {
-    userId: string | Ref<string>
+    userId?: string | Ref<string>
     initialQuery?: Partial<QueryObs>
 }
 
@@ -26,7 +26,7 @@ export const useObservations = ({
 }: ObservationOptions) => {
     const { $fetchWellcare } = useNuxtApp()
 
-    const computedUserId = computed<string>(() => unref(userId))
+    const computedUserId = computed<string>(() => (userId ? unref(userId) : ''))
 
     const query = ref<QueryObs>({
         filter: initialQuery.filter ?? {},
@@ -66,7 +66,7 @@ export const useObservations = ({
         {
             server: false,
             lazy: true,
-            immediate: true,
+            immediate: !!userId,
             deep: true,
             watch: [computedUserId, query],
         },

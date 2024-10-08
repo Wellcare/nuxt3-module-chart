@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Layout from '../Common/Layout.vue'
+import Chart from '../Common/index.vue'
 const data = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
     description:
@@ -107,5 +109,9 @@ const data = {
 </script>
 
 <template>
-    <WChartCommon component-id="chart-1" :data="data" />
+    <Layout>
+        <template #body>
+            <Chart component-id="chart-1" :data="data" />
+        </template>
+    </Layout>
 </template>
