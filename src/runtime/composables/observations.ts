@@ -20,10 +20,23 @@ interface ResponseObs {
     results: Observation[]
 }
 
+interface UseObservationsReturn {
+    observations: Ref<ResponseObs | null>
+    query: Ref<QueryObs>
+    updateQuery: (newParams: Partial<QueryObs>) => void
+    importCreate: (data: Observation[]) => Promise<void>
+    getObservation: (_id: string) => Promise<void>
+    deleteObservation: (_id: string) => Promise<void>
+    putObservation: (_id: string, data: Partial<Observation>) => Promise<void>
+    subscribe: () => () => void
+    isLoading: Ref<boolean>
+    refresh: () => Promise<void>
+}
+
 export const useObservations = ({
     userId,
     initialQuery = {},
-}: ObservationOptions) => {
+}: ObservationOptions): UseObservationsReturn => {
     const { $fetchWellcare } = useNuxtApp()
 
     const computedUserId = computed<string>(() => (userId ? unref(userId) : ''))

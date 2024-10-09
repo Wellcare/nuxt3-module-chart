@@ -1,8 +1,6 @@
-// composables/useSocketIo.ts
 import type { ComputedRef, Ref } from '#imports'
-import type { Socket } from 'socket.io-client'
-
 import { computed, useRuntimeConfig, watch } from '#imports'
+import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
 import { namespace } from '../configs'
 
@@ -18,7 +16,7 @@ interface SocketOptions {
     debug?: boolean
 }
 
-const jointRooms = new Set()
+const jointRooms = new Set<string>()
 
 export const useSocketIo = (
     input: Ref<SocketOptions> | ComputedRef<SocketOptions>,
@@ -27,6 +25,7 @@ export const useSocketIo = (
     const { debug, user } = input.value
     const room = computed<Room>(() => input.value.room)
 
+    // Initialize the socket connection
     const socket: Socket = io(
         runtimeConfig.public[namespace].socketEndPoint + room.value.channel,
         {
@@ -43,6 +42,7 @@ export const useSocketIo = (
             console.log(
                 `[socket] jointRooms has ${roomKey}: ${jointRooms.has(roomKey)}`,
             )
+
         if (!jointRooms.has(roomKey)) {
             jointRooms.add(roomKey)
             socket.emit(
@@ -96,11 +96,21 @@ export const useSocketIo = (
 
     setupSocketListeners()
 
+    // Watch for room changes and handle them
     watch(room, (newRoom, oldRoom) => {
         if (debug) console.log('[socket] room changed', newRoom)
         if (oldRoom) leaveRoom(oldRoom)
         joinRoom(newRoom)
     })
 
-    return { joinRoom, leaveRoom, socket }
+    // Explicitly define return type
+    return {
+        joinRoom,
+        leaveRoom,
+        socket,
+    } as {
+        joinRoom: (newRoom?: Room) => void
+        leaveRoom: (oldRoom?: Room) => void
+        socket: Socket
+    }
 }
