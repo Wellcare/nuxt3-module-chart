@@ -3,57 +3,57 @@ type: docker
 name: ci-cd
 
 workspace:
-  base: /drone
-  path: /drone/src
+    base: /drone
+    path: /drone/src
 
 steps:
-  - name: install
-    image: mhealthvn/node-builder:master
-    commands:
-      - pnpm install
+    - name: install
+      image: mhealthvn/node-builder:master
+      commands:
+          - pnpm install
 
-  - name: lint
-    image: mhealthvn/node-tester:master
-    commands:
-      - pnpm lint
+    - name: lint
+      image: mhealthvn/node-tester:master
+      commands:
+          - pnpm lint
 
-  - name: test
-    image: mhealthvn/node-tester:master
-    commands:
-      - pnpm test
-      - pnpm test:types
+    - name: test
+      image: mhealthvn/node-tester:master
+      commands:
+          - pnpm test:prepare
+          - pnpm test:types
 
-  - name: build
-    image: mhealthvn/node-builder:master
-    commands:
-      - pnpm dev:prepare
-      - pnpm dev:build
+    - name: build
+      image: mhealthvn/node-builder:master
+      commands:
+          - pnpm dev:prepare
+          - pnpm dev:build
 
-  - name: publish
-    image: mhealthvn/node-builder:master
-    environment:
-      NPM_TOKEN:
-        from_secret: NPM_TOKEN
-    commands:
-      - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-      - pnpm bump ${DRONE_TAG##v} -c -p
-      - pnpm publish --no-git-checks
-    when:
-      event:
-        - tag
+    - name: publish
+      image: mhealthvn/node-builder:master
+      environment:
+          NPM_TOKEN:
+              from_secret: NPM_TOKEN
+      commands:
+          - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          - pnpm bump ${DRONE_TAG##v} -c -p
+          - pnpm publish --no-git-checks
+      when:
+          event:
+              - tag
 
 volumes:
-  - name: dockersock
-    host:
-      path: /var/run/docker.sock
+    - name: dockersock
+      host:
+          path: /var/run/docker.sock
 
 image_pull_secrets:
-  - dockerconfig
+    - dockerconfig
 
 trigger:
-  event:
-    - pull_request
-    - push
-    - tag
-  branch:
-    - main
+    event:
+        - pull_request
+        - push
+        - tag
+    branch:
+        - main
