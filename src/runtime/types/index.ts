@@ -1,2 +1,1 @@
-export * from './module.d';
-
+export * from './module'
