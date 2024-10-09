@@ -1,4 +1,3 @@
-import dotEnv from 'dotenv'
 import { defineNuxtConfig } from 'nuxt/config'
 import {
     app,
@@ -12,20 +11,12 @@ import {
     vite,
 } from './configs'
 
-dotEnv.config({ path: './.env' })
-const env: any = process.env
-
 export default defineNuxtConfig({
     ssr: false,
 
     runtimeConfig,
 
-    devtools: {
-        enabled: env.NUXT_DEVTOOLS_ENABLED === 'true',
-        timeline: {
-            enabled: env.NUXT_DEVTOOLS_TIMELINE_ENABLED === 'true',
-        },
-    },
+    devtools: { enabled: true },
 
     colorMode: {
         classPrefix: 'p-',
@@ -49,6 +40,7 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@nuxtjs/color-mode',
         '@nuxt/image',
+        '@vueuse/nuxt',
         '@pinia/nuxt',
     ],
 
