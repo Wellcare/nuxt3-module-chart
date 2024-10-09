@@ -41,7 +41,6 @@
         "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
         "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
         "test": "vitest run",
-        "test:prepare": "pnpm prepare && vitest run"
     },
     "dependencies": {
         "@nuxt/kit": "^3.13.2",
