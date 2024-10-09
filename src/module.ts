@@ -27,7 +27,7 @@ declare module '@nuxt/schema' {
 }
 
 export * from './runtime/models'
-export * from './runtime/types'
+// export * from './runtime/types'
 
 export default defineNuxtModule<ModuleOptions>({
     meta: {
