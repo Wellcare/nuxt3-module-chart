@@ -55,18 +55,34 @@ export default defineNuxtConfig({
 
 ## Development
 
-1. Run the development environment:
-    ```bash
-    pnpm dev
-    ```
-2. Run tests:
-    ```bash
-    pnpm test
-    ```
-3. Lint code:
-    ```bash
-    pnpm lint
-    ```
+<details>
+  <summary>Local development</summary>
+  
+  ```bash
+  # Install dependencies
+  npm install
+  
+  # Generate type stubs
+  npm run dev:prepare
+  
+  # Develop with the playground
+  npm run dev
+  
+  # Build the playground
+  npm run dev:build
+  
+  # Run ESLint
+  npm run lint
+  
+  # Run Vitest
+  npm run test
+  npm run test:watch
+  
+  # Release new version
+  npm run release
+  ```
+
+</details>`
 
 ## Contributing
 

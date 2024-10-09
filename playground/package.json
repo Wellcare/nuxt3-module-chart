@@ -1,13 +1,11 @@
 {
-    "name": "nuxt-app",
     "private": true,
+    "name": "nuxt3-module-chart-playground",
     "type": "module",
     "scripts": {
-        "build": "nuxt build",
         "dev": "nuxi dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "cross-env NODE_OPTIONS='--no-warnings=ExperimentalWarning' nuxt prepare"
+        "build": "nuxi build",
+        "generate": "nuxi generate"
     },
     "dependencies": {
         "nuxt": "latest"

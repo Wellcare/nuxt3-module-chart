@@ -1,7 +1,7 @@
 import type { RuntimeConfig } from '@nuxt/schema'
 import dotEnv from 'dotenv'
 
-dotEnv.config({ path: '../../.env' })
+dotEnv.config({ path: './.env' })
 const env: any = process.env
 
 export const runtimeConfig: Partial<RuntimeConfig> = {
