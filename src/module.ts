@@ -54,6 +54,7 @@ export default defineNuxtModule<ModuleOptions>({
         await installModule('@pinia/nuxt')
         await installModule('dayjs-nuxt')
         await installModule('@primevue/nuxt-module')
+        await installModule('@nuxtjs/i18n')
 
         // Config validation
         if (nuxt.options.dev || nuxt.options._start || nuxt.options._generate) {

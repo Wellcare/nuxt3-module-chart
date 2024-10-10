@@ -2,7 +2,7 @@ import type { ComputedRef, Ref } from '#imports'
 import { computed, useRuntimeConfig, watch } from '#imports'
 import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
-import { namespace } from '../configs'
+import { namespace } from '../../configs'
 
 interface Room {
     name: string

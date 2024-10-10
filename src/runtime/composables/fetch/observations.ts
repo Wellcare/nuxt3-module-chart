@@ -1,3 +1,4 @@
+import type { Ref } from '#imports'
 import {
     computed,
     ref,
@@ -7,9 +8,8 @@ import {
     useNuxtApp,
     useSocketIo,
 } from '#imports'
-import type { Ref } from 'vue'
-import { OBSERVATION_URL } from '../constants'
-import type { Observation, QueryObs } from '../models'
+import { OBSERVATION_URL } from '../../constants'
+import type { Observation, QueryObs } from '../../models'
 
 interface ObservationOptions {
     userId?: string | Ref<string>
