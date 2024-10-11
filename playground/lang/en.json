@@ -16,8 +16,8 @@
   "observationDate": "Observation Date",
   "headCircumference": "Head Circumference",
   "submit": "Submit",
-  "allDiseases": "All Diseases",
-  "showAllDiseases": "Show All Diseases",
+  "all-diseases": "All Diseases",
+  "add": "Add",
   "status": "Status",
   "diseases": {
     "COVID-19": "COVID-19",
@@ -28,9 +28,9 @@
     "Moderna": "Moderna"
   },
   "vaccination": {
-    "notVaccinated": "Not vaccinated",
-    "dosesGiven": "Doses given",
-    "lastVaccinationDate": "Last vaccination date",
-    "notUpdated": "Not updated"
+    "not-vaccinated": "Not vaccinated",
+    "doses-given": "Doses given",
+    "last-vaccination-date": "Last vaccination date",
+    "not-updated": "Not updated"
   }
 }

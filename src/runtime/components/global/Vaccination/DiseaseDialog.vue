@@ -59,7 +59,7 @@ const getVaccineDoses = (vaccine: Vaccine) => {
 }
 
 const getDoseLabel = (dose: number, maxDose: number | undefined) => {
-    if (dose === 0) return t('vaccination.notVaccinated')
+    if (dose === 0) return t('vaccination.not-vaccinated')
     return `${dose}/${maxDose}`
 }
 
@@ -133,7 +133,7 @@ watch(
                 <div class="mb-3">
                     <p
                         class="mb-2 font-medium text-gray-700 dark:text-gray-400">
-                        {{ t('vaccination.dosesGiven') }}:
+                        {{ t('vaccination.doses-given') }}:
                     </p>
                     <div class="flex flex-wrap items-center gap-4">
                         <div
@@ -183,7 +183,7 @@ watch(
                     ">
                     <p
                         class="mb-2 font-medium text-gray-700 dark:text-gray-400">
-                        {{ t('vaccination.lastVaccinationDate') }}:
+                        {{ t('vaccination.last-vaccination-date') }}:
                     </p>
                     <Calendar
                         v-model="
@@ -193,7 +193,7 @@ watch(
                         "
                         date-format="dd/mm/yy"
                         :show-icon="true"
-                        :placeholder="t('vaccination.notUpdated')"
+                        :placeholder="t('vaccination.not-updated')"
                         class="w-full"
                         :disabled="isLoading"
                         :max-date="maxDate"

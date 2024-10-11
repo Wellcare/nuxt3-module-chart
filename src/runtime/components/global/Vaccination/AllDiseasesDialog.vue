@@ -30,7 +30,7 @@ const getVaccinationStatus = (schedule: DiseaseSchedule) => {
         <template #header>
             <h2
                 class="mb-4 text-2xl font-bold text-gray-800 dark:text-gray-200">
-                {{ t('allDiseases') }}
+                {{ t('all-diseases') }}
             </h2>
         </template>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">

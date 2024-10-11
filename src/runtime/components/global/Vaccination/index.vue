@@ -84,7 +84,7 @@ const vaccinatedSchedules = computed(() => {
 
         <!-- Button to show all diseases -->
         <Button
-            :label="t('showAllDiseases')"
+            :label="t('add')"
             class="mt-4"
             @click="fullScreenDialogVisible = true" />
 
