@@ -5,5 +5,14 @@
     "kg": "kg",
     "cm": "cm",
     "updated": "Cập nhật",
-    "submit": "Gửi"
+    "submit": "Gửi",
+    "all-diseases": "Tất cả bệnh",
+    "add": "Thêm",
+    "status": "Trạng thái",
+    "vaccination": {
+        "not-vaccinated": "Chưa tiêm",
+        "doses-given": "Số mũi đã tiêm",
+        "last-vaccination-date": "Ngày tiêm cuối",
+        "not-updated": "Chưa cập nhật"
+    }
 }

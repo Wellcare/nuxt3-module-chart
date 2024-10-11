@@ -11,3 +11,14 @@ export const OBSERVATION_URL = {
 
     importCreate: () => `/phr/observation/import/create`,
 }
+
+export const VACCINATION_URL = {
+    history: (vaccineId: string): string =>
+        `/phr/vaccination/history/${vaccineId}`,
+
+    historyFindOrCreate: (): string =>
+        '/phr/vaccination/history/find-or-create',
+
+    schedulePatient: (userId: string): string =>
+        `/phr/vaccination/schedule/patient/${userId}`,
+}

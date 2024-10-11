@@ -16,7 +16,13 @@ export default defineNuxtConfig({
 
     runtimeConfig,
 
-    devtools: { enabled: true },
+    devtools: {
+      enabled: true,
+
+      timeline: {
+        enabled: true,
+      },
+    },
 
     colorMode: {
         classPrefix: 'p-',

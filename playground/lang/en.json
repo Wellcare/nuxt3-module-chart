@@ -15,5 +15,22 @@
   "updated": "Updated",
   "observationDate": "Observation Date",
   "headCircumference": "Head Circumference",
-  "submit": "Submit"
+  "submit": "Submit",
+  "all-diseases": "All Diseases",
+  "add": "Add",
+  "status": "Status",
+  "diseases": {
+    "COVID-19": "COVID-19",
+    "Flu": "Flu"
+  },
+  "vaccines": {
+    "Pfizer": "Pfizer",
+    "Moderna": "Moderna"
+  },
+  "vaccination": {
+    "not-vaccinated": "Not vaccinated",
+    "doses-given": "Doses given",
+    "last-vaccination-date": "Last vaccination date",
+    "not-updated": "Not updated"
+  }
 }
