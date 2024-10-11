@@ -25,7 +25,6 @@ const getVaccinationStatus = (schedule: DiseaseSchedule) => {
 <template>
     <Dialog
         :modal="true"
-        maximizable
         class="w-full md:max-w-screen-lg"
         @update:visible="(value) => emit('update:visible', value)">
         <template #header>
