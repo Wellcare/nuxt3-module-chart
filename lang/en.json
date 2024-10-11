@@ -2,5 +2,29 @@
   "error": "Error message",
   "warning": "Warning message",
   "info": "Info message",
-  "success": "Success message"
+  "success": "Success message",
+  "weight": "Weight",
+  "height": "Height",
+  "bmi": "BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "updated": "Updated",
+  "submit": "Submit",
+  "allDiseases": "All Diseases",
+  "showAllDiseases": "Show All Diseases",
+  "status": "Status",
+  "diseases": {
+    "COVID-19": "COVID-19",
+    "Flu": "Flu"
+  },
+  "vaccines": {
+    "Pfizer": "Pfizer",
+    "Moderna": "Moderna"
+  },
+  "vaccination": {
+    "notVaccinated": "Not vaccinated",
+    "dosesGiven": "Doses given",
+    "lastVaccinationDate": "Last vaccination date",
+    "notUpdated": "Not updated"
+  }
 }

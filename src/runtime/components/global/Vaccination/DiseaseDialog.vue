@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useI18n } from '#imports'
 import Calendar from 'primevue/Calendar'
 import Dialog from 'primevue/Dialog'
-import ProgressSpinner from 'primevue/ProgressSpinner'
 import RadioButton from 'primevue/RadioButton'
 import { computed, ref, watch } from 'vue'
-import type { DiseaseSchedule, Vaccine } from '../../../models'
+import type { DiseaseSchedule, Vaccination, Vaccine } from '../../../models'
+
+const { t } = useI18n()
 
 const props = defineProps<{
     schedule: DiseaseSchedule | null
@@ -17,51 +19,59 @@ const emit = defineEmits<{
     (
         e: 'updateVaccineHistory',
         vaccineId: string,
-        data: { lastDose: number; lastDoseDate: Date | null; patient: string },
+        data: Partial<Vaccination>,
     ): void
+    (e: 'createVaccineHistory', data: Partial<Vaccination>): void
 }>()
 
 const selectedDisease = computed<string>(() => props.schedule?.disease || '')
 
-const updateVaccineHistory = (
+const maxDate = computed(() => new Date())
+
+const updateOrCreateVaccineHistory = (
     vaccine: Vaccine,
     dose: number | null,
     date: Date | null,
 ) => {
+    const data = {
+        lastDose: dose ?? 0,
+        lastDoseDate: date,
+        patient: props.userId,
+    }
+
     if (vaccine.vaccine_id) {
-        emit('updateVaccineHistory', vaccine.vaccine_id, {
-            lastDose: dose ?? 0,
-            lastDoseDate: date,
-            patient: props.userId,
+        emit('updateVaccineHistory', vaccine.vaccine_id, data)
+    } else {
+        emit('createVaccineHistory', {
+            ...data,
+            vaccine: vaccine.name,
+            disease: selectedDisease.value,
         })
     }
 }
 
 const getVaccineDoses = (vaccine: Vaccine) => {
-    return [
-        null,
-        ...Array.from({ length: vaccine.maxDose ?? 0 }, (_, i) => i + 1),
-    ]
+    const maxDoses = vaccine.maxDose ?? vaccine.schedule?.length ?? 0
+    if (maxDoses === 0) {
+        return [0]
+    }
+    return [0, ...Array.from({ length: maxDoses }, (_, i) => i + 1)]
 }
 
-const formatDate = (date: string | null) => {
-    if (!date) return 'Chưa cập nhật'
-    return new Date(date).toLocaleDateString('vi-VN')
-}
-
-const getDoseLabel = (dose: number | null, maxDose: number) => {
-    if (dose === null) return 'Chưa tiêm'
+const getDoseLabel = (dose: number, maxDose: number | undefined) => {
+    if (dose === 0) return t('vaccination.notVaccinated')
     return `${dose}/${maxDose}`
 }
 
 const vaccineStates = ref<
-    Map<string, { dose: number | null; date: Date | null; isSuccess: boolean }>
+    Map<string, { dose: number; date: Date | null; isSuccess: boolean }>
 >(new Map())
 
 const initVaccineStates = (vaccines: Vaccine[]) => {
     vaccines.forEach((vaccine) => {
-        vaccineStates.value.set(vaccine.vaccine_id ?? '', {
-            dose: vaccine.lastDose ?? null,
+        const key = vaccine.vaccine_id ?? vaccine.name
+        vaccineStates.value.set(key, {
+            dose: vaccine.lastDose ?? 0,
             date: vaccine.lastDoseDate ? new Date(vaccine.lastDoseDate) : null,
             isSuccess: false,
         })
@@ -69,22 +79,18 @@ const initVaccineStates = (vaccines: Vaccine[]) => {
 }
 
 const updateVaccineState = (
-    vaccineId: string,
-    dose: number | null,
+    vaccine: Vaccine,
+    dose: number,
     date: Date | null,
 ) => {
-    const currentState = vaccineStates.value.get(vaccineId)
-    vaccineStates.value.set(vaccineId, {
+    const key = vaccine.vaccine_id ?? vaccine.name
+    const currentState = vaccineStates.value.get(key)
+    vaccineStates.value.set(key, {
         dose,
-        date: dose === null ? null : date,
+        date: dose === 0 ? null : date,
         isSuccess: currentState?.isSuccess ?? false,
     })
-    const vaccine = props.schedule?.vaccines.find(
-        (v) => v.vaccine_id === vaccineId,
-    )
-    if (vaccine) {
-        updateVaccineHistory(vaccine, dose, dose === null ? null : date)
-    }
+    updateOrCreateVaccineHistory(vaccine, dose, dose === 0 ? null : date)
 }
 
 watch(
@@ -99,37 +105,46 @@ watch(
 </script>
 
 <template>
-    <Dialog modal :style="{ width: '50vw' }" :draggable="false">
+    <Dialog
+        modal
+        class="relative w-full overflow-hidden md:max-w-screen-sm"
+        :draggable="false">
+        <!-- Loading bar -->
+        <div
+            v-if="isLoading"
+            class="bg-primary absolute left-0 top-0 h-1 w-full animate-pulse" />
+
         <template #header>
-            <h3 class="text-xl font-bold uppercase">{{ selectedDisease }}</h3>
+            <h3 class="text-xl font-bold uppercase">
+                {{ selectedDisease }}
+            </h3>
         </template>
         <div v-if="schedule">
             <div
                 v-for="vaccine in schedule.vaccines"
                 :key="vaccine.name"
                 class="relative mb-6 rounded-lg border-2 p-4">
-                <div
-                    v-if="isLoading"
-                    class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50">
-                    <ProgressSpinner />
-                </div>
                 <h4 class="mb-3 text-lg font-semibold">
-                    {{ vaccine.name }} ({{ vaccine.maxDose ?? 0 }} mũi)
+                    {{ vaccine.name }}
+                    <span v-if="vaccine.maxDose !== undefined">
+                        ({{ vaccine.maxDose }})
+                    </span>
                 </h4>
                 <div class="mb-3">
                     <p
                         class="mb-2 font-medium text-gray-700 dark:text-gray-400">
-                        Số mũi đã tiêm:
+                        {{ t('vaccination.dosesGiven') }}:
                     </p>
                     <div class="flex flex-wrap items-center gap-4">
                         <div
-                            v-for="(dose, index) in getVaccineDoses(vaccine)"
-                            :key="index"
+                            v-for="dose in getVaccineDoses(vaccine)"
+                            :key="dose"
                             class="flex items-center">
                             <RadioButton
                                 v-model="
-                                    vaccineStates.get(vaccine.vaccine_id ?? '')!
-                                        .dose
+                                    vaccineStates.get(
+                                        vaccine.vaccine_id ?? vaccine.name,
+                                    )!.dose
                                 "
                                 :input-id="`${vaccine.name}-dose-${dose}`"
                                 :name="`${vaccine.name}-dose`"
@@ -137,47 +152,57 @@ watch(
                                 :disabled="isLoading"
                                 @change="
                                     updateVaccineState(
-                                        vaccine.vaccine_id ?? '',
+                                        vaccine,
                                         dose,
-                                        dose === null
+                                        dose === 0
                                             ? null
                                             : (vaccineStates.get(
-                                                  vaccine.vaccine_id ?? '',
+                                                  vaccine.vaccine_id ??
+                                                      vaccine.name,
                                               )?.date ?? null),
                                     )
                                 " />
-                            {{ dose }}
                             <label
                                 :for="`${vaccine.name}-dose-${dose}`"
                                 class="ml-2 cursor-pointer text-sm">
-                                {{ getDoseLabel(dose, vaccine.maxDose ?? 0) }}
+                                {{
+                                    getDoseLabel(
+                                        dose,
+                                        vaccine.maxDose ||
+                                            vaccine.schedule.length,
+                                    )
+                                }}
                             </label>
                         </div>
                     </div>
                 </div>
                 <div
                     v-if="
-                        vaccineStates.get(vaccine.vaccine_id ?? '')?.dose !==
-                        null
+                        vaccineStates.get(vaccine.vaccine_id ?? vaccine.name)
+                            ?.dose !== 0
                     ">
                     <p
                         class="mb-2 font-medium text-gray-700 dark:text-gray-400">
-                        Ngày tiêm cuối:
+                        {{ t('vaccination.lastVaccinationDate') }}:
                     </p>
                     <Calendar
                         v-model="
-                            vaccineStates.get(vaccine.vaccine_id ?? '')!.date
+                            vaccineStates.get(
+                                vaccine.vaccine_id ?? vaccine.name,
+                            )!.date
                         "
                         date-format="dd/mm/yy"
                         :show-icon="true"
-                        :placeholder="formatDate(vaccine.lastDoseDate)"
+                        :placeholder="t('vaccination.notUpdated')"
                         class="w-full"
                         :disabled="isLoading"
+                        :max-date="maxDate"
                         @date-select="
                             updateVaccineState(
-                                vaccine.vaccine_id ?? '',
-                                vaccineStates.get(vaccine.vaccine_id ?? '')
-                                    ?.dose ?? null,
+                                vaccine,
+                                vaccineStates.get(
+                                    vaccine.vaccine_id ?? vaccine.name,
+                                )?.dose ?? 0,
                                 $event,
                             )
                         " />

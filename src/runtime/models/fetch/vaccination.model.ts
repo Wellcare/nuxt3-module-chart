@@ -24,8 +24,8 @@ export interface Schedule {
     note?: string
 }
 
-export interface VaccinationHistory {
-    _id?: string
+export interface Vaccination {
+    _id: string
     lastDose: number
     patient: string
     disease?: string
@@ -35,5 +35,5 @@ export interface VaccinationHistory {
     updatedBy?: string
     createdAt?: string
     updatedAt?: string
-    __v?: number
+    __v: number
 }

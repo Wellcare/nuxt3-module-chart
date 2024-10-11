@@ -5,5 +5,14 @@
     "kg": "kg",
     "cm": "cm",
     "updated": "Updated",
-    "submit": "Submit"
+    "submit": "Submit",
+    "allDiseases": "All Diseases",
+    "showAllDiseases": "Show All Diseases",
+    "status": "Status",
+    "vaccination": {
+        "notVaccinated": "Not vaccinated",
+        "dosesGiven": "Doses given",
+        "lastVaccinationDate": "Last vaccination date",
+        "notUpdated": "Not updated"
+    }
 }

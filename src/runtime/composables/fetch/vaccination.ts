@@ -1,11 +1,14 @@
 import type { ComputedRef, Ref } from '#imports'
 import {
     computed,
+    readonly,
+    ref,
     useAsyncData,
+    useI18n,
     useNuxtApp,
-    useVaccinationStore,
 } from '#imports'
-import type { DiseaseSchedule, VaccinationHistory } from '../../models'
+import { VACCINATION_URL } from '../../constants'
+import type { DiseaseSchedule, Vaccination } from '../../models'
 
 interface UseVaccinationScheduleOptions {
     userId: Ref<string> | ComputedRef<string>
@@ -13,11 +16,14 @@ interface UseVaccinationScheduleOptions {
 
 interface UseVaccinationScheduleReturn {
     vaccinationSchedules: ComputedRef<DiseaseSchedule[] | null>
-    isLoading: ComputedRef<boolean>
+    isLoading: Ref<boolean>
     refresh: () => Promise<void>
     updateVaccinationHistory: (
-        historyId: string,
-        updateData: VaccinationHistory,
+        vaccineId: string,
+        data: Partial<Vaccination>,
+    ) => Promise<void>
+    findOrCreateVaccinationHistory: (
+        data: Partial<Vaccination>,
     ) => Promise<void>
 }
 
@@ -25,7 +31,9 @@ export const useVaccinationSchedule = ({
     userId,
 }: UseVaccinationScheduleOptions): UseVaccinationScheduleReturn => {
     const { $fetchWellcare } = useNuxtApp()
-    const store = useVaccinationStore()
+    const { locale } = useI18n()
+
+    const isLoading = ref<boolean>(false)
 
     const cacheKey = computed<string>(
         () => `vaccination-schedule-${userId.value}`,
@@ -38,15 +46,14 @@ export const useVaccinationSchedule = ({
     }>(
         cacheKey.value,
         async () => {
-            store.setLoading(true)
+            isLoading.value = true
             try {
                 const data: any = await $fetchWellcare(
-                    `/phr/vaccination/schedule/patient/${userId.value}`,
+                    VACCINATION_URL.schedulePatient(userId.value),
                 )
-                store.setSchedules(data.results)
                 return data
             } finally {
-                store.setLoading(false)
+                isLoading.value = false
             }
         },
         {
@@ -58,28 +65,59 @@ export const useVaccinationSchedule = ({
     )
 
     const updateVaccinationHistory = async (
-        historyId: string,
-        updateData: VaccinationHistory,
+        vaccineId: string,
+        data: Partial<Vaccination>,
     ): Promise<void> => {
-        store.setLoading(true)
+        isLoading.value = true
         try {
-            await $fetchWellcare(`/phr/vaccination/history/${historyId}`, {
+            await $fetchWellcare(VACCINATION_URL.history(vaccineId), {
                 method: 'PUT',
-                body: JSON.stringify(updateData),
+                body: JSON.stringify(data),
+                params: {
+                    locale: locale.value,
+                },
             })
             await refresh()
         } catch (error) {
             console.error('Error updating vaccination history:', error)
             throw error
         } finally {
-            store.setLoading(false)
+            isLoading.value = false
+        }
+    }
+
+    const findOrCreateVaccinationHistory = async (
+        data: Partial<Vaccination>,
+    ): Promise<void> => {
+        isLoading.value = true
+        try {
+            await $fetchWellcare(VACCINATION_URL.historyFindOrCreate(), {
+                method: 'POST',
+                body: JSON.stringify({
+                    ...data,
+                    patient: userId.value,
+                }),
+                params: {
+                    locale: locale.value,
+                },
+            })
+            await refresh()
+        } catch (error) {
+            console.error(
+                'Error finding or creating vaccination history:',
+                error,
+            )
+            throw error
+        } finally {
+            isLoading.value = false
         }
     }
 
     return {
         vaccinationSchedules: computed(() => data.value?.results || null),
-        isLoading: computed(() => store.isLoading),
+        isLoading: readonly(isLoading),
         refresh,
         updateVaccinationHistory,
+        findOrCreateVaccinationHistory,
     }
 }

@@ -15,5 +15,22 @@
   "updated": "Cập nhật",
   "observationDate": "Ngày",
   "headCircumference": "Chu vi vòng đầu",
-  "submit": "Gửi"
+  "submit": "Gửi",
+  "allDiseases": "Tất cả bệnh",
+  "showAllDiseases": "Hiển thị tất cả bệnh",
+  "status": "Trạng thái",
+  "diseases": {
+    "COVID-19": "COVID-19",
+    "Flu": "Cúm"
+  },
+  "vaccines": {
+    "Pfizer": "Pfizer",
+    "Moderna": "Moderna"
+  },
+  "vaccination": {
+    "notVaccinated": "Chưa tiêm",
+    "dosesGiven": "Số mũi đã tiêm",
+    "lastVaccinationDate": "Ngày tiêm cuối",
+    "notUpdated": "Chưa cập nhật"
+  }
 }

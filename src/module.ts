@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import {
     addComponentsDir,
     addImportsDir,
@@ -8,7 +9,14 @@ import {
     installModule,
     useLogger,
 } from '@nuxt/kit'
-import { existsSync, readdirSync, statSync } from 'node:fs'
+import {
+    copyFileSync,
+    existsSync,
+    mkdirSync,
+    readdirSync,
+    statSync,
+    writeFileSync,
+} from 'node:fs'
 import { join } from 'node:path'
 
 import { namespace, validate } from './runtime/configs'
@@ -105,30 +113,60 @@ export default defineNuxtModule<ModuleOptions>({
         }
         addPlugins()
 
-        // Handle language files
-        const setupLanguageFiles = () => {
+        // ==================== LANGUAGE FILES ====================
+        const mergeLangFiles = () => {
             const langDir = resolve('./runtime/lang')
+            const appLangDir = resolve(nuxt.options.srcDir, 'lang')
+
+            if (
+                !existsSync(appLangDir) ||
+                !statSync(appLangDir).isDirectory()
+            ) {
+                mkdirSync(appLangDir)
+                log(`Created lang folder in the app`)
+            }
+
             if (existsSync(langDir) && statSync(langDir).isDirectory()) {
-                nuxt.hook('i18n:registerModule', (register) => {
-                    register({
-                        // langDir path needs to be resolved
-                        langDir: resolve('./runtime/lang'),
-                        locales: [
-                            {
-                                code: 'en',
-                                file: 'en.json',
-                            },
-                            {
-                                code: 'vi',
-                                file: 'vi.json',
-                            },
-                        ],
+                const langFiles = readdirSync(langDir)
+
+                if (langFiles.length === 0) {
+                    ;['en', 'vi'].forEach((lang) => {
+                        copyFileSync(
+                            resolve(langDir, `${lang}.json`),
+                            resolve(appLangDir, `${lang}.json`),
+                        )
                     })
-                })
-                log('Module language files registered', 'success')
+                    log(
+                        `Pushed default language files into the app's lang folder`,
+                    )
+                } else {
+                    langFiles.forEach((file) => {
+                        const moduleLangContent = require(join(langDir, file))
+                        const appLangPath = join(appLangDir, file)
+                        const appLangContent = existsSync(appLangPath)
+                            ? require(appLangPath)
+                            : {}
+                        const mergedContent = {
+                            ...appLangContent,
+                            ...Object.fromEntries(
+                                Object.entries(moduleLangContent).filter(
+                                    ([key]) => !(key in appLangContent),
+                                ),
+                            ),
+                        }
+                        writeFileSync(
+                            appLangPath,
+                            JSON.stringify(mergedContent, null, 2),
+                        )
+                        log(
+                            `Module merged into file "${file}" in the app's lang folder`,
+                            'success',
+                        )
+                    })
+                }
             }
         }
-        setupLanguageFiles()
+        mergeLangFiles()
 
         // Add directories
         const addDirs = () => {

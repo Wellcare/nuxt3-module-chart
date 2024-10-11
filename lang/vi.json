@@ -2,5 +2,29 @@
   "error": "Lỗi",
   "warning": "Cảnh báo",
   "info": "Thông tin",
-  "success": "Thành công"
+  "success": "Thành công",
+  "weight": "Cân nặng",
+  "height": "Chiều cao",
+  "bmi": "Chỉ số BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "updated": "Cập nhật",
+  "submit": "Gửi",
+  "allDiseases": "Tất cả bệnh",
+  "showAllDiseases": "Hiển thị tất cả bệnh",
+  "status": "Trạng thái",
+  "diseases": {
+    "COVID-19": "COVID-19",
+    "Flu": "Cúm"
+  },
+  "vaccines": {
+    "Pfizer": "Pfizer",
+    "Moderna": "Moderna"
+  },
+  "vaccination": {
+    "notVaccinated": "Chưa tiêm",
+    "dosesGiven": "Số mũi đã tiêm",
+    "lastVaccinationDate": "Ngày tiêm cuối",
+    "notUpdated": "Chưa cập nhật"
+  }
 }
