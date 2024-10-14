@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from '#imports'
-import Calendar from 'primevue/Calendar'
-import Dialog from 'primevue/Dialog'
-import RadioButton from 'primevue/RadioButton'
-import { computed, ref, watch } from 'vue'
+import { computed, ref, useI18n, watch } from '#imports'
+import Calendar from 'primevue/calendar'
+import Dialog from 'primevue/dialog'
+import RadioButton from 'primevue/radiobutton'
 import type { DiseaseSchedule, Vaccination, Vaccine } from '../../../models'
 
 const { t } = useI18n()

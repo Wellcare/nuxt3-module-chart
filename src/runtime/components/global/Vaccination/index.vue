@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, useI18n, useVaccinationSchedule } from '#imports'
-import Button from 'primevue/Button'
-import Chip from 'primevue/Chip'
-import Tag from 'primevue/Tag'
+import Button from 'primevue/button'
+import Chip from 'primevue/chip'
+import Tag from 'primevue/tag'
 import type { DiseaseSchedule, Vaccination } from '../../../models'
 import AllDiseasesDialog from './AllDiseasesDialog.vue'
 import DiseaseDialog from './DiseaseDialog.vue'
