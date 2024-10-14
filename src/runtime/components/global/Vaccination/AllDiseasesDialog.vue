@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import Dialog from 'primevue/Dialog'
+import Dialog from 'primevue/dialog'
 import type { DiseaseSchedule } from '../../../models'
 
 const { t } = useI18n()
