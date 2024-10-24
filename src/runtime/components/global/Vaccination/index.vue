@@ -9,9 +9,24 @@ import DiseaseDialog from './DiseaseDialog.vue'
 
 const { t } = useI18n()
 
-const props = defineProps<{
-    userId: string
-}>()
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'Khuyến nghị'
+    },
+    description:{
+        type: String,
+        default: 'Thông tin tiêm chủng giúp phát hiện các vấn đề liên quan đến an toàn sức khỏe của gia đình bạn.'
+    },
+    indexFilled: {
+        type: String,
+        default: 'chỉ số đã điền'
+    },
+    userId: {
+        type: String,
+        required: true
+    }
+})
 
 const {
     vaccinationSchedules,
@@ -65,26 +80,26 @@ const vaccinatedSchedules = computed(() => {
 <template>
     <div class="mx-2">
         <!-- Overview cards for vaccinated diseases -->
-        <div class="max-w-sm bg-white rounded-xl shadow-md p-4 space-y-3 border border-zinc-200">
+        <div class="max-w-sm bg-red-100/50 rounded-xl p-4 space-y-3 border border-red-200">
             <div class="flex items-start space-x-3">
-                <div class="h-12 w-12 bg-zinc-100 flex items-center justify-center rounded-lg">
+                <div class="h-12 w-12 bg-red-100 flex items-center justify-center rounded-lg">
                     <img src="../../../assets/images/immune-system.png" class="h-8 w-8 object-cover" alt="Vaccine Icon">
                 </div>
                 <div class="flex-1">
                     <div class="flex justify-between items-center">
-                        <h2 class="text-lg font-semibold text-gray-900">Khuyến nghị</h2>
+                        <h2 class="text-lg font-semibold text-gray-900">{{ t(title) }}</h2>
                         <i class="pi pi-info-circle" />
                     </div>
-                    <p class="text-sm text-gray-500">Thông tin tiêm chủng giúp phát hiện các vấn đề liên quan đến an toàn sức khỏe của gia đình bạn.
+                    <p class="text-sm text-gray-500">{{ t(description) }}
                     </p>
-                    <div class="mt-1 flex items-center space-x-2 text-orange-600">
+                    <div class="mt-1 flex items-center space-x-2 text-red-600">
                         <i class="iconify" data-icon="basil:document-solid"/>
-                        <p class="text-sm ">{{ vaccinatedSchedules?.length }}/{{ vaccinationSchedules.length }} chỉ số đã điền</p>
+                        <p class="text-sm ">{{ vaccinatedSchedules?.length }}/{{ vaccinationSchedules.length }} {{ t(indexFilled)}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap gap-3 mt-3">
+        <div class="flex flex-wrap gap-3 mt-4">
             <Chip v-for="schedule in vaccinatedSchedules" :key="schedule.disease"
                 class="cursor-pointer border-2 hover:opacity-90"
                 :class="{ 'border-primary-500': isFullyVaccinated(schedule) }" @click="openDialog(schedule)">
