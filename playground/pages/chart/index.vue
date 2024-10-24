@@ -14,7 +14,6 @@ const handleAdd = (key: string) => {
 }
 
 const handleClick = (key: string) => {
-    console.log('click card', key)
     navigateTo(`/chart/${user.value._id}/${key}`)
 }
 

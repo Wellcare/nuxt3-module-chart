@@ -50,12 +50,9 @@ const handleSubmit = async () => {
     if (observations.length > 0) {
         try {
             await importCreate(observations)
-            console.log('Data submitted successfully:', observations)
         } catch (error) {
             console.error('Error submitting data:', error)
         }
-    } else {
-        console.log('No data to submit')
     }
 }
 </script>

@@ -18,5 +18,5 @@
     "form:header:bmi": "bmi",
     "form:header:height": "height",
     "form:header:weight": "weight",
-    "form:header:headCircumference": "head circumference"
+    "form:header:head-circumference": "head circumference"
 }
