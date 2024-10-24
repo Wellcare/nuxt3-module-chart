@@ -5,13 +5,8 @@ dotEnv.config({ path: './.env' })
 const env: any = process.env
 
 export const runtimeConfig: Partial<RuntimeConfig> = {
-    consola: {
-        level: env.NUXT_CONSOLA_LEVEL,
-    },
     public: {
-        'nuxt3-module-chart': {
-            socketEndPoint: env.NUXT_PUBLIC_NUXT3_MODULE_CHART_SOCKET_ENDPOINT,
-        },
+        socketEndPoint: env.NUXT_PUBLIC_SOCKET_ENDPOINT,
         'nuxt3-module-data-layer': {
             accountBaseUrl:
                 env.NUXT_PUBLIC_NUXT3_MODULE_DATA_LAYER_ACCOUNT_BASE_URL,

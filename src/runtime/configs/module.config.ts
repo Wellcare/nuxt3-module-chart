@@ -13,7 +13,7 @@ const style = {
 
 export function validate({
     buildConfig,
-    publicRuntimeConfig,
+    // publicRuntimeConfig,
 }: {
     buildConfig: ModuleOptions
     runtimeConfig?: BaseRuntimeConfig
@@ -30,12 +30,4 @@ export function validate({
         process.exit(1)
     }
 
-    if (!publicRuntimeConfig?.socketEndPoint) {
-        logger.box({
-            title: '[ERROR] MISSING BUILD CONFIG',
-            message: `[${namespace}] missing socketEndPoint`,
-            style,
-        })
-        process.exit(1)
-    }
 }

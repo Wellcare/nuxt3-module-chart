@@ -2,7 +2,6 @@ import type { ComputedRef, Ref } from '#imports'
 import { computed, useRuntimeConfig, watch } from '#imports'
 import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
-import { namespace } from '../../configs'
 
 interface Room {
     name: string
@@ -16,7 +15,44 @@ interface SocketOptions {
     debug?: boolean
 }
 
-const jointRooms = new Set<string>()
+// Singleton instance và cache cho socket connections
+class SocketManager {
+    private static instance: SocketManager
+    private sockets: Map<string, Socket> = new Map()
+    private jointRooms: Set<string> = new Set()
+
+    private constructor() {}
+
+    public static getInstance(): SocketManager {
+        if (!SocketManager.instance) {
+            SocketManager.instance = new SocketManager()
+        }
+        return SocketManager.instance
+    }
+
+    public getSocket(channel: string, endpoint: string): Socket {
+        if (!this.sockets.has(channel)) {
+            const socket = io(endpoint + channel, {
+                forceNew: false,
+                reconnection: true,
+            })
+            this.sockets.set(channel, socket)
+        }
+        return this.sockets.get(channel)!
+    }
+
+    public isRoomJoined(roomKey: string): boolean {
+        return this.jointRooms.has(roomKey)
+    }
+
+    public addJointRoom(roomKey: string): void {
+        this.jointRooms.add(roomKey)
+    }
+
+    public removeJointRoom(roomKey: string): void {
+        this.jointRooms.delete(roomKey)
+    }
+}
 
 export const useSocketIo = (
     input: Ref<SocketOptions> | ComputedRef<SocketOptions>,
@@ -25,26 +61,27 @@ export const useSocketIo = (
     const { debug, user } = input.value
     const room = computed<Room>(() => input.value.room)
 
-    // Initialize the socket connection
-    const socket: Socket = io(
-        runtimeConfig.public[namespace].socketEndPoint + room.value.channel,
-        {
-            forceNew: false,
-            reconnection: true,
-        },
+    // Get singleton instance
+    const socketManager = SocketManager.getInstance()
+
+    // Get or create socket connection
+    const socket = socketManager.getSocket(
+        room.value.channel,
+        runtimeConfig.public.socketEndPoint,
     )
 
     const joinRoom = (newRoom?: Room) => {
         const currentRoom = newRoom || room.value
         const roomKey = currentRoom.roomId
 
-        if (debug)
+        if (debug) {
             console.log(
-                `[socket] jointRooms has ${roomKey}: ${jointRooms.has(roomKey)}`,
+                `[socket] jointRooms has ${roomKey}: ${socketManager.isRoomJoined(roomKey)}`,
             )
+        }
 
-        if (!jointRooms.has(roomKey)) {
-            jointRooms.add(roomKey)
+        if (!socketManager.isRoomJoined(roomKey)) {
+            socketManager.addJointRoom(roomKey)
             socket.emit(
                 'join',
                 {
@@ -52,8 +89,9 @@ export const useSocketIo = (
                     user: user,
                 },
                 (ack: any) => {
-                    if (debug)
+                    if (debug) {
                         console.log(`[socket] join room: ${roomKey} `, ack)
+                    }
                 },
             )
         }
@@ -63,7 +101,7 @@ export const useSocketIo = (
         const currentRoom = oldRoom || room.value
         const roomKey = currentRoom.roomId
 
-        jointRooms.delete(roomKey)
+        socketManager.removeJointRoom(roomKey)
         if (debug) console.log(`[socket] leaveRoom ${roomKey}`)
         socket.emit('leave', {
             room: roomKey,
@@ -96,14 +134,12 @@ export const useSocketIo = (
 
     setupSocketListeners()
 
-    // Watch for room changes and handle them
     watch(room, (newRoom, oldRoom) => {
         if (debug) console.log('[socket] room changed', newRoom)
         if (oldRoom) leaveRoom(oldRoom)
         joinRoom(newRoom)
     })
 
-    // Explicitly define return type
     return {
         joinRoom,
         leaveRoom,
