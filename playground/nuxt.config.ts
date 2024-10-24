@@ -1,4 +1,3 @@
-import { defineNuxtConfig } from 'nuxt/config'
 import {
     app,
     googleFont,
@@ -17,11 +16,11 @@ export default defineNuxtConfig({
     runtimeConfig,
 
     devtools: {
-      enabled: true,
-
-      timeline: {
         enabled: true,
-      },
+
+        timeline: {
+            enabled: true,
+        },
     },
 
     colorMode: {
@@ -29,7 +28,12 @@ export default defineNuxtConfig({
         classSuffix: '',
     },
 
-    css: ['~/assets/css/index.css', 'primeicons/primeicons.css'],
+    css: [
+        '~/assets/styles/tailwind.css',
+        '~/assets/styles/base.css',
+        '~/assets/styles/scrollbar.css',
+        'primeicons/primeicons.css',
+    ],
 
     modules: [
         '@wellcare/nuxt3-module-data-layer',
@@ -40,7 +44,6 @@ export default defineNuxtConfig({
         '@nuxt/test-utils/module',
         ['@nuxtjs/google-fonts', googleFont],
         ['../src/module', module],
-        '@nuxtjs/i18n',
         'nuxt-marquee',
         '@primevue/nuxt-module',
         '@nuxtjs/tailwindcss',
@@ -48,7 +51,18 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@vueuse/nuxt',
         '@pinia/nuxt',
+        '@nuxtjs/i18n',
     ],
+
+    primevue,
+
+    postcss: {
+        plugins: {
+            'postcss-import': {},
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    },
 
     i18n,
 
@@ -57,8 +71,6 @@ export default defineNuxtConfig({
     nitro,
 
     tailwindcss,
-
-    primevue,
 
     vite,
 

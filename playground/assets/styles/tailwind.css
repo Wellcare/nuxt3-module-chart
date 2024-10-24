@@ -1,0 +1,45 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import './primevue/tailwind.css';
+@import 'tailwindcss/utilities';
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+::selection {
+    background: var(--p-primary-500);
+    color: #fff;
+}
+::-moz-selection {
+    background: var(--p-primary-500);
+    color: #fff;
+}
+::-webkit-selection {
+    background: rgb(var(--p-primary-500));
+    color: #fff;
+}
+
+h1 {
+    @apply text-4xl font-bold tracking-tight md:text-5xl;
+}
+
+h2 {
+    @apply text-3xl font-bold tracking-tight md:text-4xl;
+}
+
+h3 {
+    @apply text-2xl font-medium md:text-3xl;
+}
+
+h4 {
+    @apply text-xl font-medium md:text-2xl;
+}
+
+p {
+    @apply text-base;
+}
+
+.link {
+    @apply underline decoration-transparent underline-offset-2 transition hover:text-[var(--p-primary-500)] hover:decoration-[var(--p-primary-500)];
+}
