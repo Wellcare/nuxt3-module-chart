@@ -47,31 +47,31 @@ const getIconAndColor = (
         case 'height':
             return {
                 icon: 'pi pi-arrows-v',
-                bgColor: 'bg-green-100',
-                iconColor: 'text-green-600',
+                bgColor: 'bg-gradient-to-b from-pink-200 to-pink-50',
+                iconColor: 'text-pink-600',
             }
         case 'weight':
             return {
                 icon: 'pi pi-calculator',
-                bgColor: 'bg-blue-100',
-                iconColor: 'text-blue-600',
+                bgColor: 'bg-gradient-to-b from-sky-200 to-sky-50',
+                iconColor: '!text-sky-600',
             }
         case 'headCircumference':
             return {
                 icon: 'pi pi-circle',
-                bgColor: 'bg-yellow-100',
+                bgColor: 'bg-gradient-to-b from-yellow-200 to-yellow-50',
                 iconColor: 'text-yellow-600',
             }
         case 'bmi':
             return {
                 icon: 'pi pi-chart-bar',
-                bgColor: 'bg-purple-100',
+                bgColor: 'bg-gradient-to-b from-purple-200 to-purple-50',
                 iconColor: 'text-purple-600',
             }
         default:
             return {
                 icon: 'pi pi-chart-line',
-                bgColor: 'bg-gray-100',
+                bgColor: 'bg-gray-50',
                 iconColor: 'text-gray-600',
             }
     }

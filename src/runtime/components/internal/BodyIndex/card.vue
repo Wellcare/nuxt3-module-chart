@@ -81,23 +81,13 @@ const formattedLastUpdated = computed(() => {
             <div class="mb-2 flex flex-row items-center justify-between">
                 <div class="flex items-center gap-1">
                     <Skeleton v-if="loading" width="20px" height="20px" />
-                    <i
-                        v-else
-                        :class="[bodyIndex.icon, bodyIndex.iconColor]"
-                        :size="20" />
+                    <i v-else :class="[bodyIndex.icon, bodyIndex.iconColor]" :size="20" />
                     <Skeleton v-if="loading" width="80px" height="16px" />
                     <p v-else class="m-0 text-sm font-semibold text-black">
                         {{ t(bodyIndex.label) }}
                     </p>
                 </div>
-                <Button
-                    v-if="showAddButton && !loading"
-                    icon="pi pi-plus"
-                    rounded
-                    text
-                    raised
-                    aria-label="Add"
-                    @click="handleAdd" />
+                <Button v-if="showAddButton && !loading" icon="pi pi-plus" rounded text raised aria-label="Add" :class="[bodyIndex.iconColor, 'hidden sm:block']" @click="handleAdd" />
                 <Skeleton v-else-if="loading" shape="circle" size="30px" />
             </div>
             <Skeleton v-if="loading" width="80px" height="40px" class="mb-2" />
@@ -105,17 +95,14 @@ const formattedLastUpdated = computed(() => {
                 {{ bodyIndex.value }}
             </p>
             <Skeleton v-if="loading" width="40px" height="20px" />
-            <p
-                v-else
-                class="m-0 text-lg font-medium text-slate-500 dark:text-slate-400">
+            <p v-else class="m-0 text-lg font-medium text-slate-500 dark:text-slate-400">
                 {{ bodyIndex.unit }}
             </p>
         </div>
         <Skeleton v-if="loading" width="120px" height="16px" class="mt-2" />
-        <small
-            v-else-if="formattedLastUpdated"
-            class="mt-2 text-slate-500 dark:text-slate-400">
+        <small v-else-if="formattedLastUpdated" class="mt-2 text-slate-500 dark:text-slate-400">
             {{ t('updated') }} {{ formattedLastUpdated }}
         </small>
+        <Button v-if="showAddButton && !loading" icon="pi pi-plus" rounded text raised aria-label="Add" :class="[bodyIndex.iconColor, 'sm:hidden block absolute bottom-0 left-2/4 -translate-x-2/4']" @click="handleAdd" />
     </div>
 </template>

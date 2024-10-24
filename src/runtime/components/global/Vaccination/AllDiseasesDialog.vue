@@ -29,7 +29,7 @@ const getVaccinationStatus = (schedule: DiseaseSchedule) => {
         @update:visible="(value) => emit('update:visible', value)">
         <template #header>
             <h2
-                class="mb-4 text-2xl font-bold text-gray-800 dark:text-gray-200">
+                class="mb-0 text-xl font-bold text-gray-800 dark:text-gray-200">
                 {{ t('all-diseases') }}
             </h2>
         </template>
