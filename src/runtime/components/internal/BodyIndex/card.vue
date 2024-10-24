@@ -14,7 +14,7 @@ export interface IBodyIndexCard {
     unit: string
     bgColor: string
     iconColor: string
-    typeChart: 'percentile' | 'bmi'
+    typeChart: 'headCircumference' | 'weight' | 'height' | 'bmi'
 }
 
 interface Props {
@@ -67,12 +67,16 @@ const formattedLastUpdated = computed(() => {
 </script>
 
 <template>
-    <div v-ripple :class="[
-        'card',
-        bodyIndex.bgColor,
-        'relative flex h-full flex-col justify-between p-4 transition-all duration-300 ease-in-out',
-        'cursor-pointer hover:opacity-95 hover:shadow-lg',
-    ]" @click="handleClick" @mouseenter="handleHover(true)" @mouseleave="handleHover(false)">
+    <div
+        v-ripple
+        :class="[
+            bodyIndex.bgColor,
+            'relative flex h-full flex-col justify-between rounded-xl p-4 transition-all duration-300 ease-in-out',
+            'cursor-pointer hover:opacity-95 hover:shadow-lg',
+        ]"
+        @click="handleClick"
+        @mouseenter="handleHover(true)"
+        @mouseleave="handleHover(false)">
         <div>
             <div class="mb-2 flex flex-row items-center justify-between">
                 <div class="flex items-center gap-1">

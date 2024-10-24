@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, useObservations } from '#imports'
+import { computed, ref, useObservations } from '#imports'
 import type { Observation } from '../../models'
 import type { IBodyIndexCard } from '../internal/BodyIndex/card.vue'
 import BodyIndexCard from '../internal/BodyIndex/card.vue'
 import WrapperDynamicForm from '../internal/BodyIndex/Form/index.vue'
 
-// Props
 interface Props {
     userId: string
 }
 
 const { userId } = defineProps<Props>()
 
-// Refs
+// Emits
+defineEmits(['click', 'add'])
+
 const wrapperDynamicFormRef = ref<InstanceType<typeof WrapperDynamicForm>>()
 
-// Observations Hook Response
-const { observations, isLoading, subscribe } = useObservations({
+const { observations, isLoading, refresh } = useObservations({
     userId: userId,
     initialQuery: {
         filter: {
@@ -33,7 +33,6 @@ const { observations, isLoading, subscribe } = useObservations({
     },
 })
 
-// Computed for Adapted Observations
 const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     if (observations.value) {
         return adaptVitalSigns(observations.value.results)
@@ -41,7 +40,6 @@ const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     return defaultCards
 })
 
-// Function for icon and color
 const getIconAndColor = (
     key: string,
 ): { icon: string; bgColor: string; iconColor: string } => {
@@ -79,7 +77,6 @@ const getIconAndColor = (
     }
 }
 
-// Default cards array
 const defaultCards: IBodyIndexCard[] = [
     {
         _id: '',
@@ -88,7 +85,7 @@ const defaultCards: IBodyIndexCard[] = [
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'percentile',
+        typeChart: 'height',
         ...getIconAndColor('height'),
     },
     {
@@ -98,7 +95,7 @@ const defaultCards: IBodyIndexCard[] = [
         value: '-',
         unit: 'kg',
         lastUpdated: '',
-        typeChart: 'percentile',
+        typeChart: 'weight',
         ...getIconAndColor('weight'),
     },
     {
@@ -108,7 +105,7 @@ const defaultCards: IBodyIndexCard[] = [
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'percentile',
+        typeChart: 'headCircumference',
         ...getIconAndColor('headCircumference'),
     },
     {
@@ -123,7 +120,6 @@ const defaultCards: IBodyIndexCard[] = [
     },
 ]
 
-// Adapting vital signs
 const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     return defaultCards.map((card) => {
         const obs = rawObservations.find((o) => o.key === card.key)
@@ -139,23 +135,18 @@ const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     })
 }
 
-// Handling form additions
 const handleAdd = (label: IBodyIndexCard['typeChart']) => {
     wrapperDynamicFormRef.value?.open(label)
 }
 
-// Emits
-defineEmits(['click', 'add'])
-
-// Lifecycle hook
-onMounted(() => {
-    subscribe()
+defineExpose({
+    refreshSearch: refresh,
 })
 </script>
 
 <template>
     <WrapperDynamicForm ref="wrapperDynamicFormRef">
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <BodyIndexCard
                 v-for="item in adaptedObservations"
                 :key="item._id || item.key"

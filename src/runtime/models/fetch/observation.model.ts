@@ -1,5 +1,5 @@
 export interface Observation {
-    _id: string
+    _id?: string
     user?: string
     key?: string
     name?: string

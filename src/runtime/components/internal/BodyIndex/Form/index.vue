@@ -3,11 +3,15 @@ import { useDisplay, useI18n } from '#imports'
 import DynamicDialog from 'primevue/dynamicdialog'
 import { useDialog } from 'primevue/usedialog'
 import Bmi from './Bmi.vue'
-import Percentile from './Percentile.vue'
+import HeadCircumference from './HeadCircumference.vue'
+import Weight from './Weight.vue'
+import Height from './Height.vue'
 
 interface Components {
-    percentile: typeof Percentile
+    headCircumference: typeof HeadCircumference
     bmi: typeof Bmi
+    weight: typeof Weight
+    height: typeof Height
 }
 
 interface OpenDialogOptions {
@@ -19,14 +23,16 @@ const dialog = useDialog()
 const { display } = useDisplay()
 
 const components: Components = {
-    percentile: Percentile,
+    headCircumference: HeadCircumference,
     bmi: Bmi,
+    height: Height,
+    weight: Weight,
 }
 
 const open = (label: OpenDialogOptions['label']) => {
     dialog.open(components[label], {
         props: {
-            header: i18n.t(`form:header:${label}`),
+            header: `${i18n.t(`form:header:${label}`).toLocaleUpperCase()}`,
             draggable: false,
             position: display?.breakpoint?.isMobile ? 'bottom' : 'center',
             style: {

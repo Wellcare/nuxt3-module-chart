@@ -14,5 +14,9 @@
         "doses-given": "Số mũi đã tiêm",
         "last-vaccination-date": "Ngày tiêm cuối",
         "not-updated": "Chưa cập nhật"
-    }
+    },
+    "form:header:bmi": "bmi",
+    "form:header:height": "height",
+    "form:header:weight": "weight",
+    "form:header:head-circumference": "head circumference"
 }
