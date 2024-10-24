@@ -1,13 +1,5 @@
 import type { Ref } from '#imports'
-import {
-    computed,
-    ref,
-    unref,
-    useAsyncData,
-    useDebounceFn,
-    useNuxtApp,
-    useSocketIo,
-} from '#imports'
+import { computed, ref, unref, useAsyncData, useNuxtApp } from '#imports'
 import { OBSERVATION_URL } from '../../constants'
 import type { Observation, QueryObs } from '../../models'
 
@@ -28,7 +20,6 @@ interface UseObservationsReturn {
     getObservation: (_id: string) => Promise<void>
     deleteObservation: (_id: string) => Promise<void>
     putObservation: (_id: string, data: Partial<Observation>) => Promise<void>
-    subscribe: () => () => void
     isLoading: Ref<boolean>
     refresh: () => Promise<void>
 }
@@ -47,6 +38,15 @@ export const useObservations = ({
         sort: initialQuery.sort,
     })
 
+    // Helper function to check if query has meaningful search parameters
+    const hasSearchParams = computed(() => {
+        return (
+            Object.keys(query.value.filter || {}).length > 0 ||
+            query.value.sort ||
+            query.value.limit !== 10 // Assuming 10 is the default limit
+        )
+    })
+
     const cacheKey = computed<string>(
         () =>
             `observations-${computedUserId.value}-${JSON.stringify(query.value)}`,
@@ -61,6 +61,11 @@ export const useObservations = ({
     } = useAsyncData<ResponseObs>(
         cacheKey.value,
         async () => {
+            // Only proceed with search if there's a userId and either search parameters exist
+            if (!computedUserId.value || !hasSearchParams.value) {
+                return { results: [] }
+            }
+
             isLoading.value = true
             try {
                 return await $fetchWellcare(
@@ -79,7 +84,7 @@ export const useObservations = ({
         {
             server: false,
             lazy: true,
-            immediate: !!userId,
+            immediate: !!userId, // Changed to false to prevent automatic execution
             deep: true,
             watch: [computedUserId, query],
         },
@@ -87,7 +92,10 @@ export const useObservations = ({
 
     const updateQuery = (newParams: Partial<QueryObs>) => {
         query.value = { ...query.value, ...newParams }
-        execute()
+        // Only execute if there are search parameters after update
+        if (hasSearchParams.value) {
+            execute()
+        }
     }
 
     const performAction = async (
@@ -97,7 +105,7 @@ export const useObservations = ({
         isLoading.value = true
         try {
             await action()
-            if (shouldRefresh) {
+            if (shouldRefresh && hasSearchParams.value) {
                 await refresh()
             }
         } catch (error) {
@@ -108,7 +116,7 @@ export const useObservations = ({
         }
     }
 
-    const importCreate = (data: Observation[]) =>
+    const importCreate = (data: Partial<Observation[]>) =>
         performAction(() =>
             $fetchWellcare(OBSERVATION_URL.importCreate(), {
                 method: 'POST',
@@ -134,37 +142,6 @@ export const useObservations = ({
             }),
         )
 
-    const socketInput = computed(() => ({
-        room: {
-            channel: '/Observation',
-            name: 'Observation',
-            roomId: computedUserId.value,
-        },
-        user: computedUserId.value,
-        debug: true,
-    }))
-
-    const { socket, joinRoom, leaveRoom } = useSocketIo(socketInput)
-
-    const setupSocketListeners = () => {
-        const debouncedRefresh = useDebounceFn(() => {
-            refresh()
-        }, 500)
-
-        socket.on('created', debouncedRefresh)
-        socket.on('updated', debouncedRefresh)
-        socket.on('removed', debouncedRefresh)
-    }
-
-    const subscribe = () => {
-        joinRoom()
-        setupSocketListeners()
-        return () => {
-            leaveRoom()
-            socket.removeAllListeners()
-        }
-    }
-
     return {
         observations,
         query,
@@ -173,7 +150,6 @@ export const useObservations = ({
         getObservation,
         deleteObservation,
         putObservation,
-        subscribe,
         isLoading,
         refresh,
     }

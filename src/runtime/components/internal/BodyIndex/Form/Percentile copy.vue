@@ -86,8 +86,8 @@ const handleSubmit = async () => {
                 v-model="formData.height"
                 class="p-inputtext-sm w-full"
                 mode="decimal"
-                min="0"
-                max="250"
+                :min="0"
+                :max="250"
                 suffix=" cm"
                 show-buttons
                 button-layout="horizontal"
@@ -111,8 +111,8 @@ const handleSubmit = async () => {
                 v-model="formData.weight"
                 class="p-inputtext-sm w-full"
                 mode="decimal"
-                min="0"
-                max="200"
+                :min="0"
+                :max="200"
                 suffix=" kg"
                 show-buttons
                 button-layout="horizontal"
@@ -138,8 +138,8 @@ const handleSubmit = async () => {
                 v-model="formData.headCircumference"
                 class="p-inputtext-sm w-full"
                 mode="decimal"
-                min="0"
-                max="70"
+                :min="0"
+                :max="70"
                 suffix=" cm"
                 show-buttons
                 button-layout="horizontal"

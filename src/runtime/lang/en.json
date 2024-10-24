@@ -14,5 +14,9 @@
         "doses-given": "Doses given",
         "last-vaccination-date": "Last vaccination date",
         "not-updated": "Not updated"
-    }
+    },
+    "form:header:bmi": "bmi",
+    "form:header:height": "height",
+    "form:header:weight": "weight",
+    "form:header:headCircumference": "head circumference"
 }

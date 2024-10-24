@@ -13,7 +13,7 @@ definePageMeta({
 
 const { user } = await useUserInfo({ scope: ['_id'], refresh: true })
 
-const { observations, subscribe, importCreate } = useObservations({
+const { observations, importCreate, refresh } = useObservations({
     userId: user.value._id || '',
     initialQuery: {
         filter: {
@@ -30,6 +30,7 @@ const { observations, subscribe, importCreate } = useObservations({
 })
 
 const observationsArray = computed(() => observations.value?.results || [])
+const computedUserId = computed(() => user.value?._id || '')
 
 const observationTypes = [
     { name: 'Person Height', key: 'height', unit: 'cm' },
@@ -59,6 +60,37 @@ const addObservation = async () => {
         ])
         // newObservation.value = { name: '', value: null }
         // updateQuery({ sort: '-observedAt' }) // Refresh to show the new observation
+    }
+}
+
+const socketInput = computed(() => ({
+    room: {
+        channel: '/Observation',
+        name: 'Observation',
+        roomId: computedUserId.value,
+    },
+    user: computedUserId.value,
+    debug: true,
+}))
+
+const { socket, leaveRoom, joinRoom } = useSocketIo(socketInput)
+
+const setupSocketListeners = () => {
+    const debouncedRefresh = useDebounceFn(() => {
+        refresh()
+    }, 500)
+
+    socket.on('created', debouncedRefresh)
+    socket.on('updated', debouncedRefresh)
+    socket.on('removed', debouncedRefresh)
+}
+
+const subscribe = () => {
+    joinRoom()
+    setupSocketListeners()
+    return () => {
+        leaveRoom()
+        socket.removeAllListeners()
     }
 }
 
