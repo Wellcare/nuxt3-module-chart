@@ -12,7 +12,7 @@ interface Props {
 const { userId } = defineProps<Props>()
 
 // Emits
-defineEmits(['click', 'add'])
+const emit = defineEmits(['click', 'add'])
 
 const wrapperDynamicFormRef = ref<InstanceType<typeof WrapperDynamicForm>>()
 
@@ -35,7 +35,7 @@ const { observations, isLoading, refresh } = useObservations({
 
 const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     if (observations.value) {
-        return adaptVitalSigns(observations.value.results)
+        return adaptVitalSigns(observations.value)
     }
     return defaultCards
 })
@@ -81,37 +81,37 @@ const defaultCards: IBodyIndexCard[] = [
     {
         _id: '',
         key: 'height',
-        label: 'person_height',
+        label: 'body-index.card.header.height',
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'height',
+        typeChart: 'percentile',
         ...getIconAndColor('height'),
     },
     {
         _id: '',
         key: 'weight',
-        label: 'person_weight',
+        label: 'body-index.card.header.weight',
         value: '-',
         unit: 'kg',
         lastUpdated: '',
-        typeChart: 'weight',
+        typeChart: 'percentile',
         ...getIconAndColor('weight'),
     },
     {
         _id: '',
         key: 'headCircumference',
-        label: 'person_head_circumference',
+        label: 'body-index.card.header.head-circumference',
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'headCircumference',
+        typeChart: 'percentile',
         ...getIconAndColor('headCircumference'),
     },
     {
         _id: '',
         key: 'bmi',
-        label: 'person_bmi',
+        label: 'body-index.card.header.bmi',
         value: '-',
         unit: '',
         lastUpdated: '',
@@ -135,8 +135,21 @@ const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     })
 }
 
-const handleAdd = (label: IBodyIndexCard['typeChart']) => {
+const handleAdd = (label: IBodyIndexCard['key']) => {
     wrapperDynamicFormRef.value?.open(label)
+}
+
+const handleClick = ({
+    key,
+    typeChart,
+}: {
+    key: IBodyIndexCard['key']
+    typeChart: IBodyIndexCard['typeChart']
+}) => {
+    emit('click', {
+        key,
+        typeChart,
+    })
 }
 
 defineExpose({
@@ -153,7 +166,12 @@ defineExpose({
                 :body-index="item"
                 :loading="isLoading"
                 @add="handleAdd"
-                @click="(data) => $emit('click', data)" />
+                @click="
+                    handleClick({
+                        key: item.key,
+                        typeChart: item.typeChart,
+                    })
+                " />
         </div>
     </WrapperDynamicForm>
 </template>

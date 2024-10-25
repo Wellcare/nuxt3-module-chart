@@ -1,4 +1,4 @@
-import type { Ref } from '#imports'
+import type { Ref, ComputedRef } from '#imports'
 import { computed, ref, unref, useAsyncData, useNuxtApp } from '#imports'
 import { OBSERVATION_URL } from '../../constants'
 import type { Observation, QueryObs } from '../../models'
@@ -13,7 +13,7 @@ interface ResponseObs {
 }
 
 interface UseObservationsReturn {
-    observations: Ref<ResponseObs | null>
+    observations: Ref<Observation[]> | ComputedRef<Observation[]>
     query: Ref<QueryObs>
     updateQuery: (newParams: Partial<QueryObs>) => void
     importCreate: (data: Observation[]) => Promise<void>
@@ -54,11 +54,7 @@ export const useObservations = ({
 
     const isLoading = ref(false)
 
-    const {
-        data: observations,
-        refresh,
-        execute,
-    } = useAsyncData<ResponseObs>(
+    const { data, refresh, execute } = useAsyncData<ResponseObs>(
         cacheKey.value,
         async () => {
             // Only proceed with search if there's a userId and either search parameters exist
@@ -86,7 +82,7 @@ export const useObservations = ({
             lazy: true,
             immediate: !!userId, // Changed to false to prevent automatic execution
             deep: true,
-            watch: [computedUserId, query],
+            watch: [computedUserId],
         },
     )
 
@@ -143,7 +139,7 @@ export const useObservations = ({
         )
 
     return {
-        observations,
+        observations: computed<Observation[]>(() => data.value?.results || []),
         query,
         updateQuery,
         importCreate,

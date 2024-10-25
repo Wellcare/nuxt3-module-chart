@@ -111,8 +111,9 @@
 <script setup lang="ts">
 const { setLocale, t } = useI18n()
 const router = useRouter()
-const { getUserManager, isAuthenticated } = useOidc()
+const { getUserManager, checkAuthStatus } = useOidc()
 const { get } = useUserInfo()
+const { clear } = usePreferences()
 
 const menu = ref()
 const avatarMenu = ref()
@@ -137,7 +138,7 @@ const items = ref([
 
 const routes = computed(() => router.options.routes)
 
-const isLogged = computedAsync(async () => await isAuthenticated(), false)
+const isLogged = computedAsync(async () => await checkAuthStatus(), false)
 
 const user = computedAsync(
     async () => await get({ scope: ['name', 'avatar.url'] }),
@@ -160,6 +161,7 @@ const avatarMenuItems = computed(() => [
 ])
 
 const signIn = async () => {
+    await clear()
     await getUserManager.signinRedirect()
 }
 

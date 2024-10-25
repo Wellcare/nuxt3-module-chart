@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { useObservations, useUserInfo, ref, computed, inject } from '#imports'
+import {
+    useObservations,
+    useUserInfo,
+    ref,
+    computed,
+    inject,
+    useI18n,
+} from '#imports'
 import Button from 'primevue/button'
 import DatePicker from 'primevue/datepicker'
 import InputNumber from 'primevue/inputnumber'
@@ -10,6 +17,7 @@ interface FormData {
 }
 
 // User info setup
+const { t } = useI18n()
 const { user } = await useUserInfo({ scope: ['_id'] })
 const { importCreate, isLoading } = useObservations({
     userId: computed(() => user.value?._id || ''),
@@ -71,8 +79,10 @@ const handleSubmit = async () => {
         @submit.prevent="handleSubmit">
         <!-- Date Picker -->
         <div class="flex flex-col">
-            <label for="date" class="mb-1 block text-sm font-medium">
-                {{ $t('observationDate') }}
+            <label
+                for="date"
+                class="mb-1 block text-sm font-medium first-letter:uppercase">
+                {{ t('body-index.form.label.observation-date') }}
             </label>
             <DatePicker
                 id="date"
@@ -85,8 +95,8 @@ const handleSubmit = async () => {
         <div class="flex flex-col">
             <label
                 for="headCircumference"
-                class="mb-1 block text-sm font-medium">
-                {{ $t('headCircumference') }} (cm)
+                class="mb-1 block text-sm font-medium first-letter:uppercase">
+                {{ t('body-index.form.label.head-circumference') }} (cm)
             </label>
             <InputNumber
                 id="headCircumference"
@@ -112,7 +122,7 @@ const handleSubmit = async () => {
         <div class="col-span-full mt-4">
             <Button
                 type="submit"
-                :label="$t('submit')"
+                :label="t('submit')"
                 :loading="isLoading"
                 :disabled="!isFormValid || isLoading"
                 class="w-full" />

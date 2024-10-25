@@ -1,22 +1,53 @@
 {
-    "weight": "Cân nặng",
-    "height": "Chiều cao",
-    "bmi": "Chỉ số BMI",
-    "kg": "kg",
-    "cm": "cm",
-    "updated": "Cập nhật",
-    "submit": "Gửi",
-    "all-diseases": "Tất cả bệnh",
-    "add": "Thêm",
-    "status": "Trạng thái",
-    "vaccination": {
-        "not-vaccinated": "Chưa tiêm",
-        "doses-given": "Số mũi đã tiêm",
-        "last-vaccination-date": "Ngày tiêm cuối",
-        "not-updated": "Chưa cập nhật"
+  "weight": "Cân nặng",
+  "height": "Chiều cao",
+  "bmi": "Chỉ số BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "updated": "Cập nhật",
+  "submit": "Gửi",
+  "all-diseases": "Tất cả bệnh",
+  "add": "Thêm",
+  "status": "Trạng thái",
+  "vaccination": {
+    "not-vaccinated": "Chưa tiêm",
+    "doses-given": "Số mũi đã tiêm",
+    "last-vaccination-date": "Ngày tiêm cuối",
+    "not-updated": "Chưa cập nhật"
+  },
+  "body-index": {
+    "card": {
+      "header": {
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "head-circumference": "chu vi vòng đầu",
+        "bmi": "bmi"
+      }
     },
-    "form:header:bmi": "bmi",
-    "form:header:height": "height",
-    "form:header:weight": "weight",
-    "form:header:headcircumference": "head circumference"
+    "form": {
+      "header": {
+        "bmi": "bmi",
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "headcircumference": "chu vi vòng đầu"
+      },
+      "label": {
+        "observation-date": "ngày",
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "head-circumference": "chu vi vòng đầu"
+      }
+    },
+    "chart": {
+      "common": {
+        "layout": {
+          "label": {
+            "height": "chiều cao",
+            "weight": "cân nặng",
+            "head-circumference": "chu vi vòng đầu"
+          }
+        }
+      }
+    }
+  }
 }

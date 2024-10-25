@@ -32,11 +32,11 @@ const components: Components = {
 const open = (label: OpenDialogOptions['label']) => {
     dialog.open(components[label], {
         props: {
-            header: `${i18n.t(`form:header:${label.toLowerCase()}`).toUpperCase()}`,
+            header: `${i18n.t(`body-index.form.header.${label.toLowerCase()}`).toUpperCase()}`,
             draggable: false,
             position: display?.breakpoint?.isMobile ? 'bottom' : 'center',
             style: {
-                width: '30rem',
+                width: display?.breakpoint?.isMobile ? '100%' : '30rem',
             },
             modal: true,
         },

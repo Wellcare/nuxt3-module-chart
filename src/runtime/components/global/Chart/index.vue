@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import type { Component } from '#imports'
-import { computed, defineAsyncComponent, markRaw } from '#imports'
+import {
+    computed,
+    defineAsyncComponent,
+    markRaw,
+    type Component,
+} from '#imports'
 
 const props = defineProps<{
     type: string
+    userId: string
 }>()
 
 const componentMap: Record<string, () => Promise<Component>> = {
-    percentile: () => import('../Chart/Percentile/index.vue'),
+    percentile: () => import('./Percentile/index.vue'),
     // Add more components here as needed
 }
 
@@ -43,7 +48,7 @@ const component = computed(() => {
 </script>
 
 <template>
-    <component :is="component" v-if="component" />
+    <component :is="component" v-if="component" :user-id="userId" />
     <div v-else-if="type && !component" class="error-message">
         Unknown component type: {{ type }}
     </div>

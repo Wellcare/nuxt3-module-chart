@@ -1,12 +1,66 @@
 <script setup lang="ts">
-import Layout from '../Common/Layout.vue'
-import Chart from '../Common/index.vue'
+import { RenderChart, TabLayout } from '../../../internal/Chart/Common'
+import type { Observation } from '../../../../models'
+import {
+    computed,
+    onBeforeMount,
+    useObservations,
+    useRoute,
+    useRouter,
+} from '#imports'
+
+const FORMAT_KEY_CHART = {
+    height: 'Person Height',
+    weight: 'Person Weight',
+    headCircumference: 'Person Head Circumference',
+}
+
+interface Props {
+    keyChart: Observation['key']
+    userId: string
+}
+
+const props = defineProps<Props>()
+
+const emit = defineEmits<{
+    'on:change-tab-layout': [value: Observation['key']]
+}>()
+
+const route = useRoute()
+const router = useRouter()
+
+const keyChartComputed = computed<string>(
+    () => props.keyChart || (route.query?.key as string) || '',
+)
+
+const { observations, updateQuery } = useObservations({
+    userId: computed(() => props.userId),
+})
+
+const tabs = [
+    {
+        label: 'body-index.chart.common.layout.label.height',
+        value: 'height',
+        icon: 'pi-arrows-v',
+    },
+    {
+        label: 'body-index.chart.common.layout.label.weight',
+        value: 'weight',
+        icon: 'pi-chart-bar',
+    },
+    {
+        label: 'body-index.chart.common.layout.label.head-circumference',
+        value: 'headCircumference',
+        icon: 'pi-circle',
+    },
+]
+
 const data = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
     description:
         'A basic bar chart example, with value labels shown upon pointer hover.',
-    width: 400,
-    height: 200,
+    width: 200,
+    height: 100,
     padding: 5,
 
     data: [
@@ -106,12 +160,44 @@ const data = {
         },
     ],
 }
+
+const refreshSearch = (keyChart: Observation['key']) => {
+    updateQuery({
+        filter: {
+            user: props.userId,
+            name: [FORMAT_KEY_CHART[keyChart as keyof typeof FORMAT_KEY_CHART]],
+        },
+        limit: 100,
+        sort: '-observedAt',
+    })
+}
+
+const handleOnChangeTabLayout = (value: Observation['key']) => {
+    emit('on:change-tab-layout', value)
+
+    refreshSearch(value)
+
+    router.push({
+        query: {
+            ...route.query,
+            key: value,
+        },
+    })
+}
+
+onBeforeMount(() => {
+    refreshSearch(keyChartComputed.value as Observation['key'])
+})
 </script>
 
 <template>
-    <Layout>
-        <template #body>
-            <Chart component-id="chart-1" :data="data" />
+    <TabLayout
+        :tabs="tabs"
+        :default-tab="keyChartComputed"
+        :observations="observations"
+        @on:change="handleOnChangeTabLayout">
+        <template #[`body-${keyChartComputed}`]>
+            <RenderChart :component-id="`chart-1`" :schema="data" />
         </template>
-    </Layout>
+    </TabLayout>
 </template>

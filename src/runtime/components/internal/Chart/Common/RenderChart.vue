@@ -8,7 +8,7 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    data: {
+    schema: {
         type: Object,
         required: true,
     },
@@ -22,7 +22,7 @@ const props = defineProps({
     },
 })
 
-const dataVega = computed(() => (props.isNullData ? {} : props.data))
+const dataVega = computed(() => (props.isNullData ? {} : props.schema))
 
 const render = async () => {
     const vegaScripts = [
@@ -61,5 +61,3 @@ onMounted(() => {
 <template>
     <div :id="componentId" />
 </template>
-
-<style scoped></style>

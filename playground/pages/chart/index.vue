@@ -13,8 +13,16 @@ const handleAdd = (key: string) => {
     console.log('click add', key)
 }
 
-const handleClick = (key: string) => {
-    navigateTo(`/chart/${user.value._id}/${key}`)
+const handleClick = ({key, typeChart}: {
+    key: string
+    typeChart: string
+}) => {
+    navigateTo({
+        path: `/chart/${user.value._id}/${typeChart}`,
+        query: {
+            key,
+        }
+    })
 }
 
 const refreshSearch = () => {

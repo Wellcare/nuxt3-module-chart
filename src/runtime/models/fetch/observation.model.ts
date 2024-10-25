@@ -1,7 +1,7 @@
 export interface Observation {
     _id?: string
     user?: string
-    key?: string
+    key?: 'height' | 'weight' | 'headCircumference' | 'bmi'
     name?: string
     value?: string
     observedAt?: string
