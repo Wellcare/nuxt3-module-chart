@@ -17,7 +17,11 @@ withDefaults(defineProps<Props>(), {
     loading: false,
 })
 
-defineEmits(['add'])
+defineEmits<{
+    'on:add': []
+    'on:delete': [value: Observation]
+    'on:edit': [value: Observation]
+}>()
 </script>
 
 <template>
@@ -31,7 +35,7 @@ defineEmits(['add'])
                 <Button
                     icon="pi pi-plus"
                     class="p-button-rounded p-button-outlined"
-                    @click="$emit('add')" />
+                    @click="$emit('on:add')" />
             </div>
         </template>
 
@@ -54,7 +58,9 @@ defineEmits(['add'])
                 <CardIndex
                     v-for="(observation, index) in observations"
                     :key="index"
-                    :observation="observation" />
+                    :observation="observation"
+                    @on:edit="$emit('on:edit', observation)"
+                    @on:delete="$emit('on:delete', observation)" />
             </div>
         </template>
     </Card>

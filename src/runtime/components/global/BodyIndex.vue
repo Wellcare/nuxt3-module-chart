@@ -3,7 +3,7 @@ import { computed, ref, useObservations } from '#imports'
 import type { Observation } from '../../models'
 import type { IBodyIndexCard } from '../internal/BodyIndex/card.vue'
 import BodyIndexCard from '../internal/BodyIndex/card.vue'
-import WrapperDynamicForm from '../internal/BodyIndex/Form/index.vue'
+import WrapperDynamicForm from '../internal/Form/index.vue'
 
 interface Props {
     userId: string
@@ -14,9 +14,10 @@ const { userId } = defineProps<Props>()
 // Emits
 const emit = defineEmits(['click', 'add'])
 
+const key = ref<Observation['key'] | any>('')
 const wrapperDynamicFormRef = ref<InstanceType<typeof WrapperDynamicForm>>()
 
-const { observations, isLoading, refresh } = useObservations({
+const { observations, isLoading, refresh, importCreate } = useObservations({
     userId: userId,
     initialQuery: {
         filter: {
@@ -135,8 +136,9 @@ const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     })
 }
 
-const handleAdd = (label: IBodyIndexCard['key']) => {
-    wrapperDynamicFormRef.value?.open(label)
+const handleAdd = (val: IBodyIndexCard['key']) => {
+    key.value = val
+    wrapperDynamicFormRef.value?.open(val)
 }
 
 const handleClick = ({
@@ -152,13 +154,23 @@ const handleClick = ({
     })
 }
 
+const handleSubmit = async (val: Observation[]) => {
+    await importCreate(val)
+    wrapperDynamicFormRef.value?.getComponentRef(key.value)?.resetForm()
+    wrapperDynamicFormRef.value?.closeDialog()
+}
+
 defineExpose({
     refreshSearch: refresh,
 })
 </script>
 
 <template>
-    <WrapperDynamicForm ref="wrapperDynamicFormRef">
+    <WrapperDynamicForm
+        ref="wrapperDynamicFormRef"
+        :user-id="userId"
+        :is-loading="isLoading"
+        @on:submit="handleSubmit">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <BodyIndexCard
                 v-for="item in adaptedObservations"

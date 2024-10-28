@@ -32,7 +32,7 @@
         "headcircumference": "head circumference"
       },
       "label": {
-        "observation-date": "date",
+        "observed-at": "date",
         "height": "height",
         "weight": "weight",
         "head-circumference": "head circumference"
@@ -45,6 +45,13 @@
             "height": "height",
             "weight": "weight",
             "head-circumference": "head circumference"
+          },
+          "card": {
+            "menu": {
+              "edit": "Edit",
+              "options": "Options",
+              "delete": "Delete"
+            }
           }
         }
       }

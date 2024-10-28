@@ -19,7 +19,10 @@ interface UseObservationsReturn {
     importCreate: (data: Observation[]) => Promise<void>
     getObservation: (_id: string) => Promise<void>
     deleteObservation: (_id: string) => Promise<void>
-    putObservation: (_id: string, data: Partial<Observation>) => Promise<void>
+    updateObservation: (
+        _id: string,
+        data: Partial<Observation>,
+    ) => Promise<void>
     isLoading: Ref<boolean>
     refresh: () => Promise<void>
 }
@@ -130,7 +133,7 @@ export const useObservations = ({
             }),
         )
 
-    const putObservation = (_id: string, data: Partial<Observation>) =>
+    const updateObservation = (_id: string, data: Partial<Observation>) =>
         performAction(() =>
             $fetchWellcare(OBSERVATION_URL.updateId(_id), {
                 method: 'PUT',
@@ -145,7 +148,7 @@ export const useObservations = ({
         importCreate,
         getObservation,
         deleteObservation,
-        putObservation,
+        updateObservation,
         isLoading,
         refresh,
     }

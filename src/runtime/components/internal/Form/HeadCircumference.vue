@@ -1,97 +1,113 @@
 <script setup lang="ts">
-import {
-    useObservations,
-    useUserInfo,
-    ref,
-    computed,
-    inject,
-    useI18n,
-} from '#imports'
+import { ref, computed, useI18n, watch } from '#imports'
 import Button from 'primevue/button'
 import DatePicker from 'primevue/datepicker'
 import InputNumber from 'primevue/inputnumber'
 
+import type { Observation } from '../../../models'
+import { parseDate } from '../../../utils'
+
 interface FormData {
-    date: Date
+    observedAt: Date | null
     headCircumference: number | null
 }
 
-// User info setup
-const { t } = useI18n()
-const { user } = await useUserInfo({ scope: ['_id'] })
-const { importCreate, isLoading } = useObservations({
-    userId: computed(() => user.value?._id || ''),
-})
+interface Props {
+    userId: string
+    isLoading: boolean
+    defaultData?: {
+        observedAt?: string | Date
+        headCircumference?: number
+    }
+}
 
-// Form state
+const props = defineProps<Props>()
+const emit = defineEmits<{
+    'on:submit': [value: Observation[]]
+}>()
+
+const { t } = useI18n()
+
+// Form state with safe initial values
 const formData = ref<FormData>({
-    date: new Date(),
+    observedAt: new Date(),
     headCircumference: null,
 })
-const dialogRef = inject<any>('dialogRef')
 
-const closeDialog = () => {
-    dialogRef.value.close()
-}
+// Watch for changes in defaultData and update formData accordingly
+watch(
+    () => props.defaultData,
+    (newData) => {
+        if (newData) {
+            formData.value = {
+                observedAt: parseDate(newData.observedAt),
+                headCircumference:
+                    newData.headCircumference !== undefined
+                        ? newData.headCircumference
+                        : null,
+            }
+        }
+    },
+    { immediate: true, deep: true },
+)
 
 // Computed property to check if form is valid
 const isFormValid = computed(() => {
     return (
-        formData.value.date &&
+        formData.value.observedAt &&
+        !Number.isNaN(formData.value.observedAt.getTime()) && // Check for valid date
         formData.value.headCircumference !== null &&
         formData.value.headCircumference >= 0 &&
         formData.value.headCircumference <= 70
     )
 })
 
-const handleSubmit = async () => {
-    if (!isFormValid.value || !user.value?._id) {
+const submit = async () => {
+    if (!isFormValid.value || !props.userId || !formData.value.observedAt) {
         console.error('Form validation failed or user ID missing')
         return
     }
 
     try {
-        const observation = {
+        const observation: Observation = {
             key: 'headCircumference',
             name: 'Person Head Circumference',
             value: formData.value.headCircumference!.toString(),
-            observedAt: formData.value.date.toISOString(),
+            observedAt: formData.value.observedAt.toISOString(),
             unit: 'cm',
-            user: user.value._id,
+            user: props.userId,
         }
-
-        await importCreate([observation])
-        // Reset form after successful submission
-        formData.value = {
-            date: new Date(),
-            headCircumference: null,
-        }
-        closeDialog()
+        emit('on:submit', [observation])
     } catch (error) {
         console.error('Error submitting data:', error)
     }
 }
+
+defineExpose({
+    submit,
+})
 </script>
 
 <template>
-    <form
-        class="grid grid-cols-1 items-center gap-6"
-        @submit.prevent="handleSubmit">
+    <form class="grid grid-cols-1 items-center gap-6" @submit.prevent="submit">
         <!-- Date Picker -->
         <div class="flex flex-col">
             <label
-                for="date"
+                for="observedAt"
                 class="mb-1 block text-sm font-medium first-letter:uppercase">
-                {{ t('body-index.form.label.observation-date') }}
+                {{ t('body-index.form.label.observed-at') }}
             </label>
             <DatePicker
-                id="date"
-                v-model="formData.date"
+                id="observedAt"
+                v-model="formData.observedAt"
                 :show-icon="true"
-                :disabled="isLoading" />
+                :disabled="isLoading"
+                date-format="dd/mm/yy"
+                :show-time="false"
+                :manual-input="false" />
         </div>
 
-        <!-- Head Circumference Input -->
+        <!-- Height Input -->
         <div class="flex flex-col">
             <label
                 for="headCircumference"

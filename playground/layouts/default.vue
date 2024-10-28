@@ -161,11 +161,11 @@ const avatarMenuItems = computed(() => [
 ])
 
 const signIn = async () => {
-    await clear()
     await getUserManager.signinRedirect()
 }
 
 const signOut = async () => {
+    await clear()
     await getUserManager.signoutRedirect()
 }
 

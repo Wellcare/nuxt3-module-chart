@@ -32,7 +32,7 @@
         "headcircumference": "chu vi vòng đầu"
       },
       "label": {
-        "observation-date": "ngày",
+        "observed-at": "date",
         "height": "chiều cao",
         "weight": "cân nặng",
         "head-circumference": "chu vi vòng đầu"
@@ -45,6 +45,13 @@
             "height": "chiều cao",
             "weight": "cân nặng",
             "head-circumference": "chu vi vòng đầu"
+          },
+          "card": {
+            "menu": {
+              "edit": "Chỉnh sửa",
+              "options": "Tuỳ chọn",
+              "delete": "Xoá"
+            }
           }
         }
       }

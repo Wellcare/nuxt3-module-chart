@@ -3,10 +3,11 @@ import { useDayjs, useI18n } from '#imports'
 import Button from 'primevue/button'
 import Skeleton from 'primevue/skeleton'
 import { computed, watch } from 'vue'
+import type { Observation } from '~/src/runtime/models'
 
 export interface IBodyIndexCard {
     _id: string
-    key: 'headCircumference' | 'weight' | 'height' | 'bmi'
+    key: Observation['key']
     label: string
     icon: string
     value: string

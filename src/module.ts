@@ -41,6 +41,7 @@ const getModuleConfigs = (resolve: Function): ModuleConfigs => ({
     'dayjs-nuxt': {},
     '@primevue/nuxt-module': {},
     '@nuxtjs/i18n': {
+        lazy: true,
         langDir: resolve('./runtime/lang'),
         locales: [
             {

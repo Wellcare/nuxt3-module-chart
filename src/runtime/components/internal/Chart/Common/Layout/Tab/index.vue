@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from '#imports'
+import { computed, onMounted, ref, useI18n } from '#imports'
 
 import Card from 'primevue/card'
 import Tabs from 'primevue/tabs'
@@ -27,14 +27,22 @@ const props = withDefaults(defineProps<Props>(), {
     tabs: () => [],
     defaultTab: '',
 })
+const { t } = useI18n()
 
 const emit = defineEmits<{
-    'on:change': [value: string]
+    'on:change': [value: Observation['key']]
+    'on:add': []
+    'on:delete': [value: Observation]
+    'on:edit': [value: Observation]
 }>()
 
 const activeTabIndex = ref('')
 const selectedAge = ref(null)
 const visible = ref(false)
+
+const titleSideAction = computed<string>(() =>
+    t(`body-index.chart.common.layout.side-action.title-${props.defaultTab}`),
+)
 
 const ageOptions = [
     { name: '0-5 years', code: '0-5' },
@@ -122,7 +130,11 @@ onMounted(() => {
         <!-- Sidebar Card - full width on mobile, 1/4 on desktop -->
         <SideAcction
             class="hidden h-full md:block lg:w-1/4 lg:p-4"
-            :observations="observations" />
+            :observations="observations"
+            :title="titleSideAction"
+            @on:add="$emit('on:add')"
+            @on:edit="($data) => $emit('on:edit', $data)"
+            @on:delete="($data) => $emit('on:delete', $data)" />
 
         <div class="fixed bottom-12 right-6 md:hidden">
             <Button
@@ -137,12 +149,16 @@ onMounted(() => {
                 :draggable="false"
                 class="p-dialog-maximized"
                 :pt="{ content: { class: 'px-0' } }"
-                modal
-                header="Add body index">
-                <SideAcction :observations="observations" />
+                :header="titleSideAction"
+                modal>
+                <SideAcction
+                    :observations="observations"
+                    @on:add="$emit('on:add')"
+                    @on:edit="($data) => $emit('on:edit', $data)"
+                    @on:delete="($data) => $emit('on:delete', $data)" />
 
                 <div class="fixed bottom-12 right-6">
-                    <Button icon="pi pi-plus" rounded siz="large" />
+                    <Button icon="pi pi-plus" rounded siz="large" @click="$emit('on:add')" />
                 </div>
             </Dialog>
         </div>
