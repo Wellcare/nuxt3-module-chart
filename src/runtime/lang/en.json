@@ -1,22 +1,60 @@
 {
-    "weight": "Weight",
-    "height": "Height",
-    "bmi": "BMI",
-    "kg": "kg",
-    "cm": "cm",
-    "updated": "Updated",
-    "submit": "Submit",
-    "all-diseases": "All Diseases",
-    "add": "Add",
-    "status": "Status",
-    "vaccination": {
-        "not-vaccinated": "Not vaccinated",
-        "doses-given": "Doses given",
-        "last-vaccination-date": "Last vaccination date",
-        "not-updated": "Not updated"
+  "weight": "Weight",
+  "height": "Height",
+  "bmi": "BMI",
+  "kg": "kg",
+  "cm": "cm",
+  "updated": "Updated",
+  "submit": "Submit",
+  "all-diseases": "All Diseases",
+  "add": "Add",
+  "status": "Status",
+  "vaccination": {
+    "not-vaccinated": "Not vaccinated",
+    "doses-given": "Doses given",
+    "last-vaccination-date": "Last vaccination date",
+    "not-updated": "Not updated"
+  },
+  "body-index": {
+    "card": {
+      "header": {
+        "height": "height",
+        "weight": "weight",
+        "head-circumference": "head circumference",
+        "bmi": "bmi"
+      }
     },
-    "form:header:bmi": "bmi",
-    "form:header:height": "height",
-    "form:header:weight": "weight",
-    "form:header:headcircumference": "head circumference"
+    "form": {
+      "header": {
+        "bmi": "bmi",
+        "height": "height",
+        "weight": "weight",
+        "headcircumference": "head circumference"
+      },
+      "label": {
+        "observed-at": "date",
+        "height": "height",
+        "weight": "weight",
+        "head-circumference": "head circumference"
+      }
+    },
+    "chart": {
+      "common": {
+        "layout": {
+          "label": {
+            "height": "height",
+            "weight": "weight",
+            "head-circumference": "head circumference"
+          },
+          "card": {
+            "menu": {
+              "edit": "Edit",
+              "options": "Options",
+              "delete": "Delete"
+            }
+          }
+        }
+      }
+    }
+  }
 }

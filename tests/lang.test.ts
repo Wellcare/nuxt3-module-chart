@@ -2,56 +2,82 @@ import { describe, expect, it } from 'vitest'
 import EN from '../src/runtime/lang/en.json'
 import VI from '../src/runtime/lang/vi.json'
 
+type TranslationValue = string | { [key: string]: string }
+type TranslationObject = Record<string, TranslationValue>
+
 const compareLanguageObjects = (
-    en: Record<string, string>,
-    vi: Record<string, string>,
+  en: TranslationObject,
+  vi: TranslationObject,
 ): boolean => {
-    const missingKeysInEnglish: string[] = Object.keys(vi).filter(
-        (key) => !(key in en),
-    )
-    const missingKeysInVietnamese: string[] = Object.keys(en).filter(
-        (key) => !(key in vi),
-    )
+  const flattenObject = (obj: TranslationObject, prefix = ''): Record<string, string> => {
+    return Object.entries(obj).reduce((acc: Record<string, string>, [key, value]) => {
+      const newKey = prefix ? `${prefix}.${key}` : key
+      if (typeof value === 'string') {
+        acc[newKey] = value
+      } else if (typeof value === 'object' && value !== null) {
+        Object.assign(acc, flattenObject(value as Record<string, string>, newKey))
+      }
+      return acc
+    }, {})
+  }
 
-    if (missingKeysInEnglish.length > 0) {
-        console.error('--------------------------')
-        console.error('Missing keys in en.json:')
-        missingKeysInEnglish.forEach((key) => {
-            console.error(`- Missing key: ${key}`)
-        })
-    }
+  const flatEn = flattenObject(en)
+  const flatVi = flattenObject(vi)
 
-    if (missingKeysInVietnamese.length > 0) {
-        console.error('--------------------------')
+  const missingKeysInEnglish: string[] = Object.keys(flatVi).filter(
+    (key) => !(key in flatEn),
+  )
+  const missingKeysInVietnamese: string[] = Object.keys(flatEn).filter(
+    (key) => !(key in flatVi),
+  )
 
-        console.error('Missing keys in vi.json:')
-        missingKeysInVietnamese.forEach((key) => {
-            console.error(`- Missing key: ${key}`)
-        })
-    }
+  if (missingKeysInEnglish.length > 0) {
+    console.error('--------------------------')
+    console.error('Missing keys in en.json:')
+    missingKeysInEnglish.forEach((key) => {
+      console.error(`- Missing key: ${key}`)
+    })
+  }
 
-    return (
-        missingKeysInEnglish.length === 0 &&
-        missingKeysInVietnamese.length === 0
-    )
+  if (missingKeysInVietnamese.length > 0) {
+    console.error('--------------------------')
+    console.error('Missing keys in vi.json:')
+    missingKeysInVietnamese.forEach((key) => {
+      console.error(`- Missing key: ${key}`)
+    })
+  }
+
+  return (
+    missingKeysInEnglish.length === 0 &&
+    missingKeysInVietnamese.length === 0
+  )
 }
 
 describe('i18n lang files', async () => {
-    const enKeys = Object.keys(EN).sort()
+  const getFlatKeys = (obj: TranslationObject): string[] => {
+    const flatObj = Object.entries(obj).reduce((acc: string[], [key, value]) => {
+      if (typeof value === 'string') {
+        acc.push(key)
+      } else if (typeof value === 'object' && value !== null) {
+        acc.push(...Object.keys(value as Record<string, string>).map(k => `${key}.${k}`))
+      }
+      return acc
+    }, [])
+    return flatObj.sort()
+  }
 
-    it('should have all keys translated', () => {
-        expect(compareLanguageObjects(EN, VI)).toBe(true)
-    })
+  const enKeys = getFlatKeys(EN)
 
-    it('should have keys as a-z or 0-9 hyphen or colon', () => {
-        enKeys.forEach((key) => {
-            // Exclude keys containing curly braces
-            if (!/\{.*\}/.test(EN[key])) {
-                expect(key).toMatch(/^[a-z0-9:-]+$/)
-            } else {
-                // If the key contains curly braces, it's acceptable
-                expect(key).toMatch(/[^\n\r{\u2028\u2029]*\{.*\}.*/)
-            }
-        })
+  it('should have all keys translated', () => {
+    expect(compareLanguageObjects(EN, VI)).toBe(true)
+  })
+
+  it('should have keys as a-z or 0-9 hyphen or colon', () => {
+    enKeys.forEach((key) => {
+      const keyParts = key.split('.')
+      keyParts.forEach(part => {
+        expect(part).toMatch(/^[a-z0-9:-]+$/)
+      })
     })
+  })
 })

@@ -3,10 +3,11 @@ import { useDayjs, useI18n } from '#imports'
 import Button from 'primevue/button'
 import Skeleton from 'primevue/skeleton'
 import { computed, watch } from 'vue'
+import type { Observation } from '~/src/runtime/models'
 
 export interface IBodyIndexCard {
     _id: string
-    key: string
+    key: Observation['key']
     label: string
     icon: string
     value: string
@@ -14,7 +15,7 @@ export interface IBodyIndexCard {
     unit: string
     bgColor: string
     iconColor: string
-    typeChart: 'headCircumference' | 'weight' | 'height' | 'bmi'
+    typeChart: 'percentile' | 'bmi'
 }
 
 interface Props {
@@ -47,11 +48,7 @@ watch(locale, (newLocale) => {
 
 const handleAdd = (event: Event) => {
     event.stopPropagation()
-    emit('add', props.bodyIndex.typeChart)
-}
-
-const handleClick = () => {
-    emit('click', props.bodyIndex.typeChart)
+    emit('add', props.bodyIndex.key)
 }
 
 const handleHover = (isHovering: boolean) => {
@@ -74,7 +71,7 @@ const formattedLastUpdated = computed(() => {
             'relative flex h-full flex-col justify-between rounded-xl p-4 transition-all duration-300 ease-in-out',
             'cursor-pointer hover:opacity-95 hover:shadow-lg',
         ]"
-        @click="handleClick"
+        @click="$emit('click')"
         @mouseenter="handleHover(true)"
         @mouseleave="handleHover(false)">
         <div>
@@ -86,7 +83,9 @@ const formattedLastUpdated = computed(() => {
                         :class="[bodyIndex.icon, bodyIndex.iconColor]"
                         :size="20" />
                     <Skeleton v-if="loading" width="80px" height="16px" />
-                    <p v-else class="m-0 text-sm font-semibold text-black">
+                    <p
+                        v-else
+                        class="m-0 text-sm font-semibold uppercase text-black">
                         {{ t(bodyIndex.label) }}
                     </p>
                 </div>

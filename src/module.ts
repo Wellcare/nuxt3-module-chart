@@ -21,7 +21,6 @@ interface TailwindConfig {
 declare module '@nuxt/schema' {
     interface NuxtHooks {
         'tailwindcss:config': (config: Partial<TailwindConfig>) => void
-        'i18n:registerModule': (register: any) => void
     }
 }
 
@@ -42,6 +41,7 @@ const getModuleConfigs = (resolve: Function): ModuleConfigs => ({
     'dayjs-nuxt': {},
     '@primevue/nuxt-module': {},
     '@nuxtjs/i18n': {
+        lazy: true,
         langDir: resolve('./runtime/lang'),
         locales: [
             {

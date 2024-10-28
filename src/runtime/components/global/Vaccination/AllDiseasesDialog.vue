@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from '#imports'
+import { computed, useDisplay, useI18n } from '#imports'
 import Dialog from 'primevue/dialog'
 import type { DiseaseSchedule } from '../../../models'
 
@@ -14,6 +14,10 @@ const emit = defineEmits<{
     (e: 'select-disease', schedule: DiseaseSchedule): void
 }>()
 
+const { display } = useDisplay()
+
+const isMobile = computed<boolean>(() => display.breakpoint.isMobile)
+
 const getVaccinationStatus = (schedule: DiseaseSchedule) => {
     const completedVaccines = schedule.vaccines.filter((vaccine) => {
         return (vaccine.lastDose ?? 0) > 0
@@ -26,10 +30,12 @@ const getVaccinationStatus = (schedule: DiseaseSchedule) => {
     <Dialog
         :modal="true"
         class="w-full md:max-w-screen-lg"
+        :class="{
+            'p-dialog-maximized': isMobile,
+        }"
         @update:visible="(value) => emit('update:visible', value)">
         <template #header>
-            <h2
-                class="mb-0 text-xl font-bold text-gray-800 dark:text-gray-200">
+            <h2 class="mb-0 text-xl font-bold text-gray-800 dark:text-gray-200">
                 {{ t('all-diseases') }}
             </h2>
         </template>

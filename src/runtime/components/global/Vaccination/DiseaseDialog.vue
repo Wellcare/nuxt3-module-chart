@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, useI18n, watch } from '#imports'
+import { computed, ref, useDisplay, useI18n, watch } from '#imports'
 import Calendar from 'primevue/calendar'
 import Dialog from 'primevue/dialog'
 import RadioButton from 'primevue/radiobutton'
 import type { DiseaseSchedule, Vaccination, Vaccine } from '../../../models'
-
-const { t } = useI18n()
 
 const props = defineProps<{
     schedule: DiseaseSchedule | null
@@ -23,9 +21,13 @@ const emit = defineEmits<{
     (e: 'createVaccineHistory', data: Partial<Vaccination>): void
 }>()
 
+const { t } = useI18n()
+const { display } = useDisplay()
+
 const selectedDisease = computed<string>(() => props.schedule?.disease || '')
 
 const maxDate = computed(() => new Date())
+const isMobile = computed<boolean>(() => display.breakpoint.isMobile)
 
 const updateOrCreateVaccineHistory = (
     vaccine: Vaccine,
@@ -107,7 +109,8 @@ watch(
     <Dialog
         modal
         class="relative w-full overflow-hidden md:max-w-screen-sm"
-        :draggable="false">
+        :draggable="false"
+        :position="isMobile ? 'bottom' : 'center'">
         <!-- Loading bar -->
         <div
             v-if="isLoading"

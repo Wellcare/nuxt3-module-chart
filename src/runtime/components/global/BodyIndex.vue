@@ -3,7 +3,7 @@ import { computed, ref, useObservations } from '#imports'
 import type { Observation } from '../../models'
 import type { IBodyIndexCard } from '../internal/BodyIndex/card.vue'
 import BodyIndexCard from '../internal/BodyIndex/card.vue'
-import WrapperDynamicForm from '../internal/BodyIndex/Form/index.vue'
+import WrapperDynamicForm from '../internal/Form/index.vue'
 
 interface Props {
     userId: string
@@ -12,11 +12,12 @@ interface Props {
 const { userId } = defineProps<Props>()
 
 // Emits
-defineEmits(['click', 'add'])
+const emit = defineEmits(['click', 'add'])
 
+const key = ref<Observation['key'] | any>('')
 const wrapperDynamicFormRef = ref<InstanceType<typeof WrapperDynamicForm>>()
 
-const { observations, isLoading, refresh } = useObservations({
+const { observations, isLoading, refresh, importCreate } = useObservations({
     userId: userId,
     initialQuery: {
         filter: {
@@ -35,7 +36,7 @@ const { observations, isLoading, refresh } = useObservations({
 
 const adaptedObservations = computed<IBodyIndexCard[]>(() => {
     if (observations.value) {
-        return adaptVitalSigns(observations.value.results)
+        return adaptVitalSigns(observations.value)
     }
     return defaultCards
 })
@@ -81,37 +82,37 @@ const defaultCards: IBodyIndexCard[] = [
     {
         _id: '',
         key: 'height',
-        label: 'person_height',
+        label: 'body-index.card.header.height',
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'height',
+        typeChart: 'percentile',
         ...getIconAndColor('height'),
     },
     {
         _id: '',
         key: 'weight',
-        label: 'person_weight',
+        label: 'body-index.card.header.weight',
         value: '-',
         unit: 'kg',
         lastUpdated: '',
-        typeChart: 'weight',
+        typeChart: 'percentile',
         ...getIconAndColor('weight'),
     },
     {
         _id: '',
         key: 'headCircumference',
-        label: 'person_head_circumference',
+        label: 'body-index.card.header.head-circumference',
         value: '-',
         unit: 'cm',
         lastUpdated: '',
-        typeChart: 'headCircumference',
+        typeChart: 'percentile',
         ...getIconAndColor('headCircumference'),
     },
     {
         _id: '',
         key: 'bmi',
-        label: 'person_bmi',
+        label: 'body-index.card.header.bmi',
         value: '-',
         unit: '',
         lastUpdated: '',
@@ -135,8 +136,28 @@ const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
     })
 }
 
-const handleAdd = (label: IBodyIndexCard['typeChart']) => {
-    wrapperDynamicFormRef.value?.open(label)
+const handleAdd = (val: IBodyIndexCard['key']) => {
+    key.value = val
+    wrapperDynamicFormRef.value?.open(val)
+}
+
+const handleClick = ({
+    key,
+    typeChart,
+}: {
+    key: IBodyIndexCard['key']
+    typeChart: IBodyIndexCard['typeChart']
+}) => {
+    emit('click', {
+        key,
+        typeChart,
+    })
+}
+
+const handleSubmit = async (val: Observation[]) => {
+    await importCreate(val)
+    wrapperDynamicFormRef.value?.getComponentRef(key.value)?.resetForm()
+    wrapperDynamicFormRef.value?.closeDialog()
 }
 
 defineExpose({
@@ -145,7 +166,11 @@ defineExpose({
 </script>
 
 <template>
-    <WrapperDynamicForm ref="wrapperDynamicFormRef">
+    <WrapperDynamicForm
+        ref="wrapperDynamicFormRef"
+        :user-id="userId"
+        :is-loading="isLoading"
+        @on:submit="handleSubmit">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <BodyIndexCard
                 v-for="item in adaptedObservations"
@@ -153,7 +178,12 @@ defineExpose({
                 :body-index="item"
                 :loading="isLoading"
                 @add="handleAdd"
-                @click="(data) => $emit('click', data)" />
+                @click="
+                    handleClick({
+                        key: item.key,
+                        typeChart: item.typeChart,
+                    })
+                " />
         </div>
     </WrapperDynamicForm>
 </template>

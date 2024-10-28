@@ -1,36 +1,53 @@
 {
-  "error": "Lỗi",
-  "warning": "Cảnh báo",
-  "info": "Thông tin",
-  "success": "Thành công",
   "weight": "Cân nặng",
   "height": "Chiều cao",
   "bmi": "Chỉ số BMI",
   "kg": "kg",
   "cm": "cm",
-  "person_height": "Chiều cao",
-  "person_weight": "Cân nặng",
-  "person_head_circumference": "Chu vi đầu",
-  "person_bmi": "Chỉ số BMI",
   "updated": "Cập nhật",
-  "observationDate": "Ngày",
-  "headCircumference": "Chu vi vòng đầu",
   "submit": "Gửi",
   "all-diseases": "Tất cả bệnh",
-  "add": "Hiển thị tất cả bệnh",
+  "add": "Thêm",
   "status": "Trạng thái",
-  "diseases": {
-    "COVID-19": "COVID-19",
-    "Flu": "Cúm"
-  },
-  "vaccines": {
-    "Pfizer": "Pfizer",
-    "Moderna": "Moderna"
-  },
   "vaccination": {
     "not-vaccinated": "Chưa tiêm",
     "doses-given": "Số mũi đã tiêm",
     "last-vaccination-date": "Ngày tiêm cuối",
     "not-updated": "Chưa cập nhật"
+  },
+  "body-index": {
+    "card": {
+      "header": {
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "head-circumference": "chu vi vòng đầu",
+        "bmi": "bmi"
+      }
+    },
+    "form": {
+      "header": {
+        "bmi": "bmi",
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "headcircumference": "chu vi vòng đầu"
+      },
+      "label": {
+        "observation-date": "ngày",
+        "height": "chiều cao",
+        "weight": "cân nặng",
+        "head-circumference": "chu vi vòng đầu"
+      }
+    },
+    "chart": {
+      "common": {
+        "layout": {
+          "label": {
+            "height": "chiều cao",
+            "weight": "cân nặng",
+            "head-circumference": "chu vi vòng đầu"
+          }
+        }
+      }
+    }
   }
 }
