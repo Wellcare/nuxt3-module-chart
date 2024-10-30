@@ -50,7 +50,7 @@
             "side-action": {
               "title-height": "growth height",
               "title-weight": "growth weight",
-              "title-head-circumference": "growth head circumference"
+              "title-headcircumference": "growth head circumference"
             }
           },
           "card": {
