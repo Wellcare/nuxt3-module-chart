@@ -25,12 +25,14 @@ defineEmits<{
 </script>
 
 <template>
-    <Card>
+    <Card class="shadow-none">
         <template #title>
             <div class="hidden items-center justify-between pb-2 md:flex">
                 <div class="flex items-center gap-2">
                     <i class="pi pi-chart-bar text-primary" />
-                    <span class="text-xl font-bold">{{ title }}</span>
+                    <span class="text-xl font-bold first-letter:uppercase">{{
+                        title
+                    }}</span>
                 </div>
                 <Button
                     icon="pi pi-plus"
@@ -55,13 +57,30 @@ defineEmits<{
                 </div>
 
                 <!-- Observations List -->
-                <CardIndex
-                    v-for="(observation, index) in observations"
-                    :key="index"
-                    :observation="observation"
-                    @on:edit="$emit('on:edit', observation)"
-                    @on:delete="$emit('on:delete', observation)" />
+                <TransitionGroup
+                    name="list"
+                    tag="div"
+                    class="space-y-4 overflow-x-hidden">
+                    <CardIndex
+                        v-for="(observation, index) in observations"
+                        :key="index"
+                        :observation="observation"
+                        @on:edit="$emit('on:edit', observation)"
+                        @on:delete="$emit('on:delete', observation)" />
+                </TransitionGroup>
             </div>
         </template>
     </Card>
 </template>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.1s ease;
+}
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+</style>

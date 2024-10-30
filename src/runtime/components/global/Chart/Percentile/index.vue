@@ -7,10 +7,14 @@ import {
     useRoute,
     useRouter,
 } from '#imports'
+import ConfirmDialog from 'primevue/confirmdialog'
 import { useConfirm } from 'primevue/useconfirm'
 import { RenderChart, TabLayout } from '../../../internal/Chart/Common'
 import WrapperDynamicForm from '../../../internal/Form/index.vue'
-import type { Observation } from '../../../../models'
+import Options from './Options.vue'
+
+import type { Observation, Gender } from '../../../../models'
+import { usePercentileChart } from '../../../../composables'
 
 // Constants
 const FORMAT_KEY_CHART = {
@@ -21,17 +25,17 @@ const FORMAT_KEY_CHART = {
 
 const TABS = [
     {
-        label: 'body-index.chart.common.layout.label.height',
+        label: 'body-index.chart.common.layout.tab.label.height',
         value: 'height',
         icon: 'pi-arrows-v',
     },
     {
-        label: 'body-index.chart.common.layout.label.weight',
+        label: 'body-index.chart.common.layout.tab.label.weight',
         value: 'weight',
         icon: 'pi-chart-bar',
     },
     {
-        label: 'body-index.chart.common.layout.label.head-circumference',
+        label: 'body-index.chart.common.layout.tab.label.head-circumference',
         value: 'headCircumference',
         icon: 'pi-circle',
     },
@@ -41,9 +45,12 @@ const TABS = [
 interface Props {
     keyChart: Observation['key']
     userId: string
+    gender: Gender
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+    gender: 'M',
+})
 const emit = defineEmits<{
     'on:change-tab-layout': [value: Observation['key']]
 }>()
@@ -59,8 +66,8 @@ const defaultData = ref<Record<string, any>>({})
 const currObs = ref<Observation>()
 
 // Computed
-const keyChartComputed = computed<string>(
-    () => props.keyChart || (route.query?.key as string) || '',
+const keyChartComputed = computed<Observation['key']>(
+    () => props.keyChart || (route.query?.key as Observation['key']),
 )
 
 const typeSubmit = computed<'create' | 'update'>(() =>
@@ -78,6 +85,8 @@ const {
 } = useObservations({
     userId: computed(() => props.userId),
 })
+
+const { schema, el } = usePercentileChart()
 
 // Methods
 const refreshSearch = (keyChart: Observation['key']) => {
@@ -162,111 +171,19 @@ const onSubmit = async (observations: Observation[]) => {
     wrapperDynamicFormRef.value?.closeDialog()
 }
 
+const handleUpdateValue = (value: Record<string, any>) => {
+    console.log(value)
+}
+
 // Lifecycle
 onBeforeMount(() => {
     refreshSearch(keyChartComputed.value as Observation['key'])
 })
-
-// Chart Configuration
-const chartSchema = {
-    $schema: 'https://vega.github.io/schema/vega/v5.json',
-    description: 'Interactive bar chart with hover effects',
-    width: 200,
-    height: 100,
-    padding: 5,
-    data: [
-        {
-            name: 'table',
-            values: [
-                { category: 'A', amount: 28 },
-                { category: 'B', amount: 55 },
-                { category: 'C', amount: 43 },
-                { category: 'D', amount: 91 },
-                { category: 'E', amount: 81 },
-                { category: 'F', amount: 53 },
-                { category: 'G', amount: 19 },
-                { category: 'H', amount: 87 },
-            ],
-        },
-    ],
-    signals: [
-        {
-            name: 'tooltip',
-            value: {},
-            on: [
-                { events: 'rect:pointerover', update: 'datum' },
-                { events: 'rect:pointerout', update: '{}' },
-            ],
-        },
-    ],
-    scales: [
-        {
-            name: 'xscale',
-            type: 'band',
-            domain: { data: 'table', field: 'category' },
-            range: 'width',
-            padding: 0.05,
-            round: true,
-        },
-        {
-            name: 'yscale',
-            domain: { data: 'table', field: 'amount' },
-            nice: true,
-            range: 'height',
-        },
-    ],
-    axes: [
-        { orient: 'bottom', scale: 'xscale' },
-        { orient: 'left', scale: 'yscale' },
-    ],
-    marks: [
-        {
-            type: 'rect',
-            from: { data: 'table' },
-            encode: {
-                enter: {
-                    x: { scale: 'xscale', field: 'category' },
-                    width: { scale: 'xscale', band: 1 },
-                    y: { scale: 'yscale', field: 'amount' },
-                    y2: { scale: 'yscale', value: 0 },
-                },
-                update: { fill: { value: 'steelblue' } },
-                hover: { fill: { value: 'red' } },
-            },
-        },
-        {
-            type: 'text',
-            encode: {
-                enter: {
-                    align: { value: 'center' },
-                    baseline: { value: 'bottom' },
-                    fill: { value: '#333' },
-                },
-                update: {
-                    x: {
-                        scale: 'xscale',
-                        signal: 'tooltip.category',
-                        band: 0.5,
-                    },
-                    y: {
-                        scale: 'yscale',
-                        signal: 'tooltip.amount',
-                        offset: -2,
-                    },
-                    text: { signal: 'tooltip.amount' },
-                    fillOpacity: [
-                        { test: 'datum === tooltip', value: 0 },
-                        { value: 1 },
-                    ],
-                },
-            },
-        },
-    ],
-}
 </script>
 
 <template>
     <TabLayout
+        ref="el"
         :tabs="TABS"
         :default-tab="keyChartComputed"
         :observations="observations"
@@ -274,6 +191,11 @@ const chartSchema = {
         @on:add="onAdd"
         @on:edit="onEdit"
         @on:delete="onDelete">
+        <template #body-header>
+            <Options
+                :observation-key="keyChartComputed"
+                @update:model-value="handleUpdateValue" />
+        </template>
         <template #[`body-${keyChartComputed}`]>
             <WrapperDynamicForm
                 ref="wrapperDynamicFormRef"
@@ -281,7 +203,9 @@ const chartSchema = {
                 :is-loading="isLoading"
                 :default-data="defaultData"
                 @on:submit="onSubmit">
-                <RenderChart :component-id="'chart-1'" :schema="chartSchema" />
+                <RenderChart
+                    :component-id="`chart-${keyChartComputed}`"
+                    :schema="schema" />
             </WrapperDynamicForm>
             <ConfirmDialog />
         </template>

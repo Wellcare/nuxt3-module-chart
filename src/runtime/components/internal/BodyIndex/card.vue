@@ -16,6 +16,7 @@ export interface IBodyIndexCard {
     bgColor: string
     iconColor: string
     typeChart: 'percentile' | 'bmi'
+    class?: string | string[]
 }
 
 interface Props {
@@ -85,7 +86,7 @@ const formattedLastUpdated = computed(() => {
                     <Skeleton v-if="loading" width="80px" height="16px" />
                     <p
                         v-else
-                        class="m-0 text-sm font-semibold uppercase text-black">
+                        class="m-0 text-xs font-semibold uppercase text-black">
                         {{ t(bodyIndex.label) }}
                     </p>
                 </div>
