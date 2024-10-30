@@ -26,7 +26,7 @@ const { observations, isLoading, refresh, importCreate } = useObservations({
                 'Person Height',
                 'Person Weight',
                 'Person Head Circumference',
-                'Person BMI',
+                // 'Person BMI',
             ],
         },
         limit: 1,
@@ -63,12 +63,12 @@ const getIconAndColor = (
                 bgColor: 'bg-gradient-to-b from-yellow-200 to-yellow-50',
                 iconColor: 'text-yellow-600',
             }
-        case 'bmi':
-            return {
-                icon: 'pi pi-chart-bar',
-                bgColor: 'bg-gradient-to-b from-purple-200 to-purple-50',
-                iconColor: 'text-purple-600',
-            }
+        // case 'bmi':
+        //     return {
+        //         icon: 'pi pi-chart-bar',
+        //         bgColor: 'bg-gradient-to-b from-purple-200 to-purple-50',
+        //         iconColor: 'text-purple-600',
+        //     }
         default:
             return {
                 icon: 'pi pi-chart-line',
@@ -107,18 +107,19 @@ const defaultCards: IBodyIndexCard[] = [
         unit: 'cm',
         lastUpdated: '',
         typeChart: 'percentile',
+        class: 'col-span-2',
         ...getIconAndColor('headCircumference'),
     },
-    {
-        _id: '',
-        key: 'bmi',
-        label: 'body-index.card.header.bmi',
-        value: '-',
-        unit: '',
-        lastUpdated: '',
-        typeChart: 'bmi',
-        ...getIconAndColor('bmi'),
-    },
+    // {
+    //     _id: '',
+    //     key: 'bmi',
+    //     label: 'body-index.card.header.bmi',
+    //     value: '-',
+    //     unit: '',
+    //     lastUpdated: '',
+    //     typeChart: 'bmi',
+    //     ...getIconAndColor('bmi'),
+    // },
 ]
 
 const adaptVitalSigns = (rawObservations: Observation[]): IBodyIndexCard[] => {
@@ -171,12 +172,14 @@ defineExpose({
         :user-id="userId"
         :is-loading="isLoading"
         @on:submit="handleSubmit">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div
+            class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
             <BodyIndexCard
                 v-for="item in adaptedObservations"
                 :key="item._id || item.key"
                 :body-index="item"
                 :loading="isLoading"
+                :class="item.class"
                 @add="handleAdd"
                 @click="
                     handleClick({

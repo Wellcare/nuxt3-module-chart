@@ -41,10 +41,17 @@
     "chart": {
       "common": {
         "layout": {
-          "label": {
-            "height": "chiều cao",
-            "weight": "cân nặng",
-            "head-circumference": "chu vi vòng đầu"
+          "tab": {
+            "label": {
+              "height": "chiều cao",
+              "weight": "cân nặng",
+              "head-circumference": "chu vi vòng đầu"
+            },
+            "side-action": {
+              "title-height": "tăng trường chiều cao",
+              "title-weight": "tăng trưởng cân nặng",
+              "title-headcircumference": "tăng trưởng chu vi vòng đầu"
+            }
           },
           "card": {
             "menu": {

@@ -41,10 +41,17 @@
     "chart": {
       "common": {
         "layout": {
-          "label": {
-            "height": "height",
-            "weight": "weight",
-            "head-circumference": "head circumference"
+          "tab": {
+            "label": {
+              "height": "height",
+              "weight": "weight",
+              "head-circumference": "head circumference"
+            },
+            "side-action": {
+              "title-height": "growth height",
+              "title-weight": "growth weight",
+              "title-head-circumference": "growth head circumference"
+            }
           },
           "card": {
             "menu": {
