@@ -213,3 +213,19 @@ watch(
         </div>
     </Dialog>
 </template>
+
+<i18n lang="yaml">
+vi:
+    vaccination:
+        not-vaccinated: 'Chưa tiêm'
+        doses-given: 'Số mũi đã tiêm'
+        last-vaccination-date: 'Ngày tiêm cuối'
+        not-updated: 'Chưa cập nhật'
+
+en:
+    vaccination:
+        not-vaccinated: 'None'
+        doses-given: 'Number of injections'
+        last-vaccination-date: 'Last injected'
+        not-updated: 'Not updated'
+</i18n>
