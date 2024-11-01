@@ -1,20 +1,58 @@
-import { computed, useDisplay } from '#imports'
-import type { ComputedRef } from '#imports'
-import { getTemplate } from './get-template'
-// import type { Observation } from '../../../../models'
+import { computed, ref, useDisplay, watch } from '#imports'
+import type { ComputedRef, Ref } from '#imports'
+
+import {
+    getTemplate,
+    getLimits,
+    type ProcessedDataPoint,
+    type ChartOptions,
+} from './get-template'
+import { adaptObs, type AdaptObs } from './adapter'
+import type { Observation } from '../../../../models'
 
 interface PercentileChartReturn {
     schema: ComputedRef<any>
+    obsAdapted: Ref<AdaptObs[]>
+    updateSchemas: (options: ChartOptions) => void
+    key: ComputedRef<string> // Add key to return type
 }
 
-// interface PercentileChartProps {
-//     observations: ComputedRef<Observation[]>
-//     query: any
-// }
+interface PercentileChartProps {
+    observations: ComputedRef<Observation[]>
+    dob: ComputedRef<string>
+}
 
-export const usePercentileChart = () // props: PercentileChartProps,
-: PercentileChartReturn => {
+export const usePercentileChart = ({
+    observations,
+    dob,
+}: PercentileChartProps): PercentileChartReturn => {
     const { display } = useDisplay()
+    const template = ref<ProcessedDataPoint[]>([])
+    const optionsRef = ref<Partial<ChartOptions>>({})
+    const obsRef = ref<AdaptObs[]>([])
+    const updateCounter = ref(0) // Add counter for tracking updates
+
+    const updateSchemas = (options: ChartOptions) => {
+        template.value = getTemplate(options)
+        optionsRef.value = options
+        obsRef.value = adaptObs({
+            observations: observations.value,
+            dob: dob.value,
+            time: optionsRef.value?.time || '6m',
+            limits: getLimits(template.value),
+        })
+        updateCounter.value++ // Increment counter on options update
+    }
+
+    // Watch for changes in observations and dob
+    watch([observations, dob], () => {
+        updateSchemas(optionsRef.value as ChartOptions)
+    })
+
+    // Computed key that changes with any update
+    const key = computed(() => {
+        return `chart-${updateCounter.value}-${dob.value}-${optionsRef.value?.time || '6m'}`
+    })
 
     const schema = computed(() => ({
         $schema: 'https://vega.github.io/schema/vega/v5.json',
@@ -40,12 +78,7 @@ export const usePercentileChart = () // props: PercentileChartProps,
         data: [
             {
                 name: 'growthRange',
-                values: getTemplate({
-                    organize: 'who',
-                    type: 'height',
-                    gender: 'F',
-                    time: '6m',
-                }),
+                values: template.value,
             },
             {
                 name: 'noteDatas',
@@ -67,26 +100,7 @@ export const usePercentileChart = () // props: PercentileChartProps,
             },
             {
                 name: 'measurements',
-                values: [
-                    // {
-                    //     _id: '670be668a15102f5dfdaa4a9',
-                    //     labels: [],
-                    //     status: 'published',
-                    //     type: 'height',
-                    //     key: 'height',
-                    //     name: 'Person Height',
-                    //     value: '64.00',
-                    //     observedAt: '2024-10-13T15:25:00.000Z',
-                    //     unit: 'cm',
-                    //     user: '66f2b7dea72437c74fde5f8f',
-                    //     createdBy: '64707571567a54c6b7b90c82',
-                    //     updatedBy: '64707571567a54c6b7b90c82',
-                    //     createdAt: '2024-10-13T15:25:28.020Z',
-                    //     updatedAt: '2024-10-13T15:25:28.020Z',
-                    //     __v: 0,
-                    //     time: 3.4,
-                    // },
-                ],
+                values: obsRef.value,
             },
         ],
         scales: [
@@ -183,7 +197,7 @@ export const usePercentileChart = () // props: PercentileChartProps,
                                 y: { scale: 'y', field: 'value' },
                                 stroke: {
                                     scale: 'genderColorScale',
-                                    value: 'M',
+                                    value: optionsRef.value?.gender || 'M',
                                 },
                                 strokeWidth: { value: 2 },
                                 interpolate: { value: 'basis' },
@@ -260,5 +274,8 @@ export const usePercentileChart = () // props: PercentileChartProps,
 
     return {
         schema,
+        obsAdapted: obsRef,
+        updateSchemas,
+        key, // Return the key in the interface
     }
 }

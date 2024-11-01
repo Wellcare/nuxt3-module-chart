@@ -14,6 +14,12 @@ interface OrganizationOption {
     value: Organization
 }
 
+export interface EmitUpdateValue {
+    observationKey: Observation['key']
+    organization: Organization
+    timeRange: TimeRange
+}
+
 // Props with type validation
 interface Props {
     observationKey: Observation['key']
@@ -33,14 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Emits
 const emit = defineEmits<{
-    (
-        e: 'update:modelValue',
-        value: {
-            observationKey: Observation['key']
-            organization: Organization
-            timeRange: TimeRange
-        },
-    ): void
+    (e: 'update:modelValue', value: EmitUpdateValue): void
 }>()
 
 // Composables

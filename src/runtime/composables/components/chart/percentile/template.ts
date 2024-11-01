@@ -52,26 +52,30 @@ interface Period {
 }
 
 interface TemplateStructure {
-    who: Record<
-        MeasurementType,
+    who: Partial<
         Record<
-            Gender,
-            Partial<Record<Partial<TimeRange>, Partial<Series['series']>>>
+            Partial<MeasurementType>,
+            Record<
+                Gender,
+                Partial<Record<Partial<TimeRange>, Partial<Series['series']>>>
+            >
         >
     >
-    cdc: Record<
-        MeasurementType,
+    cdc: Partial<
         Record<
-            Gender,
-            Partial<Record<Partial<TimeRange>, Partial<Series['series']>>>
+            Partial<MeasurementType>,
+            Record<
+                Gender,
+                Partial<Record<Partial<TimeRange>, Partial<Series['series']>>>
+            >
         >
     >
 }
 
-const PERIODS: Record<TimeRange, Period> = {
+export const PERIODS: Record<TimeRange, Period> = {
     '13w': { min: 0, max: 13 },
     '6m': { min: 0, max: 6 },
-    '24m': { min: 0, max: 26 },
+    '24m': { min: 0, max: 24 },
     '36m': { min: 0, max: 36 },
     '6mto24m': { min: 6, max: 24 },
     '24mto60m': { min: 24, max: 60 },

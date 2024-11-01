@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from '#imports'
-import { computed, onMounted } from '#imports'
+import { computed, onMounted, ref, watch } from '#imports'
 import { vega } from '../../../../configs'
 
 const props = defineProps({
@@ -22,6 +22,8 @@ const props = defineProps({
     },
 })
 
+const chartRef = ref(null)
+const isVisible = ref(false)
 const dataVega = computed(() => (props.isNullData ? {} : props.schema))
 
 const render = async () => {
@@ -35,11 +37,20 @@ const render = async () => {
         await loadScript(script)
     }
 
-    vegaEmbed(
+    // Reset animation state
+    isVisible.value = false
+
+    // Render chart
+    await vegaEmbed(
         `#${props.componentId}`,
         { ...dataVega.value, config: vega.config },
         { actions: false, renderer: 'svg' },
     )
+
+    // Trigger animation after a small delay
+    setTimeout(() => {
+        isVisible.value = true
+    }, 50)
 }
 
 const loadScript = (src: string): Promise<void> => {
@@ -53,11 +64,36 @@ const loadScript = (src: string): Promise<void> => {
     })
 }
 
+// Watch for changes in props that should trigger re-render
+watch([() => props.schema, () => props.isNullData], () => {
+    render()
+})
+
 onMounted(() => {
     render()
 })
 </script>
 
 <template>
-    <div :id="componentId" />
+    <div
+        :id="componentId"
+        ref="chartRef"
+        :class="[
+            'transition-all duration-500 ease-in-out',
+            isVisible
+                ? 'translate-y-0 transform opacity-100'
+                : 'translate-y-4 transform opacity-0',
+        ]" />
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>

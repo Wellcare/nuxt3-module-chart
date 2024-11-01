@@ -48,7 +48,7 @@ const component = computed(() => {
 </script>
 
 <template>
-    <component :is="component" v-if="component" :user-id="userId" />
+    <component :is="component" v-if="component" v-bind="{ ...$props }" />
     <div v-else-if="type && !component" class="error-message">
         Unknown component type: {{ type }}
     </div>

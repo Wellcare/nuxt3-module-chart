@@ -1,7 +1,7 @@
 // Types
 export type Gender = 'M' | 'F'
 export type Organization = 'who' | 'cdc'
-export type MeasurementType = 'height' | 'weight' | 'headCircumference'
+export type MeasurementType = 'height' | 'weight' | 'headCircumference' | 'bmi'
 export type TimeRange =
     | '13w'
     | '6m'
