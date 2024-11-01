@@ -1,13 +1,13 @@
 export interface Observation {
     _id?: string
-    user?: string
-    key?: 'height' | 'weight' | 'headCircumference' | 'bmi'
-    name?: string
-    value?: string
-    observedAt?: string
-    updatedAt?: string
+    user: string
+    key: 'height' | 'weight' | 'headCircumference' | 'bmi'
+    name: string
+    value: string
+    observedAt: string
+    updatedAt: string
     label?: string[]
-    unit?: string
+    unit: string
 }
 
 export interface QueryObs {

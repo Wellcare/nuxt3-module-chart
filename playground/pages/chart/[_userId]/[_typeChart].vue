@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { user } = await useUserInfo({ scope: '_id' })
+const { user } = await useUserInfo({ scope: ['_id', 'gender', 'dob'] })
 
 const chartType = computed(() => {
     const path = route.path
@@ -15,6 +15,10 @@ const chartType = computed(() => {
 
 <template>
     <div v-if="user._id" class="p-2">
-        <WChart :type="chartType" :user-id="user._id" />
+        <WChart
+            :type="chartType"
+            :user-id="user._id"
+            :dob="user.dob"
+            :gender="user.gender" />
     </div>
 </template>

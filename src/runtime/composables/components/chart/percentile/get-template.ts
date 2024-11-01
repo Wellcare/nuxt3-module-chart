@@ -18,11 +18,16 @@ export interface ChartOptions {
     data?: Observation[]
 }
 
-interface ProcessedDataPoint {
+export interface ProcessedDataPoint {
     percentile: number
     time: string
     value: number
     buffer: boolean
+}
+
+export interface Limits {
+    x: { min: number; max: number }
+    y: { min: number; max: number }
 }
 
 // Constants for percentile mapping
@@ -70,9 +75,18 @@ export function getTemplate(options: ChartOptions): ProcessedDataPoint[] {
             throw new GrowthChartError('Missing required options')
         }
 
+        const isValid = Boolean(
+            template[options.organize]?.[options.type]?.[options.gender]?.[
+                options.time
+            ],
+        )
+        if (!isValid) {
+            throw new GrowthChartError('Invalid template access path')
+        }
+
         // Get the relevant template data
         const templateData =
-            template[options.organize][options.type][options.gender][
+            template[options.organize]?.[options.type]?.[options.gender][
                 options.time
             ]
         if (!templateData) {
@@ -137,5 +151,21 @@ export function getTemplate(options: ChartOptions): ProcessedDataPoint[] {
             error instanceof Error ? error.message : 'Unknown error',
         )
         return []
+    }
+}
+
+export function getLimits(data: ProcessedDataPoint[]): Limits {
+    const times = data.map((item) => Number(item.time))
+    const values = data.map((item) => Number(item.value))
+
+    return {
+        x: {
+            min: Math.min(...times),
+            max: Math.max(...times),
+        },
+        y: {
+            min: Math.min(...values),
+            max: Math.max(...values),
+        },
     }
 }

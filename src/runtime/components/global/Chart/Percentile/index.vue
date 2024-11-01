@@ -11,7 +11,7 @@ import ConfirmDialog from 'primevue/confirmdialog'
 import { useConfirm } from 'primevue/useconfirm'
 import { RenderChart, TabLayout } from '../../../internal/Chart/Common'
 import WrapperDynamicForm from '../../../internal/Form/index.vue'
-import Options from './Options.vue'
+import Options, { type EmitUpdateValue } from './Options.vue'
 
 import type { Observation, Gender } from '../../../../models'
 import { usePercentileChart } from '../../../../composables'
@@ -46,11 +46,10 @@ interface Props {
     keyChart: Observation['key']
     userId: string
     gender: Gender
+    dob: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    gender: 'M',
-})
+const props = defineProps<Props>()
 const emit = defineEmits<{
     'on:change-tab-layout': [value: Observation['key']]
 }>()
@@ -86,7 +85,10 @@ const {
     userId: computed(() => props.userId),
 })
 
-const { schema, el } = usePercentileChart()
+const { key, schema, updateSchemas, obsAdapted } = usePercentileChart({
+    observations: computed(() => observations.value),
+    dob: computed(() => props.dob),
+})
 
 // Methods
 const refreshSearch = (keyChart: Observation['key']) => {
@@ -171,8 +173,14 @@ const onSubmit = async (observations: Observation[]) => {
     wrapperDynamicFormRef.value?.closeDialog()
 }
 
-const handleUpdateValue = (value: Record<string, any>) => {
-    console.log(value)
+const handleUpdateValue = (value: EmitUpdateValue) => {
+    updateSchemas({
+        organize: value.organization,
+        gender: props.gender,
+        time: value.timeRange,
+        type: keyChartComputed?.value || 'height',
+        data: observations.value,
+    })
 }
 
 // Lifecycle
@@ -183,7 +191,6 @@ onBeforeMount(() => {
 
 <template>
     <TabLayout
-        ref="el"
         :tabs="TABS"
         :default-tab="keyChartComputed"
         :observations="observations"
@@ -194,6 +201,7 @@ onBeforeMount(() => {
         <template #body-header>
             <Options
                 :observation-key="keyChartComputed"
+                :observations="obsAdapted"
                 @update:model-value="handleUpdateValue" />
         </template>
         <template #[`body-${keyChartComputed}`]>
@@ -204,6 +212,7 @@ onBeforeMount(() => {
                 :default-data="defaultData"
                 @on:submit="onSubmit">
                 <RenderChart
+                    :key="key"
                     :component-id="`chart-${keyChartComputed}`"
                     :schema="schema" />
             </WrapperDynamicForm>
