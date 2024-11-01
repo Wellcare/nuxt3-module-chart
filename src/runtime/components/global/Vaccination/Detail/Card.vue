@@ -2,6 +2,7 @@
 import { useI18n } from '#imports'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
+import Tag from 'primevue/tag'
 
 const { t } = useI18n()
 
@@ -49,7 +50,7 @@ const emit = defineEmits(['edit'])
         <template #subtitle>
             {{ disease }}
         </template>
-        <template #content> </template>
+        <!-- <template #content> </template> -->
         <template #footer>
             <div class="flex items-center justify-end">
                 <Button

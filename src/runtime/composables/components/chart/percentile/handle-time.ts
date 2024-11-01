@@ -10,10 +10,6 @@ export const calculateDecimalMonths = (
     const start = dayjs(startDate, DATE_FORMAT)
     const end = dayjs(endDate, DATE_FORMAT)
 
-    if (!start.isValid() || !end.isValid()) {
-        throw new Error('Invalid date format. Please use DD/MM/YYYY')
-    }
-
     if (end.isBefore(start)) {
         throw new Error('End date must be after start date')
     }
@@ -29,10 +25,6 @@ export const calculateDecimalWeeks = (
 
     const start = dayjs(startDate, DATE_FORMAT)
     const end = dayjs(endDate, DATE_FORMAT)
-
-    if (!start.isValid() || !end.isValid()) {
-        throw new Error('Invalid date format. Please use DD/MM/YYYY')
-    }
 
     if (end.isBefore(start)) {
         throw new Error('End date must be after start date')
