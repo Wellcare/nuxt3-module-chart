@@ -8,6 +8,7 @@ import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 import TabList from 'primevue/tablist'
 import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
 
 import SideAction from './SideAction.vue'
 import type { Observation } from '../../../../../../models'
