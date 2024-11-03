@@ -55,7 +55,7 @@
     "devDependencies": {
         "@jsdevtools/version-bump-prompt": "6.1.0",
         "@nuxt/devtools": "latest",
-        "@nuxt/eslint-config": "0.6.0",
+        "@nuxt/eslint-config": "0.6.1",
         "@nuxt/image": "1.8.1",
         "@nuxt/module-builder": "0.8.4",
         "@nuxt/schema": "3.13.2",
@@ -64,11 +64,11 @@
         "@nuxtjs/google-fonts": "3.2.0",
         "@nuxtjs/i18n": "8.5.6",
         "@nuxtjs/tailwindcss": "6.12.2",
-        "@pinia/nuxt": "0.5.5",
+        "@pinia/nuxt": "0.7.0",
         "@primevue/nuxt-module": "4.2.1",
         "@testing-library/vue": "8.0.3",
         "@types/node": "latest",
-        "@vueuse/nuxt": "11.1.0",
+        "@vueuse/nuxt": "11.2.0",
         "@wellcare/muot-ui": "^0.3.5",
         "@wellcare/nuxt3-module-data-layer": "^0.6.2",
         "changelogen": "0.5.7",
@@ -84,7 +84,7 @@
         "prettier-plugin-tailwindcss": "0.6.8",
         "typescript": "latest",
         "vitest": "^2.1.1",
-        "vue-tsc": "2.1.6"
+        "vue-tsc": "2.1.10"
     },
     "pnpm": {
         "overrides": {
